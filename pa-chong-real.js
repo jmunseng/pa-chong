@@ -123,7 +123,9 @@ async function scrapeNikeProducts() {
         const code = codeMatch ? codeMatch[1] : '';
 
         // 构建完整URL
-        const url = href ? `https://www.adidas.co.kr${href}` : '';
+        const url = href
+          ? (href.startsWith('http') ? href : `https://www.adidas.co.kr${href}`)
+          : '';
 
         const nameElement = card.querySelector(
           '[data-testid="product-card-title"]'
@@ -153,8 +155,8 @@ async function scrapeNikeProducts() {
     allProducts.push(...products);
 
     // 检查是否还有下一页
-    if (pageInfo && pageInfo.current >= pageInfo.total) { // <<<<
-    // if (pageInfo && pageInfo.current >= 1) {
+    // if (pageInfo && pageInfo.current >= pageInfo.total) { // <<<<
+    if (pageInfo && pageInfo.current >= 1) {
       console.log('已到达最后一页');
       break;
     }
