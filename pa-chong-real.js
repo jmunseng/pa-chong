@@ -1,159 +1,50 @@
-import puppeteer from 'puppeteer-extra';
-import StealthPlugin from 'puppeteer-extra-plugin-stealth';
+import { connect } from 'puppeteer-real-browser';
 import fs from 'fs';
 import { comparePrice } from './compare-price.js';
 
-// 使用 stealth 插件
-puppeteer.use(StealthPlugin());
-
 async function scrapeNikeProducts() {
-  console.log('启动浏览器...');
+  console.log('启动真实浏览器...');
 
-  // 启动浏览器（使用持久化用户数据目录）
-  const browser = await puppeteer.launch({
-    headless: false, // 使用有界面浏览器，更难被检测
-    executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    userDataDir: `${process.env.HOME}/.chrome-bot-profile`, // 持久化配置文件
+  // 使用puppeteer-real-browser，最强的反检测方案
+  const { browser, page } = await connect({
+    headless: false,
     args: [
+      '--start-maximized',
       '--no-sandbox',
       '--disable-setuid-sandbox',
-      '--disable-blink-features=AutomationControlled', // 隐藏自动化特征
-      '--disable-dev-shm-usage',
-      '--window-size=1920,1080',
-      '--disable-web-security',
-      '--disable-features=IsolateOrigins,site-per-process',
-      '--allow-running-insecure-content',
-      '--disable-features=VizDisplayCompositor',
-      '--start-maximized',
-      '--disable-infobars',
-      '--disable-background-timer-throttling',
-      '--disable-backgrounding-occluded-windows',
-      '--disable-renderer-backgrounding',
     ],
-    ignoreDefaultArgs: ['--enable-automation'], // 移除自动化标志
+    turnstile: true, // 自动处理Cloudflare Turnstile
+    customConfig: {},
+    connectOption: {
+      defaultViewport: null,
+    },
+    disableXvfb: true,
+    ignoreAllFlags: false,
   });
 
   console.log('浏览器已启动');
 
-  // 创建新标签页
-  const page = await browser.newPage();
-
-  // 设置更真实的浏览器特征
-  await page.setViewport({ width: 1920, height: 1080 });
-  await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36');
-  await page.setExtraHTTPHeaders({
-    'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-  });
-
-  // 高级反检测措施
-  await page.evaluateOnNewDocument(() => {
-    // 移除webdriver
-    Object.defineProperty(navigator, 'webdriver', {
-      get: () => undefined,
-    });
-
-    // 伪装Chrome对象
-    window.chrome = {
-      runtime: {},
-    };
-
-    // 覆盖permissions
-    const originalQuery = window.navigator.permissions.query;
-    window.navigator.permissions.query = (parameters) => (
-      parameters.name === 'notifications' ?
-        Promise.resolve({ state: Notification.permission }) :
-        originalQuery(parameters)
-    );
-
-    // 伪装plugins
-    Object.defineProperty(navigator, 'plugins', {
-      get: () => [1, 2, 3, 4, 5],
-    });
-
-    // 伪装languages
-    Object.defineProperty(navigator, 'languages', {
-      get: () => ['ko-KR', 'ko', 'en-US', 'en'],
-    });
-  });
-
-  console.log('正在访问网页...');
-
-  // 模拟人类行为：先访问主页，等待一下，再访问目标页面
+  // 模拟人类行为：先访问主页
   console.log('先访问主页建立会话...');
-  await page.goto('https://www.adidas.co.kr/extra_sale', {
+  await page.goto('https://www.adidas.co.kr', {
     waitUntil: 'networkidle2',
     timeout: 60000,
   });
 
-  // 随机等待2-4秒
-  await new Promise((resolve) => setTimeout(resolve, 2000 + Math.random() * 2000));
-
-  // 模拟鼠标移动
-  await page.mouse.move(100, 100);
-  await page.mouse.move(200, 200);
+  // 随机等待
+  await new Promise((resolve) => setTimeout(resolve, 3000 + Math.random() * 2000));
 
   // 访问目标网页
   const url = 'https://www.adidas.co.kr/extra_sale';
   console.log('现在访问目标页面...');
 
-  try {
-    await page.goto(url, {
-      waitUntil: 'networkidle2',
-      timeout: 60000,
-    });
-  } catch (err) {
-    if (err.message.includes('detached')) {
-      console.log('页面被分离，重新获取页面...');
-      const newPages = await browser.pages();
-      page = newPages[newPages.length - 1];
-    } else {
-      throw err;
-    }
-  }
+  await page.goto(url, {
+    waitUntil: 'networkidle2',
+    timeout: 60000,
+  });
 
   console.log('等待产品加载...');
-
-  // 等待页面加载并随机滚动
   await new Promise((resolve) => setTimeout(resolve, 3000));
-  await page.evaluate(() => {
-    window.scrollTo(0, 200);
-  });
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  // 检查页面结构
-  const pageInfo = await page.evaluate(() => {
-    // 查找所有可能的产品容器
-    const selectors = [
-      '[data-testid="product-grid"]',
-      '.product-grid',
-      '[class*="product"]',
-      '[class*="ProductGrid"]',
-      'article',
-      '[role="list"]',
-    ];
-
-    const results = {};
-    selectors.forEach((sel) => {
-      const elements = document.querySelectorAll(sel);
-      results[sel] = elements.length;
-    });
-
-    // 获取body的主要子元素
-    const bodyChildren = Array.from(document.body.children).map((el) => ({
-      tag: el.tagName,
-      id: el.id,
-      classes: el.className,
-    }));
-
-    return {
-      selectors: results,
-      bodyChildren: bodyChildren.slice(0, 10),
-      title: document.title,
-    };
-  });
-
-  // console.log('页面信息:', JSON.stringify(pageInfo, null, 2));
 
   // 检查产品网格是否存在
   const hasProductGrid = await page.evaluate(() => {
@@ -262,8 +153,8 @@ async function scrapeNikeProducts() {
     allProducts.push(...products);
 
     // 检查是否还有下一页
+    if (pageInfo && pageInfo.current >= pageInfo.total) { // <<<<
     // if (pageInfo && pageInfo.current >= 1) {
-    if (pageInfo && pageInfo.current >= pageInfo.total) { //<<<<<
       console.log('已到达最后一页');
       break;
     }
@@ -277,7 +168,7 @@ async function scrapeNikeProducts() {
 
     try {
       await page.goto(nextUrl, {
-        waitUntil: 'domcontentloaded',
+        waitUntil: 'networkidle2',
         timeout: 60000,
       });
     } catch (err) {
@@ -292,11 +183,6 @@ async function scrapeNikeProducts() {
   );
 
   console.log(`\n总共提取 ${uniqueProducts.length} 个不重复的产品:\n`);
-
-  // 打印产品信息
-  //   uniqueProducts.forEach((product, index) => {
-  //     console.log(`${index + 1}. ${product.name} / ${product.code} / ${product.price} / ${product.url}`);
-  //   });
 
   // 保存到HTML文件
   const today = new Date();
@@ -316,7 +202,7 @@ async function scrapeNikeProducts() {
     today.getMonth() + 1
   ).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}_${String(
     today.getHours()
-  ).padStart(2, '0')}:${String(today.getMinutes()).padStart(2, '0')}:${String(
+  ).padStart(2, '0')}-${String(today.getMinutes()).padStart(2, '0')}-${String(
     today.getSeconds()
   ).padStart(2, '0')}.html`;
 
@@ -498,12 +384,12 @@ ${uniqueProducts
 </body>
 </html>`;
 
-// 先比较价格（在保存新文件之前）
-comparePrice(uniqueProducts, fileName, htmlContent, dateTimeString);
+  // 先比较价格（在保存新文件之前）
+  comparePrice(uniqueProducts, fileName, htmlContent, dateTimeString);
 
-// 关闭浏览器
-await browser.close();
-console.log('浏览器已关闭');
+  // 关闭浏览器
+  await browser.close();
+  console.log('浏览器已关闭');
 
   return uniqueProducts;
 }
@@ -512,7 +398,6 @@ console.log('浏览器已关闭');
 scrapeNikeProducts()
   .then(() => {
     console.log('\n脚本执行完成!');
-    // 等待浏览器打开后再退出
     setTimeout(() => {
       process.exit(0);
     }, 1000);

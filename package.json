@@ -2,7 +2,9 @@
   "dependencies": {
     "puppeteer": "^24.23.0",
     "puppeteer-extra": "^3.3.6",
-    "puppeteer-extra-plugin-stealth": "^2.11.2"
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "puppeteer-real-browser": "^1.4.4",
+    "sqlite3": "^5.1.6"
   },
   "type": "module"
 }

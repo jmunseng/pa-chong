@@ -17,9 +17,9 @@ function extractPricesFromHTML(htmlPath) {
 
   // 使用正则表达式提取产品代码和价格
   // HTML结构: #, Name, Code, Price (inside price-info div), URL
-  // Product codes are at least 5 characters (e.g., IE3679, ID2704)
+  // Product codes: 1-2 letters followed by 4+ digits (e.g., M18209, IE3679, ID2704)
   const rowRegex =
-    /<div class="cell">([A-Z]{2}[0-9]{4,})<\/div>[\s\S]*?<div class="price-info">[\s\S]*?<div>\s*([\d,]+)\s*원/g;
+    /<div class="cell">([A-Z]{1,2}[0-9]{4,})<\/div>[\s\S]*?<div class="price-info">[\s\S]*?<div>\s*([\d,]+)\s*원/g;
 
   let match;
   while ((match = rowRegex.exec(htmlContent)) !== null) {
@@ -43,8 +43,9 @@ function extractProductsFromHTML(htmlPath) {
 
   // HTML结构: #, Name, Code, Price (inside price-info div), URL
   // 匹配: Name -> Code -> Price
+  // Product codes: 1-2 letters followed by 4+ digits (e.g., M18209, IE3679, ID2704)
   const rowRegex =
-    /<span class="product-name"[^>]*>([^<]+)(?:<span[^>]*>[^<]*<\/span>)?<\/span>[\s\S]*?<div class="cell">([A-Z]{2}[0-9]{4,})<\/div>[\s\S]*?<div class="price-info">[\s\S]*?<div>\s*([\d,]+)\s*원/g;
+    /<span class="product-name"[^>]*>([^<]+)(?:<span[^>]*>[^<]*<\/span>)?<\/span>[\s\S]*?<div class="cell">([A-Z]{1,2}[0-9]{4,})<\/div>[\s\S]*?<div class="price-info">[\s\S]*?<div>\s*([\d,]+)\s*원/g;
 
   let match;
   while ((match = rowRegex.exec(htmlContent)) !== null) {
@@ -116,17 +117,17 @@ function findLatestTwoFiles(excludeFileName = null) {
 
 // 从文件名中提取时间戳
 function extractTimestampFromFilename(filename) {
-  // 文件名格式: adidas-extra-sale-products_2025-10-05_07:41:45.html
+  // 文件名格式: adidas-extra-sale-products_2025-10-05_07-41-45.html
   // 匹配两种格式：
-  // 1. adidas-extra-sale-products_yyyy-mm-dd_hh:mm:ss
-  // 2. adidas-extra-sale-products_yyyy-mm-dd_hh:mm:ss
+  // 1. adidas-extra-sale-products_yyyy-mm-dd_hh-mm-ss
+  // 2. adidas-extra-sale-products_yyyy-mm-dd_hh-mm-ss
 
   // 先尝试匹配冒号分隔的时间格式
   let match = filename.match(
-    /adidas[_-]extra[_-]sale[_-]products_(\d{4}-\d{2}-\d{2})_(\d{2}):(\d{2}):(\d{2})\.html/
+    /adidas[_-]extra[_-]sale[_-]products_(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})\.html/
   );
   if (match) {
-    // 格式: 2025-10-05_05:45:54
+    // 格式: 2025-10-05_05-45-54
     const dateStr = match[1];
     const timeStr = `${match[2]}:${match[3]}:${match[4]}`;
     return new Date(`${dateStr}T${timeStr}`);
@@ -134,7 +135,7 @@ function extractTimestampFromFilename(filename) {
 
   // 再尝试匹配短横线分隔的时间格式
   match = filename.match(
-    /adidas[_-]extra[_-]sale[_-]products_(\d{4}-\d{2}-\d{2})_(\d{2}):(\d{2}):(\d{2})\.html/
+    /adidas[_-]extra[_-]sale[_-]products_(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})\.html/
   );
   if (match) {
     // 格式: 2025-10-05_07:41:45，需要转换为标准时间格式
@@ -334,6 +335,57 @@ function generateHTMLWithPriceComparison(
       color: #ccc;
     }
   </style>
+    <script>
+        function filterNew() {
+            var rows = document.querySelectorAll('.row:not(.header)');
+            for (var i = 0; i < rows.length; i++) {
+                if (rows[i].classList.contains('new-item')) {
+                    rows[i].style.display = 'flex';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+
+        function filterDrop() {
+            var rows = document.querySelectorAll('.row:not(.header)');
+            for (var i = 0; i < rows.length; i++) {
+                if (rows[i].classList.contains('price-dropped')) {
+                    rows[i].style.display = 'flex';
+                } else {
+                    rows[i].style.display = 'none';
+                }
+            }
+        }
+
+        function showImage(imageUrl) {
+            var modal = document.getElementById('imageModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'imageModal';
+                modal.className = 'modal';
+                modal.innerHTML = '<div class="modal-content"><span class="modal-close" onclick="closeModal()">&times;</span><img id="modalImage" src="" alt="Product Image"/></div>';
+                document.body.appendChild(modal);
+            }
+            
+            document.getElementById('modalImage').src = imageUrl;
+            modal.classList.add('show');
+        }
+
+        function closeModal() {
+            var modal = document.getElementById('imageModal');
+            if (modal) {
+                modal.classList.remove('show');
+            }
+        }
+
+        document.addEventListener('click', function(event) {
+            var modal = document.getElementById('imageModal');
+            if (modal && event.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
 </head>
 <body>
   <div class="container">
@@ -341,6 +393,8 @@ function generateHTMLWithPriceComparison(
     <div class="datetime">抓取时间: ${dateTimeString}${
     previousDateTime ? `<br/>上一次抓取时间: ${previousDateTime}` : ''
   }</div>
+    <button onclick="filterNew()">New</button>
+    <button onclick="filterDrop()">Drop</button>
     <div class="table">
       <div class="row header">
         <div class="cell">#</div>

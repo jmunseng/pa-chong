@@ -1,4 +1,8 @@
 {
+  "env": {
+    "CLAUDE_LANGUAGE": "zh-CN",
+    "CLAUDE_RESPONSE_LANGUAGE": "Chinese"
+  },
   "permissions": {
     "allow": [
       "Read(//Users/leon/Downloads/**)",
