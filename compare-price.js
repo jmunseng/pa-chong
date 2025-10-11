@@ -457,7 +457,7 @@ function generateHTMLWithPriceComparison(
                     var priceMatch = priceText.match(/([\\d,]+)\\s*원/);
                     if (priceMatch) {
                         var priceKRW = parseInt(priceMatch[1].replace(/,/g, ''));
-                        var priceRMB = (priceKRW / rate).toFixed(2);
+                        var priceRMB = (priceKRW * 0.7 / rate).toFixed(2);
                         var rmbSpan = row.querySelector('.price-rmb span');
                         if (rmbSpan) {
                             rmbSpan.textContent = priceRMB + ' 元';
@@ -644,6 +644,10 @@ ${products
         <div class="cell">${i + 1}</div>
         <div class="cell">
             <span class="product-name">
+                <img
+                width="100px" height="100px" 
+                src="${p.imageUrl}" alt="" onclick="showImage('${p.imageUrl}')">
+                &nbsp;&nbsp;
                 ${p.name}
                 ${
                   p.isNewItem
@@ -651,9 +655,6 @@ ${products
                     : ''
                 }
             </span>
-            <img
-            width="100px" height="100px" 
-            src="${p.imageUrl}" alt="" onclick="showImage('${p.imageUrl}')">
     </div>
         <div class="cell" onclick="copyCode(this)">${p.code}</div>
         <div class="cell">
