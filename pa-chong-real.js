@@ -8,11 +8,7 @@ async function scrapeNikeProducts() {
   // 使用puppeteer-real-browser，最强的反检测方案
   const { browser, page } = await connect({
     headless: false,
-    args: [
-      '--start-maximized',
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-    ],
+    args: ['--start-maximized', '--no-sandbox', '--disable-setuid-sandbox'],
     turnstile: true, // 自动处理Cloudflare Turnstile
     customConfig: {},
     connectOption: {
@@ -32,7 +28,9 @@ async function scrapeNikeProducts() {
   });
 
   // 随机等待
-  await new Promise((resolve) => setTimeout(resolve, 3000 + Math.random() * 2000));
+  await new Promise((resolve) =>
+    setTimeout(resolve, 3000 + Math.random() * 2000)
+  );
 
   // 访问目标网页
   const url = 'https://www.adidas.co.kr/extra_sale';
@@ -124,7 +122,9 @@ async function scrapeNikeProducts() {
 
         // 构建完整URL
         const url = href
-          ? (href.startsWith('http') ? href : `https://www.adidas.co.kr${href}`)
+          ? href.startsWith('http')
+            ? href
+            : `https://www.adidas.co.kr${href}`
           : '';
 
         const nameElement = card.querySelector(
@@ -155,8 +155,9 @@ async function scrapeNikeProducts() {
     allProducts.push(...products);
 
     // 检查是否还有下一页
-    // if (pageInfo && pageInfo.current >= pageInfo.total) { // <<<<
-    if (pageInfo && pageInfo.current >= 1) {
+    if (pageInfo && pageInfo.current >= pageInfo.total) {
+      // <<<<
+      // if (pageInfo && pageInfo.current >= 1) {
       console.log('已到达最后一页');
       break;
     }

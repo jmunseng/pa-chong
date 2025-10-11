@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Language Preference
+
+**IMPORTANT: Always respond in Simplified Chinese (简体中文) for all communications with the user.**
+
 ## Project Overview
 
 This is a web scraper (pa-chong means "crawler" in Chinese) that extracts product information from the Adidas Korea extra sale shoes page. The scraper uses Puppeteer to navigate paginated results and outputs product data to a text file.

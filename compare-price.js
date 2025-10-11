@@ -15,11 +15,11 @@ function extractPricesFromHTML(htmlPath) {
   const htmlContent = fs.readFileSync(htmlPath, 'utf8');
   const priceMap = new Map();
 
-  // Optimized regex: Use negative lookahead to limit search within row boundaries
+  // Updated regex to match the actual HTML structure with price-krw div
   // Product codes: 1-2 letters followed by 4+ digits (e.g., M18209, IE3679, ID2704)
-  // (?:(?!<div class="row\").){0,300}? limits search to current row only
+  // Match product code cell followed by price cell with nested price-krw div
   const rowRegex =
-    /<div class="cell">([A-Z]{1,2}[0-9]{4,})<\/div>(?:(?!<div class="row").){0,300}?([\d,]+)\s*원/gs;
+    /<div class="cell"[^>]*>([A-Z]{1,2}[0-9]{4,})<\/div>(?:(?!<div class="row").){0,500}?<div class="price-krw">([\d,]+)\s*원<\/div>/gs;
 
   let match;
   while ((match = rowRegex.exec(htmlContent)) !== null) {
@@ -41,10 +41,10 @@ function extractProductsFromHTML(htmlPath) {
   const htmlContent = fs.readFileSync(htmlPath, 'utf8');
   const productsMap = new Map();
 
-  // Optimized regex: Use negative lookahead to limit search within row boundaries
+  // Updated regex to match the actual HTML structure with price-krw div
   // Product codes: 1-2 letters followed by 4+ digits (e.g., M18209, IE3679, ID2704)
   const rowRegex =
-    /<span class="product-name"[^>]*>([^<]+)<\/span>(?:(?!<div class="row").){0,500}?<div class="cell">([A-Z]{1,2}[0-9]{4,})<\/div>(?:(?!<div class="row").){0,300}?([\d,]+)\s*원/gs;
+    /<span class="product-name"[^>]*>([^<]+)<\/span>(?:(?!<div class="row").){0,500}?<div class="cell"[^>]*>([A-Z]{1,2}[0-9]{4,})<\/div>(?:(?!<div class="row").){0,500}?<div class="price-krw">([\d,]+)\s*원<\/div>/gs;
 
   let match;
   while ((match = rowRegex.exec(htmlContent)) !== null) {
@@ -249,9 +249,6 @@ function generateHTMLWithPriceComparison(
     .cell a:hover {
       text-decoration: underline;
     }
-    .product-name {
-      cursor: pointer;
-    }
     .price-info {
       display: flex;
       flex-direction: column;
@@ -371,11 +368,6 @@ function generateHTMLWithPriceComparison(
       outline: none;
     }
 
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    }
-
     button:active {
       transform: translateY(0);
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -438,6 +430,10 @@ function generateHTMLWithPriceComparison(
 
     #exchangeRate::placeholder {
       color: #999;
+    }
+
+    .price-rmb {
+        color: #ff0000;
     }
   </style>
     <script>
@@ -556,12 +552,16 @@ function generateHTMLWithPriceComparison(
             // Use modern Clipboard API
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(code).then(function() {
-                    // Show visual feedback
-                    const originalBg = element.style.backgroundColor;
+                    // Show visual feedback - clear any existing timeout first
+                    if (element.copyTimeout) {
+                        clearTimeout(element.copyTimeout);
+                    }
                     element.style.backgroundColor = '#4caf50';
                     element.style.transition = 'background-color 0.3s';
-                    setTimeout(function() {
-                        element.style.backgroundColor = originalBg;
+                    element.copyTimeout = setTimeout(function() {
+                        // Clear inline style to let CSS take over
+                        element.style.backgroundColor = '';
+                        delete element.copyTimeout;
                     }, 500);
                 }).catch(function(err) {
                     console.error('Failed to copy:', err);
@@ -577,11 +577,15 @@ function generateHTMLWithPriceComparison(
                 textarea.select();
                 try {
                     document.execCommand('copy');
-                    // Show visual feedback
-                    const originalBg = element.style.backgroundColor;
+                    // Show visual feedback - clear any existing timeout first
+                    if (element.copyTimeout) {
+                        clearTimeout(element.copyTimeout);
+                    }
                     element.style.backgroundColor = '#4caf50';
-                    setTimeout(function() {
-                        element.style.backgroundColor = originalBg;
+                    element.copyTimeout = setTimeout(function() {
+                        // Clear inline style to let CSS take over
+                        element.style.backgroundColor = '';
+                        delete element.copyTimeout;
                     }, 500);
                 } catch (err) {
                     console.error('Failed to copy:', err);
@@ -607,8 +611,8 @@ function generateHTMLWithPriceComparison(
   }</div>
 
     <div class="sticky filter-controls">
-        <button id="btnNew" onclick="filterNew()">🆕 新品</button>
-        <button id="btnDrop" onclick="filterDrop()">📉 降价品</button>
+        <button id="btnNew" onclick="filterNew()">新品</button>
+        <button id="btnDrop" onclick="filterDrop()">降价品</button>
         <input
           type="text"
           id="exchangeRate"
@@ -668,7 +672,8 @@ ${products
                   ? `<span class="price-increase-badge">涨价!</span><span class="price-gap increase">+${p.priceGap}</span>`
                   : ''
               }
-              <div class="price-rmb">人民币: <span></span></div>
+              <br />
+              <div class="price-rmb">RMB: <span></span></div>
             </div>
           </div>
         </div>
