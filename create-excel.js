@@ -1,4 +1,45 @@
 import ExcelJS from 'exceljs';
+import axios from 'axios';
+
+/**
+ * 从 URL 中提取图片扩展名
+ * @param {string} url - 图片URL
+ * @returns {string} - 图片扩展名 (jpeg, png, gif, webp)
+ */
+function getImageExtension(url) {
+	try {
+		const ext = url.split('.').pop().toLowerCase().split('?')[0];
+		const validExts = ['jpeg', 'jpg', 'png', 'gif', 'webp'];
+		if (validExts.includes(ext)) {
+			return ext === 'jpg' ? 'jpeg' : ext;
+		}
+		return 'jpeg'; // 默认使用 jpeg
+	} catch {
+		return 'jpeg';
+	}
+}
+
+/**
+ * 下载图片为 Buffer
+ * @param {string} url - 图片URL
+ * @returns {Promise<{buffer: Buffer, extension: string}|null>}
+ */
+async function downloadImage(url) {
+	try {
+		const response = await axios.get(url, {
+			responseType: 'arraybuffer',
+			timeout: 15000, // 增加到15秒
+			maxRedirects: 5,
+		});
+		return {
+			buffer: Buffer.from(response.data),
+			extension: getImageExtension(url),
+		};
+	} catch (error) {
+		console.error(`下载图片失败: ${url}`, error.message);
+		return null;
+	}
+}
 
 /**
  * 生成 Excel 文件
@@ -18,10 +59,10 @@ export async function generateExcel(
 	const workbook = new ExcelJS.Workbook();
 	const worksheet = workbook.addWorksheet('Adidas Extra Sale');
 
-	// 设置列宽
+	// 设置列宽和行高
 	worksheet.columns = [
 		{ header: '#', key: 'index', width: 6 },
-		{ header: '图片URL', key: 'imageUrl', width: 50 },
+		{ header: '图片', key: 'image', width: 20 },
 		{ header: 'Name', key: 'name', width: 40 },
 		{ header: 'Code', key: 'code', width: 15 },
 		{ header: 'Price (KRW)', key: 'priceKRW', width: 15 },
@@ -42,11 +83,16 @@ export async function generateExcel(
 	};
 	headerRow.alignment = { vertical: 'middle', horizontal: 'center' };
 
-	// 添加产品数据
+	// 添加产品数据并嵌入图片
+	console.log(`开始处理 ${products.length} 个产品的图片...`);
+	const startTime = Date.now();
+
+	// 首先添加所有产品行
+	const rows = [];
 	products.forEach((product, index) => {
 		const row = worksheet.addRow({
 			index: index + 1,
-			imageUrl: product.imageUrl || '',
+			image: '', // 图片将通过 addImage 添加
 			name: product.name || '',
 			code: product.code || '',
 			priceKRW: product.price || '',
@@ -62,6 +108,9 @@ export async function generateExcel(
 			hasExtra30Off: product.hasExtra30Off ? '是' : '否',
 			url: product.url || '',
 		});
+
+		// 设置行高以容纳图片
+		row.height = 80;
 
 		// 设置行样式
 		if (product.isNewItem) {
@@ -97,16 +146,80 @@ export async function generateExcel(
 			urlCell.font = { color: { argb: 'FF0066CC' }, underline: true };
 		}
 
-		// 图片URL列添加超链接
-		const imageCell = row.getCell('imageUrl');
-		if (product.imageUrl) {
-			imageCell.value = {
-				text: product.imageUrl,
-				hyperlink: product.imageUrl,
-			};
-			imageCell.font = { color: { argb: 'FF0066CC' }, underline: true };
-		}
+		rows.push(row);
 	});
+
+	// 并发下载图片 - 批量处理以提高性能
+	const BATCH_SIZE = 10; // 每批处理10个图片
+	let successCount = 0;
+	let failCount = 0;
+
+	for (let i = 0; i < products.length; i += BATCH_SIZE) {
+		const batchEnd = Math.min(i + BATCH_SIZE, products.length);
+		const batch = products.slice(i, batchEnd);
+
+		// 并发下载当前批次的所有图片
+		const imageResults = await Promise.all(
+			batch.map(async (product) => {
+				if (!product.imageUrl) return null;
+				return await downloadImage(product.imageUrl);
+			})
+		);
+
+		// 将下载的图片添加到工作簿
+		imageResults.forEach((imageData, batchIndex) => {
+			const index = i + batchIndex;
+			const product = products[index];
+			const rowNumber = index + 2; // +2 因为第1行是标题,数据从第2行开始
+			const row = rows[index];
+
+			if (imageData) {
+				try {
+					// 添加图片到工作簿
+					const imageId = workbook.addImage({
+						buffer: imageData.buffer,
+						extension: imageData.extension,
+					});
+
+					// 将图片嵌入到单元格 B{rowNumber} (图片列)
+					worksheet.addImage(imageId, {
+						tl: { col: 1, row: rowNumber - 1 }, // B列 (索引1),行号-1因为从0开始
+						ext: { width: 100, height: 100 },
+						editAs: 'oneCell',
+					});
+
+					successCount++;
+				} catch (error) {
+					console.error(
+						`嵌入图片失败 (产品 ${index + 1}):`,
+						error.message
+					);
+					// 在单元格中标记失败
+					const imageCell = row.getCell('image');
+					imageCell.value = '❌ 嵌入失败';
+					imageCell.font = { color: { argb: 'FFFF0000' } };
+					failCount++;
+				}
+			} else if (product.imageUrl) {
+				// 下载失败
+				const imageCell = row.getCell('image');
+				imageCell.value = '❌ 下载失败';
+				imageCell.font = { color: { argb: 'FFFF0000' } };
+				failCount++;
+			}
+		});
+
+		const progress = Math.round((batchEnd / products.length) * 100);
+		const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+		console.log(
+			`已处理 ${batchEnd}/${products.length} 个产品图片 (${progress}%) - 用时: ${elapsed}秒`
+		);
+	}
+
+	const totalTime = ((Date.now() - startTime) / 1000).toFixed(1);
+	console.log(
+		`\n图片处理完成! 总计: ${products.length} | 成功: ${successCount} | 失败: ${failCount} | 用时: ${totalTime}秒`
+	);
 
 	// 添加自动筛选
 	worksheet.autoFilter = {
