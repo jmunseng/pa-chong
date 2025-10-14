@@ -1,14 +1,7 @@
 {
-  "env": {
-    "CLAUDE_LANGUAGE": "zh-CN",
-    "CLAUDE_RESPONSE_LANGUAGE": "Chinese"
-  },
-  "permissions": {
-    "allow": [
-      "Read(//Users/leon/Downloads/**)",
-      "Bash(node:*)"
-    ],
-    "deny": [],
-    "ask": []
-  }
+	"permissions": {
+		"allow": ["Read(//Users/leon/Downloads/**)", "Bash(node:*)"],
+		"deny": [],
+		"ask": []
+	}
 }
