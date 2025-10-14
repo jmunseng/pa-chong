@@ -1,7 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-// import { generateExcel } from './create-excel.js';
+import { sendEmailToSubscribers } from './send-email.js';
+import { generateExcel } from './create-excel.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -953,13 +954,15 @@ export async function comparePrice(uniqueProducts, fileName, dateTimeString) {
 			console.log(`\n产品信息已保存到 ${fileName} (包含价格比较)`);
 
 			// 生成 Excel 文件
-			// await generateExcel(
-			// 	uniqueProducts,
-			// 	fileName,
-			// 	dateTimeString,
-			// 	previousDateTimeString,
-			// 	removedProducts
-			// );
+			await generateExcel(
+				uniqueProducts,
+				fileName,
+				dateTimeString,
+				previousDateTimeString,
+				removedProducts
+			);
+
+			await sendEmailToSubscribers(fileName);
 		} else {
 			console.log('无法从之前的文件中提取价格信息');
 			const htmlContent = generateHTMLWithPriceComparison(
