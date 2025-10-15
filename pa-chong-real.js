@@ -2,6 +2,82 @@ import { connect } from 'puppeteer-real-browser';
 import fs from 'fs';
 import { comparePrice } from './compare-price.js';
 
+// 模拟人类鼠标移动的工具函数
+async function humanMouseMove(page, targetX, targetY) {
+	const mouse = page.mouse;
+
+	// 获取当前鼠标位置(假设从屏幕中心开始)
+	const startX = Math.random() * 100 + 100; // 随机起始位置
+	const startY = Math.random() * 100 + 100;
+
+	const steps = Math.floor(Math.random() * 30) + 20; // 20-50步
+
+	for (let i = 0; i <= steps; i++) {
+		const t = i / steps;
+		// 使用贝塞尔曲线模拟自然移动
+		const x = startX + (targetX - startX) * t + (Math.random() - 0.5) * 10;
+		const y = startY + (targetY - startY) * t + (Math.random() - 0.5) * 10;
+
+		await mouse.move(x, y);
+		await new Promise((resolve) =>
+			setTimeout(resolve, Math.random() * 20 + 10)
+		);
+	}
+}
+
+// 模拟人类滚动行为
+// async function humanScroll(page) {
+// 	console.log('开始模拟人类滚动行为...');
+
+// 	return await page.evaluate(async () => {
+// 		return new Promise((resolve) => {
+// 			let totalHeight = 0;
+// 			const maxHeight = document.body.scrollHeight;
+// 			let scrollCount = 0;
+// 			const maxScrolls = 10; // 最多滚动次数
+
+// 			const scroll = () => {
+// 				if (totalHeight >= maxHeight || scrollCount >= maxScrolls) {
+// 					resolve();
+// 					return;
+// 				}
+
+// 				// 随机滚动距离: 200-500px
+// 				const distance = Math.floor(Math.random() * 300) + 200;
+// 				window.scrollBy(0, distance);
+// 				totalHeight += distance;
+// 				scrollCount++;
+
+// 				// 随机等待时间: 300-800ms,模拟人类阅读和思考
+// 				const delay = Math.floor(Math.random() * 500) + 300;
+
+// 				setTimeout(scroll, delay);
+// 			};
+
+// 			scroll();
+// 		});
+// 	});
+// }
+
+// 模拟鼠标在页面上随机移动
+async function randomMouseMovement(page) {
+	const viewport = page.viewport();
+	const width = viewport?.width || 1920;
+	const height = viewport?.height || 1080;
+
+	// 随机移动2-5次
+	const movements = Math.floor(Math.random() * 3) + 2;
+
+	for (let i = 0; i < movements; i++) {
+		const x = Math.random() * width * 0.8 + width * 0.1; // 避免边缘
+		const y = Math.random() * height * 0.8 + height * 0.1;
+		await humanMouseMove(page, x, y);
+		await new Promise((resolve) =>
+			setTimeout(resolve, Math.random() * 500 + 200)
+		);
+	}
+}
+
 async function scrapeAdidasProducts() {
 	console.log('启动真实浏览器...');
 
@@ -27,6 +103,10 @@ async function scrapeAdidasProducts() {
 		timeout: 60000,
 	});
 
+	// 模拟人类浏览行为：随机移动鼠标
+	console.log('模拟鼠标移动...');
+	await randomMouseMovement(page);
+
 	// 随机等待
 	await new Promise((resolve) =>
 		setTimeout(resolve, 3000 + Math.random() * 2000)
@@ -40,6 +120,10 @@ async function scrapeAdidasProducts() {
 		waitUntil: 'networkidle2',
 		timeout: 60000,
 	});
+
+	// 页面加载后模拟鼠标移动
+	console.log('页面加载完成,模拟浏览行为...');
+	await randomMouseMovement(page);
 
 	console.log('等待产品加载...');
 	await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -83,6 +167,9 @@ async function scrapeAdidasProducts() {
 		// 等待产品加载
 		await new Promise((resolve) => setTimeout(resolve, 3000));
 
+		// 滚动前先模拟鼠标移动
+		await randomMouseMovement(page);
+
 		// 滚动页面以确保所有产品都被加载
 		console.log('滚动页面以加载所有产品...');
 		await page.evaluate(() => {
@@ -109,6 +196,9 @@ async function scrapeAdidasProducts() {
 		await page.evaluate(() => {
 			window.scrollTo(0, 0);
 		});
+
+		// 回到顶部后再次模拟鼠标移动
+		await randomMouseMovement(page);
 
 		await new Promise((resolve) => setTimeout(resolve, 1000));
 
@@ -205,7 +295,7 @@ async function scrapeAdidasProducts() {
 		allProducts.push(...products);
 
 		// 检查是否还有下一页
-		if (pageInfo && pageInfo.current >= pageInfo.total) {
+		if (pageInfo && pageNum >= pageInfo.total) {
 			// <<<<
 			// if (pageInfo && pageInfo.current >= 1) {
 			console.log('已到达最后一页');

@@ -2,7 +2,7 @@ import { sendEmailToSubscribers } from './send-email.js';
 
 // 测试发送邮件 - 使用相对路径
 const filePath =
-	'collection/adidas-extra-sale-products_2025-10-15_00-25-31.html';
+	'collection/adidas-extra-sale-products_2025-10-15_19-49-38.html';
 
 console.log('开始测试邮件发送...');
 console.log('文件路径 (相对路径):', filePath);

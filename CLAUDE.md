@@ -13,11 +13,13 @@ This is a web scraper (pa-chong means "crawler" in Chinese) that extracts produc
 ## Commands
 
 **Run the scraper:**
+
 ```bash
 node pa-chong.js
 ```
 
 **Install dependencies:**
+
 ```bash
 npm install
 ```
@@ -27,8 +29,8 @@ npm install
 - **Single-file application**: [pa-chong.js](pa-chong.js) contains all scraping logic
 - **ES modules**: Uses `"type": "module"` in package.json
 - **Dependencies**:
-  - `puppeteer`: Headless browser automation for dynamic page scraping
-  - `axios`, `cheerio`: Installed but not currently used in the code
+    - `puppeteer`: Headless browser automation for dynamic page scraping
+    - `axios`, `cheerio`: Installed but not currently used in the code
 
 ## Key Components
 
@@ -47,6 +49,7 @@ The Puppeteer instance uses specific args (`--no-sandbox`, `--disable-setuid-san
 ## Output Format
 
 Results are saved to `adidas_extra_sale_all.txt` with format:
+
 ```
 阿迪達斯 {product_name} / {product_code} / {price}
 ```
