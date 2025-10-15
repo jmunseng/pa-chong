@@ -11,7 +11,7 @@
 	},
 	"type": "module",
 	"scripts": {
-		"start": "node --env-file=.env pac-chong-real.js",
+		"dev": "node --env-file=.env pa-chong-real.js",
 		"test-email": "node --env-file=.env test-email.js"
 	},
 	"devDependencies": {
