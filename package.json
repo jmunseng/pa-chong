@@ -10,6 +10,10 @@
 		"sqlite3": "^5.1.6"
 	},
 	"type": "module",
+	"scripts": {
+		"start": "node --env-file=.env pac-chong-real.js",
+		"test-email": "node --env-file=.env test-email.js"
+	},
 	"devDependencies": {
 		"@eslint/css": "^0.13.0",
 		"@eslint/js": "^9.37.0",

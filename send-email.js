@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 export async function sendEmailToSubscribers(filePath) {
-	const resend = new Resend('re_AYsNJXje_6wLHfKq3Gr9QsddEzDFsYCf2');
+	const resend = new Resend(process.env.RESEND_API_KEY);
 
 	try {
 		// 读取 HTML 文件内容
@@ -45,7 +45,7 @@ export async function sendEmailToSubscribers(filePath) {
 			},
 		];
 
-		// 检查同名的 .xlsx 文件是否存在
+		// // 检查同名的 .xlsx 文件是否存在
 		const xlsxFilePath = filePath.replace('.html', '.xlsx');
 		const xlsxFileName = fileName.replace('.html', '.xlsx');
 
@@ -59,7 +59,9 @@ export async function sendEmailToSubscribers(filePath) {
 				content: base64XlsxContent,
 			});
 
-			console.log(`找到 Excel 文件: ${xlsxFileName}, 大小: ${xlsxContent.length} 字节`);
+			console.log(
+				`找到 Excel 文件: ${xlsxFileName}, 大小: ${xlsxContent.length} 字节`
+			);
 		} else {
 			console.log(`未找到 Excel 文件: ${xlsxFilePath}`);
 		}
@@ -67,7 +69,7 @@ export async function sendEmailToSubscribers(filePath) {
 		// 发送邮件
 		const { data, error } = await resend.emails.send({
 			from: 'pa-chong system <onboarding@resend.dev>',
-			to: ['jmunseng@gmail.com', 'nihao120@naver.com'],
+			to: ['abbrcn@gmail.com'],
 			subject: `Adidas Outlet 特卖商品 - ${dateStr}`,
 			html: '<p>请查看附件中的 Adidas Outlet 特卖商品清单。</p>',
 			attachments: attachments,
