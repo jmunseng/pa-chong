@@ -1,4 +1,4 @@
-import { generateExcel } from './create-excel.js';
+import { generateExcel } from '../create-excel.js';
 
 // 测试数据 - 少量产品用于快速测试
 const testProducts = [
@@ -6,7 +6,8 @@ const testProducts = [
 		name: '测试产品 1',
 		code: 'TEST001',
 		price: '50,000',
-		imageUrl: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/4c70105150234ac4b948a8bf01187e0c_9366/Superstar_Shoes_White_EG4958_01_standard.jpg',
+		imageUrl:
+			'https://assets.adidas.com/images/w_600,f_auto,q_auto/4c70105150234ac4b948a8bf01187e0c_9366/Superstar_Shoes_White_EG4958_01_standard.jpg',
 		url: 'https://www.adidas.co.kr/test1',
 		isNewItem: true,
 		hasExtra30Off: true,
@@ -17,7 +18,8 @@ const testProducts = [
 		price: '60,000',
 		previousPrice: '70,000',
 		priceGap: '-10,000',
-		imageUrl: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/4c70105150234ac4b948a8bf01187e0c_9366/Superstar_Shoes_White_EG4958_01_standard.jpg',
+		imageUrl:
+			'https://assets.adidas.com/images/w_600,f_auto,q_auto/4c70105150234ac4b948a8bf01187e0c_9366/Superstar_Shoes_White_EG4958_01_standard.jpg',
 		url: 'https://www.adidas.co.kr/test2',
 		isPriceDropped: true,
 		hasExtra30Off: false,

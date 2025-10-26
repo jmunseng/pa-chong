@@ -475,25 +475,44 @@ function generateHTMLWithPriceComparison(
             }
 
             // Track current filter state
-            var currentFilter = null; // 'new', 'drop', or null (show all)
+            var currentFilter = null; // 'new', 'drop', 'newExtra30', or null (show all)
+
+            // 清除所有按钮的active状态
+            function clearAllActiveButtons() {
+                var allButtons = [
+                    document.getElementById('btnNew'),
+                    document.getElementById('btnDrop'),
+                    document.getElementById('btnNewExtra30Off')
+                ];
+                for (var i = 0; i < allButtons.length; i++) {
+                    if (allButtons[i]) {
+                        allButtons[i].classList.remove('active');
+                    }
+                }
+            }
+
+            // 显示所有行
+            function showAllRows() {
+                var rows = document.querySelectorAll('.row:not(.header)');
+                for (var i = 0; i < rows.length; i++) {
+                    rows[i].style.display = 'flex';
+                }
+            }
 
             function filterNew() {
-                var btn = document.getElementById('btnNew');
-                var btnDrop = document.getElementById('btnDrop');
                 var rows = document.querySelectorAll('.row:not(.header)');
 
                 if (currentFilter === 'new') {
-                    // Toggle off - show all
+                    // 当前过滤器已激活，点击则关闭
                     currentFilter = null;
-                    btn.classList.remove('active');
-                    for (var i = 0; i < rows.length; i++) {
-                        rows[i].style.display = 'flex';
-                    }
+                    clearAllActiveButtons();
+                    showAllRows();
                 } else {
-                    // Toggle on - filter new items
+                    // 激活新产品过滤器
                     currentFilter = 'new';
-                    btn.classList.add('active');
-                    btnDrop.classList.remove('active');
+                    clearAllActiveButtons();
+                    document.getElementById('btnNew').classList.add('active');
+
                     for (var i = 0; i < rows.length; i++) {
                         if (rows[i].classList.contains('new-item')) {
                             rows[i].style.display = 'flex';
@@ -505,22 +524,19 @@ function generateHTMLWithPriceComparison(
             }
 
             function filterDrop() {
-                var btn = document.getElementById('btnDrop');
-                var btnNew = document.getElementById('btnNew');
                 var rows = document.querySelectorAll('.row:not(.header)');
 
                 if (currentFilter === 'drop') {
-                    // Toggle off - show all
+                    // 当前过滤器已激活，点击则关闭
                     currentFilter = null;
-                    btn.classList.remove('active');
-                    for (var i = 0; i < rows.length; i++) {
-                        rows[i].style.display = 'flex';
-                    }
+                    clearAllActiveButtons();
+                    showAllRows();
                 } else {
-                    // Toggle on - filter dropped items
+                    // 激活降价过滤器
                     currentFilter = 'drop';
-                    btn.classList.add('active');
-                    btnNew.classList.remove('active');
+                    clearAllActiveButtons();
+                    document.getElementById('btnDrop').classList.add('active');
+
                     for (var i = 0; i < rows.length; i++) {
                         if (rows[i].classList.contains('price-dropped')) {
                             rows[i].style.display = 'flex';
@@ -532,24 +548,19 @@ function generateHTMLWithPriceComparison(
             }
 
             function filterNewExtra30Off() {
-                var btn = document.getElementById('btnNewExtra30Off');
-                var btnNew = document.getElementById('btnNew');
-                var btnDrop = document.getElementById('btnDrop');
                 var rows = document.querySelectorAll('.row:not(.header)');
 
                 if (currentFilter === 'newExtra30') {
-                    // Toggle off - show all
+                    // 当前过滤器已激活，点击则关闭
                     currentFilter = null;
-                    btn.classList.remove('active');
-                    for (var i = 0; i < rows.length; i++) {
-                        rows[i].style.display = 'flex';
-                    }
+                    clearAllActiveButtons();
+                    showAllRows();
                 } else {
-                    // Toggle on - filter items with extra 30% off badge and new badge
+                    // 激活新增30%折扣过滤器
                     currentFilter = 'newExtra30';
-                    btn.classList.add('active');
-                    btnNew.classList.remove('active');
-                    btnDrop.classList.remove('active');
+                    clearAllActiveButtons();
+                    document.getElementById('btnNewExtra30Off').classList.add('active');
+
                     for (var i = 0; i < rows.length; i++) {
                         var extra30Badge = rows[i].querySelector('.extra-30-badge');
                         var hasNewBadge = extra30Badge && extra30Badge.querySelector('.new') !== null;
@@ -714,6 +725,32 @@ function generateHTMLWithPriceComparison(
 												: ''
 									}
                                     <br />
+                                    <div>추가30% 할인 적용 시:</div>
+                                    <div class="price-krw-30">${
+										p.isExtra30Off
+											? (() => {
+													const priceMatch =
+														p.price.match(
+															/([\d,]+)\s*원/
+														);
+													if (priceMatch) {
+														const priceNum =
+															parseInt(
+																priceMatch[1].replace(
+																	/,/g,
+																	''
+																)
+															);
+														const discountedPrice =
+															Math.round(
+																priceNum * 0.7
+															);
+														return `<span>${discountedPrice.toLocaleString('ko-KR')} 원</span>`;
+													}
+													return `<span>${p.price}</span>`;
+												})()
+											: `<span>${p.price}</span>`
+									}</div>
                                     <div class="price-rmb">RMB: <span></span></div>
                                     ${p.isExtra30Off ? `<div class="extra-30-badge"><span>Extra 30% OFF</span>${p.isNewExtra30Off ? '<span class="new">New!</span>' : ''}</div>` : ''}
                                 </div>
@@ -787,7 +824,6 @@ export async function comparePrice(currentFileName, prevFileName) {
 		const currentFilePath = `${currentFileName}.json`;
 		const currentProductFile = fs.readFileSync(currentFilePath, 'utf-8');
 		const currentProductData = JSON.parse(currentProductFile);
-		console.log(currentProductData); // Debug log
 
 		// 提取之前文件的产品信息
 		// const previousProducts = extractProductsFromHTML(
@@ -949,12 +985,9 @@ export async function comparePrice(currentFileName, prevFileName) {
 				previousDateTimeString,
 				removedProducts
 			);
-			fs.writeFileSync(
-				currentFileName,
-				htmlContentWithComparison,
-				'utf8'
-			);
-			console.log(`\n产品信息已保存到 ${currentFileName} (包含价格比较)`);
+			const htmlFileName = `${currentFileName}.html`;
+			fs.writeFileSync(htmlFileName, htmlContentWithComparison, 'utf8');
+			console.log(`\n产品信息已保存到 ${htmlFileName} (包含价格比较)`);
 
 			// 生成 Excel 文件
 			// await generateExcel(
@@ -965,7 +998,7 @@ export async function comparePrice(currentFileName, prevFileName) {
 			// 	removedProducts
 			// );
 
-			await sendEmailToSubscribers(currentFileName);
+			// await sendEmailToSubscribers(currentFileName);
 		} else {
 			console.log('无法从之前的文件中提取价格信息');
 			const uniqueProducts = Object.values(currentProductData.products);
@@ -974,8 +1007,9 @@ export async function comparePrice(currentFileName, prevFileName) {
 				uniqueProducts,
 				dateTimeString
 			);
-			fs.writeFileSync(currentFileName, htmlContent, 'utf8');
-			console.log(`\n产品信息已保存到 ${currentFileName}`);
+			const htmlFileName = `${currentFileName}.html`;
+			fs.writeFileSync(htmlFileName, htmlContent, 'utf8');
+			console.log(`\n产品信息已保存到 ${htmlFileName}`);
 
 			// 生成 Excel 文件
 			// await generateExcel(uniqueProducts, fileName, dateTimeString);
@@ -993,8 +1027,9 @@ export async function comparePrice(currentFileName, prevFileName) {
 			uniqueProducts,
 			dateTimeString
 		);
-		fs.writeFileSync(currentFileName, htmlContent, 'utf8');
-		console.log(`\n产品信息已保存到 ${currentFileName}`);
+		const htmlFileName = `${currentFileName}.html`;
+		fs.writeFileSync(htmlFileName, htmlContent, 'utf8');
+		console.log(`\n产品信息已保存到 ${htmlFileName}`);
 
 		// 生成 Excel 文件
 		// await generateExcel(uniqueProducts, fileName, dateTimeString);

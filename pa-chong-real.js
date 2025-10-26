@@ -1,81 +1,201 @@
 import { connect } from 'puppeteer-real-browser';
 import fs from 'fs';
-import { comparePrice } from './compare-price.js';
+import {
+	comparePrice,
+	randomMouseMovement,
+	findPreviousJSONFile,
+} from './utils/adidas.js';
 
-// 模拟人类鼠标移动的工具函数
-async function humanMouseMove(page, targetX, targetY) {
-	const mouse = page.mouse;
+// async function waitForProductGrid(page) {
+// 	// 首先检查页面上实际存在哪些元素
+// 	console.log('🔍 调试: 检查页面上的 data-testid 属性...');
+// 	const testIds = await page.evaluate(() => {
+// 		const elements = document.querySelectorAll('[data-testid]');
+// 		return Array.from(elements)
+// 			.slice(0, 20) // 只取前20个,避免输出过多
+// 			.map((el) => el.getAttribute('data-testid'));
+// 	});
+// 	console.log('📋 找到的 data-testid (前20个):', testIds);
 
-	// 获取当前鼠标位置(假设从屏幕中心开始)
-	const startX = Math.random() * 100 + 100; // 随机起始位置
-	const startY = Math.random() * 100 + 100;
+// 	// 检查页面上是否有包含 "product" 关键字的 class 或 data 属性
+// 	console.log('🔍 调试: 检查包含 "product" 的元素...');
+// 	const productElements = await page.evaluate(() => {
+// 		const selectors = [
+// 			'[class*="product"]',
+// 			'[data-auto-id*="product"]',
+// 			'[id*="product"]',
+// 		];
+// 		const results = {};
+// 		for (const selector of selectors) {
+// 			const elements = document.querySelectorAll(selector);
+// 			if (elements.length > 0) {
+// 				results[selector] = {
+// 					count: elements.length,
+// 					firstClasses: elements[0].className,
+// 				};
+// 			}
+// 		}
+// 		return results;
+// 	});
+// 	console.log('📋 包含 "product" 的元素:', productElements);
 
-	const steps = Math.floor(Math.random() * 30) + 20; // 20-50步
+// 	const candidateSelectors = [
+// 		'[data-testid="plp-product-card"]',
+// 		'[data-testid="product-grid"]',
+// 		'[data-testid="product-grid-container"]',
+// 		'main [data-auto-id="products-list"]',
+// 	];
 
-	for (let i = 0; i <= steps; i++) {
-		const t = i / steps;
-		// 使用贝塞尔曲线模拟自然移动
-		const x = startX + (targetX - startX) * t + (Math.random() - 0.5) * 10;
-		const y = startY + (targetY - startY) * t + (Math.random() - 0.5) * 10;
+// 	for (const selector of candidateSelectors) {
+// 		try {
+// 			console.log(`⏳ 尝试等待选择器: ${selector}`);
+// 			await page.waitForSelector(selector, {
+// 				timeout: 20000,
+// 			});
+// 			console.log(`✅ 通过选择器 ${selector} 检测到产品容器`);
+// 			return;
+// 		} catch {
+// 			console.log(`⚠️ 未检测到 ${selector}, 尝试下一个候选...`);
+// 		}
+// 	}
 
-		await mouse.move(x, y);
-		await new Promise((resolve) =>
-			setTimeout(resolve, Math.random() * 20 + 10)
-		);
+// 	console.log('⚠️ 产品容器候选未出现,滚动页面触发懒加载...');
+// 	await page.evaluate(() => {
+// 		window.scrollTo(0, document.body.scrollHeight);
+// 	});
+// 	await page.waitForTimeout(1500);
+
+// 	try {
+// 		console.log('⏳ 等待产品卡片出现...');
+// 		await page.waitForFunction(
+// 			() =>
+// 				document.querySelectorAll('[data-testid="plp-product-card"]')
+// 					.length > 0,
+// 			{ timeout: 20000 }
+// 		);
+// 		console.log('✅ 滚动后检测到产品卡片');
+// 		await page.evaluate(() => {
+// 			window.scrollTo(0, 0);
+// 		});
+// 	} catch {
+// 		console.log('❌ 滚动后仍未检测到产品,继续执行流程以便调试');
+
+// 		// 最后的调试信息:检查页面上实际有哪些元素
+// 		const finalDebug = await page.evaluate(() => {
+// 			return {
+// 				bodyHTML: document.body.innerHTML.substring(0, 500), // 前500字符
+// 				allDivs: document.querySelectorAll('div').length,
+// 				allArticles: document.querySelectorAll('article').length,
+// 				allSections: document.querySelectorAll('section').length,
+// 			};
+// 		});
+// 		console.log('📋 页面元素统计:', finalDebug);
+// 	}
+// }
+
+async function handleBlockingOverlays(page) {
+	const dismissSelectors = [
+		'#onetrust-accept-btn-handler',
+		'button[data-testid="cookie-policy-accept"]',
+		'button[data-testid="cookie-policy-accept-button"]',
+		'button[data-testid="cookie-accept-all"]',
+		'button[data-testid="dialog-close-button"]',
+	];
+	for (const selector of dismissSelectors) {
+		const handle = await page.$(selector);
+		if (!handle) {
+			continue;
+		}
+		try {
+			await handle.click({ delay: 100 });
+			console.log(`✅ 已关闭遮挡元素 ${selector}`);
+			await page.waitForTimeout(400);
+		} catch (error) {
+			console.log(`⚠️ 点击遮挡元素 ${selector} 失败: ${error.message}`);
+		}
 	}
 }
 
-// 模拟人类滚动行为
-// async function humanScroll(page) {
-// 	console.log('开始模拟人类滚动行为...');
+async function waitForProductGrid(page) {
+	const candidateSelectors = [
+		'[data-testid="plp-product-card"]',
+		'[data-testid="product-grid"]',
+		'[data-testid="product-grid-container"]',
+		'main [data-auto-id="products-list"]',
+	];
+	const retryLimit = 3;
 
-// 	return await page.evaluate(async () => {
-// 		return new Promise((resolve) => {
-// 			let totalHeight = 0;
-// 			const maxHeight = document.body.scrollHeight;
-// 			let scrollCount = 0;
-// 			const maxScrolls = 10; // 最多滚动次数
+	for (let attempt = 1; attempt <= retryLimit; attempt += 1) {
+		console.log(`⏳ 第 ${attempt} 次尝试定位产品网格...`);
+		await handleBlockingOverlays(page);
 
-// 			const scroll = () => {
-// 				if (totalHeight >= maxHeight || scrollCount >= maxScrolls) {
-// 					resolve();
-// 					return;
-// 				}
+		const alreadyPresent = await page.evaluate((selectors) => {
+			return selectors.some((selector) => {
+				const element = document.querySelector(selector);
+				if (!element) {
+					return false;
+				}
+				const style = window.getComputedStyle(element);
+				return (
+					style &&
+					style.display !== 'none' &&
+					style.visibility !== 'hidden'
+				);
+			});
+		}, candidateSelectors);
 
-// 				// 随机滚动距离: 200-500px
-// 				const distance = Math.floor(Math.random() * 300) + 200;
-// 				window.scrollBy(0, distance);
-// 				totalHeight += distance;
-// 				scrollCount++;
+		if (alreadyPresent) {
+			console.log('✅ 页面加载时已检测到产品容器');
+			return;
+		}
 
-// 				// 随机等待时间: 300-800ms,模拟人类阅读和思考
-// 				const delay = Math.floor(Math.random() * 500) + 300;
+		for (const selector of candidateSelectors) {
+			try {
+				await page.waitForSelector(selector, {
+					timeout: 20000,
+					visible: true,
+				});
+				console.log(`✅ 通过选择器 ${selector} 检测到产品容器`);
+				return;
+			} catch {
+				console.log(`⚠️ 未检测到 ${selector}, 尝试下一个候选...`);
+			}
+		}
 
-// 				setTimeout(scroll, delay);
-// 			};
+		console.log('⚠️ 产品容器候选未出现,滚动页面触发懒加载...');
+		await page.evaluate(() => {
+			window.scrollTo(0, document.body.scrollHeight);
+		});
+		await page.waitForTimeout(1500);
+		await handleBlockingOverlays(page);
 
-// 			scroll();
-// 		});
-// 	});
-// }
+		try {
+			await page.waitForFunction(
+				() =>
+					document.querySelectorAll(
+						'[data-testid="plp-product-card"]'
+					).length > 0,
+				{ timeout: 15000 }
+			);
+			console.log('✅ 滚动后检测到产品卡片');
+			await page.evaluate(() => {
+				window.scrollTo(0, 0);
+			});
+			return;
+		} catch {
+			console.log('⚠️ 滚动后仍未检测到产品,准备重试');
+		}
 
-// 模拟鼠标在页面上随机移动
-async function randomMouseMovement(page) {
-	const viewport = page.viewport();
-	const width = viewport?.width || 1920;
-	const height = viewport?.height || 1080;
-
-	// 随机移动2-5次
-	const movements = Math.floor(Math.random() * 3) + 2;
-
-	for (let i = 0; i < movements; i++) {
-		const x = Math.random() * width * 0.8 + width * 0.1; // 避免边缘
-		const y = Math.random() * height * 0.8 + height * 0.1;
-		await humanMouseMove(page, x, y);
-		await new Promise((resolve) =>
-			setTimeout(resolve, Math.random() * 500 + 200)
-		);
+		if (attempt < retryLimit) {
+			console.log('🔄 重新加载页面后再次尝试...');
+			await page.reload({
+				waitUntil: 'domcontentloaded',
+				timeout: 60000,
+			});
+		}
 	}
+
+	console.log('❌ 多次尝试后仍未检测到产品容器,继续执行流程以便调试');
 }
 
 async function scrapeAdidasProducts() {
@@ -98,19 +218,11 @@ async function scrapeAdidasProducts() {
 
 	// 模拟人类行为：先访问主页
 	console.log('先访问主页建立会话...');
-	await page.goto('https://www.adidas.co.kr', {
-		waitUntil: 'networkidle2',
-		timeout: 60000,
-	});
 
-	// 模拟人类浏览行为：随机移动鼠标
-	console.log('模拟鼠标移动...');
-	await randomMouseMovement(page);
-
-	// 随机等待
-	await new Promise((resolve) =>
-		setTimeout(resolve, 3000 + Math.random() * 2000)
-	);
+	// // 随机等待
+	// await new Promise((resolve) =>
+	// 	setTimeout(resolve, 3000 + Math.random() * 2000)
+	// );
 
 	// 访问目标网页
 	const url = 'https://www.adidas.co.kr/outlet?grid=true';
@@ -121,43 +233,13 @@ async function scrapeAdidasProducts() {
 		timeout: 60000,
 	});
 
-	// 页面加载后模拟鼠标移动
-	console.log('页面加载完成,模拟浏览行为...');
-	await randomMouseMovement(page);
-
-	console.log('等待产品加载...');
-	await new Promise((resolve) => setTimeout(resolve, 3000));
-
-	// 检查产品网格是否存在
-	const hasProductGrid = await page.evaluate(() => {
-		const grid = document.querySelector('[data-testid="product-grid"]');
-		return !!grid;
-	});
-
-	console.log('产品网格是否存在:', hasProductGrid);
-
-	if (!hasProductGrid) {
-		console.log('未找到产品网格，尝试滚动页面加载内容...');
-		await page.evaluate(() => {
-			window.scrollTo(0, document.body.scrollHeight);
-		});
-		await new Promise((resolve) => setTimeout(resolve, 3000));
-	}
-
-	// 等待产品网格加载
-	try {
-		await page.waitForSelector('[data-testid="product-grid"]', {
-			timeout: 10000,
-		});
-		console.log('产品网格已加载');
-	} catch (err) {
-		console.log('产品网格加载超时，尝试直接提取...', err.message);
-	}
+	console.log('等待产品网格加载...');
+	await waitForProductGrid(page);
 
 	console.log('开始提取产品信息...');
 
 	// 多页抓取
-	let allProducts = [];
+	let allProducts = {}; // 改为对象,使用产品代码作为键
 	let pageNum = 1;
 	const itemsPerPage = 48;
 
@@ -165,7 +247,7 @@ async function scrapeAdidasProducts() {
 		console.log(`\n正在抓取第 ${pageNum} 页...`);
 
 		// 等待产品加载
-		await new Promise((resolve) => setTimeout(resolve, 3000));
+		await new Promise((resolve) => setTimeout(resolve, 1000));
 
 		// 滚动前先模拟鼠标移动
 		await randomMouseMovement(page);
@@ -190,17 +272,12 @@ async function scrapeAdidasProducts() {
 		});
 
 		// 滚动后再等待一段时间让徽章加载
-		await new Promise((resolve) => setTimeout(resolve, 2000));
+		await new Promise((resolve) => setTimeout(resolve, 1000));
 
 		// 回到顶部
-		await page.evaluate(() => {
-			window.scrollTo(0, 0);
-		});
-
-		// 回到顶部后再次模拟鼠标移动
-		await randomMouseMovement(page);
-
-		await new Promise((resolve) => setTimeout(resolve, 1000));
+		// await page.evaluate(() => {
+		// 	window.scrollTo(0, 0);
+		// });
 
 		// 获取总页数信息
 		const pageInfo = await page.evaluate(() => {
@@ -229,7 +306,7 @@ async function scrapeAdidasProducts() {
 			const productCards = document.querySelectorAll(
 				'[data-testid="plp-product-card"]'
 			);
-			const productList = [];
+			const productList = {}; // 使用对象来避免重复
 
 			productCards.forEach((card) => {
 				const link = card.querySelector(
@@ -269,35 +346,37 @@ async function scrapeAdidasProducts() {
 				const imageUrl = imageElement?.getAttribute('src') || '';
 
 				if (code && name && price && url) {
-					productList.push({
+					productList[code] = {
 						code,
 						name,
 						price,
 						url,
 						imageUrl,
 						isExtra30Off: isExtra30Off,
-					});
+					};
 				}
 			});
 
 			return productList;
 		});
 
-		console.log(`第 ${pageNum} 页找到 ${products.length} 个产品`);
+		const productValues = Object.values(products);
+		console.log(`第 ${pageNum} 页找到 ${productValues.length} 个产品`);
 
 		// 显示前15个产品的徽章检测情况
-		products.slice(0, 15).forEach((p, i) => {
+		productValues.slice(0, 15).forEach((p, i) => {
 			console.log(
 				`  ${i + 1}. ${p.code} - ${p.name} - Extra 30%: ${p.isExtra30Off ? '✓' : '✗'}`
 			);
 		});
 
-		allProducts.push(...products);
+		// 合并产品对象
+		allProducts = { ...allProducts, ...products };
 
 		// 检查是否还有下一页
-		if (pageInfo && pageNum >= pageInfo.total) {
-			// <<<<
-			// if (pageInfo && pageInfo.current >= 1) {
+		// if (pageInfo && pageNum >= pageInfo.total) {
+		// <<<<
+		if (pageInfo && pageInfo.current >= 3) {
 			console.log('已到达最后一页');
 			break;
 		}
@@ -320,12 +399,12 @@ async function scrapeAdidasProducts() {
 		}
 	}
 
-	// 去重
-	const uniqueProducts = Array.from(
-		new Map(allProducts.map((p) => [p.code, p])).values()
-	);
+	// 由于allProducts现在是对象,键就是产品代码,已经自动去重了
+	const uniqueProducts = allProducts;
 
-	console.log(`\n总共提取 ${uniqueProducts.length} 个不重复的产品:\n`);
+	console.log(
+		`\n总共提取 ${Object.keys(uniqueProducts).length} 个不重复的产品:\n`
+	);
 
 	// 保存到HTML文件
 	const today = new Date();
@@ -347,16 +426,34 @@ async function scrapeAdidasProducts() {
 		today.getHours()
 	).padStart(2, '0')}-${String(today.getMinutes()).padStart(2, '0')}-${String(
 		today.getSeconds()
-	).padStart(2, '0')}.html`;
+	).padStart(2, '0')}`;
 
-	// 比较价格并生成HTML和Excel文件
-	await comparePrice(uniqueProducts, fileName, dateTimeString);
+	// 保存最新数据到JSON文件
+	const jsonFileName = `${fileName}.json`;
+	// uniqueProducts 现在已经是对象格式了,不需要转换
+
+	const jsonData = {
+		dateTimeString: dateTimeString,
+		timestamp: today.toISOString(),
+		totalProducts: Object.keys(uniqueProducts).length,
+		products: uniqueProducts,
+	};
+
+	console.log(`保存最新数据到 JSON 文件: ${jsonFileName}`);
+	fs.writeFileSync(jsonFileName, JSON.stringify(jsonData, null, 2), 'utf-8');
+	console.log('JSON 文件保存成功');
+
+	// 查找之前的JSON文件
+	const prevFileName = findPreviousJSONFile(fileName);
+
+	// 比较价格json data
+	await comparePrice(fileName, prevFileName);
 
 	// 关闭浏览器
 	await browser.close();
 	console.log('浏览器已关闭');
 
-	return uniqueProducts;
+	return;
 }
 
 // 运行脚本

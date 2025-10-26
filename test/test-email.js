@@ -1,4 +1,4 @@
-import { sendEmailToSubscribers } from './send-email.js';
+import { sendEmailToSubscribers } from '../send-email.js';
 
 // 测试发送邮件 - 使用相对路径
 const filePath =
