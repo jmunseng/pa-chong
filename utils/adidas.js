@@ -50,9 +50,6 @@ export function extractProductsFromHTML(htmlPath) {
 	return productsMap;
 }
 
-// 模拟鼠标在页面上随机移动;
-export async function randomMouseMovement(page) {}
-
 // 查找最新的两个HTML文件
 /**
  * @excludeFileName {string|null} 排除的文件名（不包括扩展名）

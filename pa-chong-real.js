@@ -1,6 +1,6 @@
 import { connect } from 'puppeteer-real-browser';
 import fs from 'fs';
-import { comparePrice, randomMouseMovement, findPreviousJSONFile } from './utils/adidas.js';
+import { comparePrice, findPreviousJSONFile } from './utils/adidas.js';
 
 // async function waitForProductGrid(page) {
 // 	// 首先检查页面上实际存在哪些元素
@@ -235,9 +235,6 @@ async function scrapeAdidasProducts() {
 		// 等待产品加载
 		await new Promise((resolve) => setTimeout(resolve, 1000));
 
-		// 滚动前先模拟鼠标移动
-		await randomMouseMovement(page);
-
 		// 滚动页面以确保所有产品都被加载
 		console.log('滚动页面以加载所有产品...');
 		await page.evaluate(() => {
@@ -343,9 +340,9 @@ async function scrapeAdidasProducts() {
 		allProducts = { ...allProducts, ...products };
 
 		// 检查是否还有下一页
-		// if (pageInfo && pageNum >= pageInfo.total) {
-		// <<<<
-		if (pageInfo && pageInfo.current >= 1) {
+		if (pageInfo && pageNum >= pageInfo.total) {
+			// <<<<
+			// if (pageInfo && pageInfo.current >= 1) {
 			console.log('已到达最后一页');
 			break;
 		}
