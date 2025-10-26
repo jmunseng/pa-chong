@@ -216,7 +216,8 @@ function generateHTMLWithPriceComparison(
         .cell:nth-child(2) { flex: 2; }
         .cell:nth-child(3) { flex: 1; }
         .cell:nth-child(4) { flex: 1; }
-        .cell:nth-child(5) { flex: 1; word-break: break-all; }
+        .cell:nth-child(5) { flex: 1; }
+        .cell:nth-child(6) { flex: 1; word-break: break-all; }
         .cell a {
         color: #0066cc;
         text-decoration: none;
@@ -234,6 +235,13 @@ function generateHTMLWithPriceComparison(
         .cell a:hover {
         text-decoration: underline;
         }
+
+        .cell .wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
         .price-info {
         display: flex;
         flex-direction: column;
@@ -679,6 +687,7 @@ function generateHTMLWithPriceComparison(
                 <div class="cell">Name</div>
                 <div class="cell">Code</div>
                 <div class="cell">Price</div>
+                <div class="cell">Extra 30%</div>
                 <div class="cell">URL</div>
             </div>
             ${products
@@ -724,38 +733,52 @@ function generateHTMLWithPriceComparison(
 												? `<span class="price-increase-badge">涨价!</span><span class="price-gap increase">+${p.priceGap}</span>`
 												: ''
 									}
-                                    <br />
-                                    <div>추가30% 할인 적용 시:</div>
-                                    <div class="price-krw-30">${
-										p.isExtra30Off
-											? (() => {
-													const priceMatch =
-														p.price.match(
-															/([\d,]+)\s*원/
-														);
-													if (priceMatch) {
-														const priceNum =
-															parseInt(
-																priceMatch[1].replace(
-																	/,/g,
-																	''
-																)
-															);
-														const discountedPrice =
-															Math.round(
-																priceNum * 0.7
-															);
-														return `<span>${discountedPrice.toLocaleString('ko-KR')} 원</span>`;
-													}
-													return `<span>${p.price}</span>`;
-												})()
-											: `<span>${p.price}</span>`
-									}</div>
-                                    <div class="price-rmb">RMB: <span></span></div>
-                                    ${p.isExtra30Off ? `<div class="extra-30-badge"><span>Extra 30% OFF</span>${p.isNewExtra30Off ? '<span class="new">New!</span>' : ''}</div>` : ''}
                                 </div>
                             </div>
                         </div>
+
+                        <div class="cell">
+                            <div class="wrap">
+                                ${
+									p.isExtra30Off
+										? `<div class="extra-30-badge"><span>Extra 30% OFF</span>
+                                        ${
+											p.isNewExtra30Off
+												? '<span class="new">New!</span>'
+												: ''
+										}</div>`
+										: ''
+								}
+                                <div class="price-krw-30">
+                                ${
+									p.isExtra30Off
+										? (() => {
+												const priceMatch =
+													p.price.match(
+														/([\d,]+)\s*원/
+													);
+												if (priceMatch) {
+													const priceNum = parseInt(
+														priceMatch[1].replace(
+															/,/g,
+															''
+														)
+													);
+													const discountedPrice =
+														Math.round(
+															priceNum * 0.7
+														);
+													return `<span>${discountedPrice.toLocaleString('ko-KR')} 원</span>`;
+												}
+												return `<span>${p.price}</span>`;
+											})()
+										: `<span>${p.price}</span>`
+								}
+                                </div>
+                                <div class="price-rmb">RMB: <span></span></div>
+                            </div>
+                        </div>
+                        
                         <div class="cell"><a href="${p.url}" target="_blank"><button>查看官网</button></a></div>
                     </div>`
 				)

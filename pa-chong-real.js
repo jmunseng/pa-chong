@@ -374,9 +374,9 @@ async function scrapeAdidasProducts() {
 		allProducts = { ...allProducts, ...products };
 
 		// 检查是否还有下一页
-		// if (pageInfo && pageNum >= pageInfo.total) {
-		// <<<<
-		if (pageInfo && pageInfo.current >= 3) {
+		if (pageInfo && pageNum >= pageInfo.total) {
+			// <<<<
+			// if (pageInfo && pageInfo.current >= 1) {
 			console.log('已到达最后一页');
 			break;
 		}
