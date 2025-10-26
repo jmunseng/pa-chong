@@ -49,13 +49,7 @@ async function downloadImage(url) {
  * @param {string} previousDateTime - 上一次抓取时间 (可选)
  * @param {Array} removedProducts - 已下架产品 (可选)
  */
-export async function generateExcel(
-	products,
-	fileName,
-	dateTimeString,
-	previousDateTime = null,
-	removedProducts = []
-) {
+export async function generateExcel(products, fileName, dateTimeString, previousDateTime = null, removedProducts = []) {
 	const workbook = new ExcelJS.Workbook();
 	const worksheet = workbook.addWorksheet('Adidas Extra Sale');
 
@@ -98,13 +92,7 @@ export async function generateExcel(
 			priceKRW: product.price || '',
 			previousPrice: product.previousPrice || '',
 			priceGap: product.priceGap || '',
-			status: product.isNewItem
-				? '新产品'
-				: product.isPriceDropped
-					? '降价'
-					: product.isPriceIncreased
-						? '涨价'
-						: '',
+			status: product.isNewItem ? '新产品' : product.isPriceDropped ? '降价' : product.isPriceIncreased ? '涨价' : '',
 			hasExtra30Off: product.hasExtra30Off ? '是' : '否',
 			url: product.url || '',
 		});
@@ -190,10 +178,7 @@ export async function generateExcel(
 
 					successCount++;
 				} catch (error) {
-					console.error(
-						`嵌入图片失败 (产品 ${index + 1}):`,
-						error.message
-					);
+					console.error(`嵌入图片失败 (产品 ${index + 1}):`, error.message);
 					// 在单元格中标记失败
 					const imageCell = row.getCell('image');
 					imageCell.value = '❌ 嵌入失败';
@@ -211,15 +196,11 @@ export async function generateExcel(
 
 		const progress = Math.round((batchEnd / products.length) * 100);
 		const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
-		console.log(
-			`已处理 ${batchEnd}/${products.length} 个产品图片 (${progress}%) - 用时: ${elapsed}秒`
-		);
+		console.log(`已处理 ${batchEnd}/${products.length} 个产品图片 (${progress}%) - 用时: ${elapsed}秒`);
 	}
 
 	const totalTime = ((Date.now() - startTime) / 1000).toFixed(1);
-	console.log(
-		`\n图片处理完成! 总计: ${products.length} | 成功: ${successCount} | 失败: ${failCount} | 用时: ${totalTime}秒`
-	);
+	console.log(`\n图片处理完成! 总计: ${products.length} | 成功: ${successCount} | 失败: ${failCount} | 用时: ${totalTime}秒`);
 
 	// 添加自动筛选
 	worksheet.autoFilter = {

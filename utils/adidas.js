@@ -28,15 +28,11 @@ export function extractProductsFromHTML(htmlPath) {
 		}
 
 		// 1. 提取产品代码 (在 onclick="copyCode(this)" 的 cell 中)
-		const codeMatch = rowHtml.match(
-			/<div class="cell"[^>]*onclick="copyCode\(this\)">([^<]+)<\/div>/
-		);
+		const codeMatch = rowHtml.match(/<div class="cell"[^>]*onclick="copyCode\(this\)">([^<]+)<\/div>/);
 		const code = codeMatch ? codeMatch[1].trim() : null;
 
 		// 2. 提取价格 (在 price-krw div 中)
-		const priceMatch = rowHtml.match(
-			/<div class="price-krw">([^<]+)<\/div>/
-		);
+		const priceMatch = rowHtml.match(/<div class="price-krw">([^<]+)<\/div>/);
 		const priceStr = priceMatch
 			? priceMatch[1].match(/([\d,]+)\s*원/) // remove 원, commas
 			: null;
@@ -73,20 +69,11 @@ export function findPreviousJSONFile(excludeFileName = null) {
 	}
 	console.log('正在查找最新的JSON文件...');
 
-	const excludeBasename = excludeFileName
-		? `${path.basename(excludeFileName)}.json`
-		: null;
+	const excludeBasename = excludeFileName ? `${path.basename(excludeFileName)}.json` : null;
 
 	const files = fs
 		.readdirSync(collectionDir)
-		.filter(
-			(f) =>
-				f.includes('adidas') &&
-				f.includes('extra') &&
-				f.includes('sale') &&
-				f.endsWith('.json') &&
-				f !== excludeBasename
-		)
+		.filter((f) => f.includes('adidas') && f.includes('extra') && f.includes('sale') && f.endsWith('.json') && f !== excludeBasename)
 		.map((f) => {
 			const timestamp = extractTimestampFromFilename(f);
 			return {
@@ -96,9 +83,7 @@ export function findPreviousJSONFile(excludeFileName = null) {
 		})
 		.filter((f) => {
 			if (f.timestamp) {
-				console.log(
-					`文件: ${f.name}, 时间: ${f.timestamp.toISOString()}`
-				);
+				console.log(`文件: ${f.name}, 时间: ${f.timestamp.toISOString()}`);
 				return true;
 			} else {
 				console.log(`跳过无效时间戳的文件: ${f.name}`);
@@ -121,9 +106,7 @@ function extractTimestampFromFilename(filename) {
 	// 文件名格式: adidas-extra-sale-products_2025-10-05_07-41-45.json
 	// 支持 .json 扩展名
 	// 匹配格式: adidas-extra-sale-products_yyyy-mm-dd_hh-mm-ss.json
-	let match = filename.match(
-		/adidas[_-]extra[_-]sale[_-]products_(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})\.json/
-	);
+	let match = filename.match(/adidas[_-]extra[_-]sale[_-]products_(\d{4}-\d{2}-\d{2})_(\d{2})-(\d{2})-(\d{2})\.json/);
 	if (match) {
 		// 格式: 2025-10-05_07-41-45，转换为标准时间格式
 		const dateStr = match[1];
@@ -136,12 +119,7 @@ function extractTimestampFromFilename(filename) {
 }
 
 // 生成带价格比较的HTML
-function generateHTMLWithPriceComparison(
-	products,
-	dateTimeString,
-	previousDateTime = null,
-	removedProducts = []
-) {
+function generateHTMLWithPriceComparison(products, dateTimeString, previousDateTime = null, removedProducts = []) {
 	return `<!DOCTYPE html>
     <html lang="ko">
     <head>
@@ -663,9 +641,7 @@ function generateHTMLWithPriceComparison(
     <body>
     <div class="container">
         <h1>------ Adidas Extra Sale ------</h1>
-        <div class="datetime">抓取时间: ${dateTimeString}${
-			previousDateTime ? `<br/>上一次抓取时间: ${previousDateTime}` : ''
-		}
+        <div class="datetime">抓取时间: ${dateTimeString}${previousDateTime ? `<br/>上一次抓取时间: ${previousDateTime}` : ''}
         </div>
 
         <div class="sticky filter-controls">
@@ -693,13 +669,7 @@ function generateHTMLWithPriceComparison(
             ${products
 				.map(
 					(p, i) => `                    <div class="row${
-						p.isPriceDropped
-							? ' price-dropped'
-							: p.isPriceIncreased
-								? ' price-increased'
-								: p.isNewItem
-									? ' new-item'
-									: ''
+						p.isPriceDropped ? ' price-dropped' : p.isPriceIncreased ? ' price-increased' : p.isNewItem ? ' new-item' : ''
 					}">
                         <div class="cell">${i + 1}</div>
                         <div class="cell">
@@ -709,23 +679,15 @@ function generateHTMLWithPriceComparison(
                             &nbsp;&nbsp;
                             <span class="product-name">
                                 ${p.name}
-                                ${
-									p.isNewItem
-										? ' <span class="new-item-badge">新产品!</span>'
-										: ''
-								}
+                                ${p.isNewItem ? ' <span class="new-item-badge">新产品!</span>' : ''}
                             </span>
                         </div>
                         <div class="cell" onclick="copyCode(this)">${p.code}</div>
                         <div class="cell">
                             <div class="price-info">
-                                ${
-									p.isPriceDropped || p.isPriceIncreased
-										? `<div class="previous-price">${p.previousPrice}</div>`
-										: ''
-								}
+                                ${p.isPriceDropped || p.isPriceIncreased ? `<div class="previous-price">${p.previousPrice}</div>` : ''}
                                 <div>
-                                    <div class="price-krw">${p.price}</div>
+                                    <div class="price-krw">${p.price.toLocaleString('ko-KR')} 원</div>
                                     ${
 										p.isPriceDropped
 											? `<span class="price-drop-badge">降价!</span><span class="price-gap">-${p.priceGap}</span>`
@@ -742,37 +704,14 @@ function generateHTMLWithPriceComparison(
                                 ${
 									p.isExtra30Off
 										? `<div class="extra-30-badge"><span>Extra 30% OFF</span>
-                                        ${
-											p.isNewExtra30Off
-												? '<span class="new">New!</span>'
-												: ''
-										}</div>`
+                                        ${p.isNewExtra30Off ? '<span class="new">New!</span>' : ''}</div>`
 										: ''
 								}
                                 <div class="price-krw-30">
                                 ${
 									p.isExtra30Off
-										? (() => {
-												const priceMatch =
-													p.price.match(
-														/([\d,]+)\s*원/
-													);
-												if (priceMatch) {
-													const priceNum = parseInt(
-														priceMatch[1].replace(
-															/,/g,
-															''
-														)
-													);
-													const discountedPrice =
-														Math.round(
-															priceNum * 0.7
-														);
-													return `<span>${discountedPrice.toLocaleString('ko-KR')} 원</span>`;
-												}
-												return `<span>${p.price}</span>`;
-											})()
-										: `<span>${p.price}</span>`
+										? `<span>${Math.round(p.price * 0.7).toLocaleString('ko-KR')} 원</span>`
+										: `<span>${p.price.toLocaleString('ko-KR')} 원</span>`
 								}
                                 </div>
                                 <div class="price-rmb">RMB: <span></span></div>
@@ -790,7 +729,7 @@ function generateHTMLWithPriceComparison(
         <div class="removed-section">
             <h2>已下架产品 (${removedProducts.length} 件)</h2>
             <ul>
-        ${removedProducts.map((p) => `                <li>${p.code} - ${p.price}</li>`).join('\n')}
+        ${removedProducts.map((p) => `                <li>${p.code} - ${p.price.toLocaleString('ko-KR') + ' 원'}</li>`).join('\n')}
             </ul>
         </div>`
 				: ''
@@ -854,141 +793,95 @@ export async function comparePrice(currentFileName, prevFileName) {
 		// );
 
 		if (previousProductData) {
-			console.log(
-				`从 ${prevFileName} 中提取了 ${Object.keys(previousProductData.products).length} 个产品`
-			);
+			console.log(`从 ${prevFileName} 中提取了 ${Object.keys(previousProductData.products).length} 个产品`);
 			console.log('\n开始比较价格...');
 
 			let priceDropCount = 0;
 			// 标记降价产品 - 比较当前抓取的数据与最新已保存文件的价格
-			Object.values(currentProductData.products).forEach(
-				(product, index) => {
-					const currentPriceStr =
-						product.price.match(/([\d,]+)\s*원/);
-					if (currentPriceStr) {
-						const currentPrice = parseInt(
-							currentPriceStr[1].replace(/,/g, '')
-						);
-						const previousProductInfo =
-							previousProductData.products[product.code];
-						const previousPriceStr =
-							previousProductInfo?.price?.match(/([\d,]+)\s*원/);
-						const previousPrice = previousPriceStr
-							? parseInt(previousPriceStr[1].replace(/,/g, ''))
-							: null;
-						const previousIsExtra30Off =
-							previousProductInfo?.isExtra30Off || false;
+			Object.values(currentProductData.products).forEach((product, index) => {
+				// 兼容新旧数据格式: 价格可能是数字或字符串 "71,200 원"
+				const currentPrice =
+					typeof product.price === 'number'
+						? product.price
+						: (() => {
+								const priceMatch = product.price.match(/([\d,]+)\s*원/);
+								return priceMatch ? parseInt(priceMatch[1].replace(/,/g, '')) : 0;
+							})();
 
-						// 调试日志 - 只显示前5个产品
-						if (index < 5) {
-							console.log(
-								`\n产品 ${index + 1}: ${product.code} - ${product.name}`
-							);
-							console.log(
-								`  当前价格: ${currentPrice.toLocaleString()}`
-							);
-							console.log(
-								`  之前价格: ${
-									previousPrice
-										? previousPrice.toLocaleString()
-										: '未找到'
-								}`
-							);
-							console.log(
-								`  价格下降: ${
-									previousPrice &&
-									currentPrice < previousPrice
-										? '是'
-										: '否'
-								}`
-							);
-						}
+				const previousProductInfo = previousProductData.products[product.code];
+				const previousPrice = previousProductInfo?.price
+					? typeof previousProductInfo.price === 'number'
+						? previousProductInfo.price
+						: (() => {
+								const priceMatch = previousProductInfo.price.match(/([\d,]+)\s*원/);
+								return priceMatch ? parseInt(priceMatch[1].replace(/,/g, '')) : null;
+							})()
+					: null;
+				const previousIsExtra30Off = previousProductInfo?.isExtra30Off || false;
 
-						if (!previousPrice) {
-							// 新产品
-							product.isNewItem = true;
-							console.log(
-								`✓ 新产品: ${product.code} - ${
-									product.name
-								}: ${currentPrice.toLocaleString()} 원`
-							);
-						} else if (currentPrice < previousPrice) {
-							// 价格下降
-							product.isPriceDropped = true;
-							product.previousPrice =
-								previousPrice.toLocaleString() + ' 원';
-							product.priceGap =
-								(
-									previousPrice - currentPrice
-								).toLocaleString() + ' 원';
-							priceDropCount++;
-							console.log(
-								`✓ 价格下降: ${product.code} - ${
-									product.name
-								}: ${previousPrice.toLocaleString()} → ${currentPrice.toLocaleString()} (降了 ${
-									product.priceGap
-								})`
-							);
-						} else if (currentPrice > previousPrice) {
-							// 价格上涨
-							product.isPriceIncreased = true;
-							product.previousPrice =
-								previousPrice.toLocaleString() + ' 원';
-							product.priceGap =
-								(
-									currentPrice - previousPrice
-								).toLocaleString() + ' 원';
-							console.log(
-								`✓ 价格上涨: ${product.code} - ${
-									product.name
-								}: ${previousPrice.toLocaleString()} → ${currentPrice.toLocaleString()} (涨了 ${
-									product.priceGap
-								})`
-							);
-						}
-
-						// 新增额外30%折扣标记
-						if (!previousIsExtra30Off) {
-							product.isNewExtra30Off =
-								product.isExtra30Off || false;
-						}
-					} else {
-						if (index < 5) {
-							console.log(
-								`\n产品 ${index + 1}: ${product.code} - 价格格式无法匹配: "${
-									product.price
-								}"`
-							);
-						}
-					}
+				// 调试日志 - 只显示前5个产品
+				if (index < 5) {
+					console.log(`\n产品 ${index + 1}: ${product.code} - ${product.name}`);
+					console.log(`  当前价格: ${currentPrice.toLocaleString()}`);
+					console.log(`  之前价格: ${previousPrice ? previousPrice.toLocaleString() : '未找到'}`);
+					console.log(`  价格下降: ${previousPrice && currentPrice < previousPrice ? '是' : '否'}`);
 				}
-			);
+
+				if (!previousPrice) {
+					// 新产品
+					product.isNewItem = true;
+					console.log(`✓ 新产品: ${product.code} - ${product.name}: ${currentPrice.toLocaleString()} 원`);
+				} else if (currentPrice < previousPrice) {
+					// 价格下降
+					product.isPriceDropped = true;
+					product.previousPrice = previousPrice.toLocaleString() + ' 원';
+					product.priceGap = (previousPrice - currentPrice).toLocaleString() + ' 원';
+					priceDropCount++;
+					console.log(
+						`✓ 价格下降: ${product.code} - ${product.name}: ${previousPrice.toLocaleString()} → ${currentPrice.toLocaleString()} (降了 ${
+							product.priceGap
+						})`
+					);
+				} else if (currentPrice > previousPrice) {
+					// 价格上涨
+					product.isPriceIncreased = true;
+					product.previousPrice = previousPrice.toLocaleString() + ' 원';
+					product.priceGap = (currentPrice - previousPrice).toLocaleString() + ' 원';
+					console.log(
+						`✓ 价格上涨: ${product.code} - ${product.name}: ${previousPrice.toLocaleString()} → ${currentPrice.toLocaleString()} (涨了 ${
+							product.priceGap
+						})`
+					);
+				}
+
+				// 新增额外30%折扣标记
+				if (!previousIsExtra30Off) {
+					product.isNewExtra30Off = product.isExtra30Off || false;
+				}
+
+				// 统一将价格转换为数字格式(如果还不是的话)
+				if (typeof product.price !== 'number') {
+					product.price = currentPrice;
+				}
+			});
 
 			// 查找已下架的产品
 			const removedProducts = [];
-			const currentCodes = new Set(
-				Object.keys(currentProductData.products)
-			);
-			Object.entries(previousProductData.products).forEach(
-				([code, productInfo]) => {
-					if (!currentCodes.has(code)) {
-						removedProducts.push({
-							code: code,
-							price: productInfo.price,
-						});
-						console.log(`✓ 已下架: ${code}: ${productInfo.price}`);
-					}
+			const currentCodes = new Set(Object.keys(currentProductData.products));
+			Object.entries(previousProductData.products).forEach(([code, productInfo]) => {
+				if (!currentCodes.has(code)) {
+					removedProducts.push({
+						code: code,
+						price: productInfo.price,
+					});
+					console.log(`✓ 已下架: ${code}: ${productInfo.price}`);
 				}
-			);
+			});
 
 			// 统计摘要
 			const uniqueProducts = Object.values(currentProductData.products);
-			const newItemCount = uniqueProducts.filter(
-				(p) => p.isNewItem
-			).length;
-			const priceIncreaseCount = uniqueProducts.filter(
-				(p) => p.isPriceIncreased
-			).length;
+			const newItemCount = uniqueProducts.filter((p) => p.isNewItem).length;
+			const priceIncreaseCount = uniqueProducts.filter((p) => p.isPriceIncreased).length;
 
 			console.log(`\n=== 价格比较摘要 ===`);
 			console.log(`价格下降: ${priceDropCount} 件`);
@@ -1026,10 +919,7 @@ export async function comparePrice(currentFileName, prevFileName) {
 			console.log('无法从之前的文件中提取价格信息');
 			const uniqueProducts = Object.values(currentProductData.products);
 			const dateTimeString = currentProductData.dateTimeString;
-			const htmlContent = generateHTMLWithPriceComparison(
-				uniqueProducts,
-				dateTimeString
-			);
+			const htmlContent = generateHTMLWithPriceComparison(uniqueProducts, dateTimeString);
 			const htmlFileName = `${currentFileName}.html`;
 			fs.writeFileSync(htmlFileName, htmlContent, 'utf8');
 			console.log(`\n产品信息已保存到 ${htmlFileName}`);
@@ -1046,10 +936,7 @@ export async function comparePrice(currentFileName, prevFileName) {
 
 		const uniqueProducts = Object.values(currentProductData.products);
 		const dateTimeString = currentProductData.dateTimeString;
-		const htmlContent = generateHTMLWithPriceComparison(
-			uniqueProducts,
-			dateTimeString
-		);
+		const htmlContent = generateHTMLWithPriceComparison(uniqueProducts, dateTimeString);
 		const htmlFileName = `${currentFileName}.html`;
 		fs.writeFileSync(htmlFileName, htmlContent, 'utf8');
 		console.log(`\n产品信息已保存到 ${htmlFileName}`);

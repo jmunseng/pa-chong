@@ -1,10 +1,6 @@
 import { connect } from 'puppeteer-real-browser';
 import fs from 'fs';
-import {
-	comparePrice,
-	randomMouseMovement,
-	findPreviousJSONFile,
-} from './utils/adidas.js';
+import { comparePrice, randomMouseMovement, findPreviousJSONFile } from './utils/adidas.js';
 
 // async function waitForProductGrid(page) {
 // 	// 首先检查页面上实际存在哪些元素
@@ -136,11 +132,7 @@ async function waitForProductGrid(page) {
 					return false;
 				}
 				const style = window.getComputedStyle(element);
-				return (
-					style &&
-					style.display !== 'none' &&
-					style.visibility !== 'hidden'
-				);
+				return style && style.display !== 'none' && style.visibility !== 'hidden';
 			});
 		}, candidateSelectors);
 
@@ -170,13 +162,7 @@ async function waitForProductGrid(page) {
 		await handleBlockingOverlays(page);
 
 		try {
-			await page.waitForFunction(
-				() =>
-					document.querySelectorAll(
-						'[data-testid="plp-product-card"]'
-					).length > 0,
-				{ timeout: 15000 }
-			);
+			await page.waitForFunction(() => document.querySelectorAll('[data-testid="plp-product-card"]').length > 0, { timeout: 15000 });
 			console.log('✅ 滚动后检测到产品卡片');
 			await page.evaluate(() => {
 				window.scrollTo(0, 0);
@@ -281,9 +267,7 @@ async function scrapeAdidasProducts() {
 
 		// 获取总页数信息
 		const pageInfo = await page.evaluate(() => {
-			const indicator = document.querySelector(
-				'[data-testid="page-indicator"]'
-			);
+			const indicator = document.querySelector('[data-testid="page-indicator"]');
 			if (indicator) {
 				const text = indicator.textContent.trim();
 				const match = text.match(/(\d+)\s*\/\s*(\d+)/);
@@ -303,46 +287,33 @@ async function scrapeAdidasProducts() {
 
 		// 提取产品信息
 		const products = await page.evaluate(() => {
-			const productCards = document.querySelectorAll(
-				'[data-testid="plp-product-card"]'
-			);
+			const productCards = document.querySelectorAll('[data-testid="plp-product-card"]');
 			const productList = {}; // 使用对象来避免重复
 
 			productCards.forEach((card) => {
-				const link = card.querySelector(
-					'a[data-testid="product-card-description-link"]'
-				);
+				const link = card.querySelector('a[data-testid="product-card-description-link"]');
 				const href = link?.getAttribute('href') || '';
 				const codeMatch = href.match(/\/([A-Z0-9]+)\.html/);
 				const code = codeMatch ? codeMatch[1] : '';
 				// <p data-testid="product-card-badge" class="product-card-description_badge__m75SV">30% 추가 할인✨</p>
-				const badgeElement = card.querySelector(
-					'p[data-testid="product-card-badge"]'
-				);
+				const badgeElement = card.querySelector('p[data-testid="product-card-badge"]');
 				const badgeText = badgeElement?.textContent || '';
 				const isExtra30Off = badgeText.includes('30%');
 
 				// 构建完整URL
-				const url = href
-					? href.startsWith('http')
-						? href
-						: `https://www.adidas.co.kr${href}`
-					: '';
+				const url = href ? (href.startsWith('http') ? href : `https://www.adidas.co.kr${href}`) : '';
 
-				const nameElement = card.querySelector(
-					'[data-testid="product-card-title"]'
-				);
+				const nameElement = card.querySelector('[data-testid="product-card-title"]');
 				const name = nameElement?.textContent?.trim() || '';
 
-				const priceElement = card.querySelector(
-					'[data-testid="main-price"] span:last-child'
-				);
-				const price = priceElement?.textContent?.trim() || '';
+				const priceElement = card.querySelector('[data-testid="main-price"] span:last-child');
+				const priceText = priceElement?.textContent?.trim() || '';
+				// 提取纯数字,移除逗号和"원"
+				const priceMatch = priceText.match(/([\d,]+)/);
+				const price = priceMatch ? parseInt(priceMatch[1].replace(/,/g, '')) : 0;
 
 				// 获取产品图片URL
-				const imageElement = card.querySelector(
-					'img[data-testid="product-card-primary-image"]'
-				);
+				const imageElement = card.querySelector('img[data-testid="product-card-primary-image"]');
 				const imageUrl = imageElement?.getAttribute('src') || '';
 
 				if (code && name && price && url) {
@@ -365,18 +336,16 @@ async function scrapeAdidasProducts() {
 
 		// 显示前15个产品的徽章检测情况
 		productValues.slice(0, 15).forEach((p, i) => {
-			console.log(
-				`  ${i + 1}. ${p.code} - ${p.name} - Extra 30%: ${p.isExtra30Off ? '✓' : '✗'}`
-			);
+			console.log(`  ${i + 1}. ${p.code} - ${p.name} - Extra 30%: ${p.isExtra30Off ? '✓' : '✗'}`);
 		});
 
 		// 合并产品对象
 		allProducts = { ...allProducts, ...products };
 
 		// 检查是否还有下一页
-		if (pageInfo && pageNum >= pageInfo.total) {
-			// <<<<
-			// if (pageInfo && pageInfo.current >= 1) {
+		// if (pageInfo && pageNum >= pageInfo.total) {
+		// <<<<
+		if (pageInfo && pageInfo.current >= 1) {
 			console.log('已到达最后一页');
 			break;
 		}
@@ -402,9 +371,7 @@ async function scrapeAdidasProducts() {
 	// 由于allProducts现在是对象,键就是产品代码,已经自动去重了
 	const uniqueProducts = allProducts;
 
-	console.log(
-		`\n总共提取 ${Object.keys(uniqueProducts).length} 个不重复的产品:\n`
-	);
+	console.log(`\n总共提取 ${Object.keys(uniqueProducts).length} 个不重复的产品:\n`);
 
 	// 保存到HTML文件
 	const today = new Date();
@@ -420,13 +387,9 @@ async function scrapeAdidasProducts() {
 	if (!fs.existsSync(collectionFolder)) {
 		fs.mkdirSync(collectionFolder);
 	}
-	const fileName = `${collectionFolder}/adidas-extra-sale-products_${today.getFullYear()}-${String(
-		today.getMonth() + 1
-	).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}_${String(
+	const fileName = `${collectionFolder}/adidas-extra-sale-products_${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}_${String(
 		today.getHours()
-	).padStart(2, '0')}-${String(today.getMinutes()).padStart(2, '0')}-${String(
-		today.getSeconds()
-	).padStart(2, '0')}`;
+	).padStart(2, '0')}-${String(today.getMinutes()).padStart(2, '0')}-${String(today.getSeconds()).padStart(2, '0')}`;
 
 	// 保存最新数据到JSON文件
 	const jsonFileName = `${fileName}.json`;

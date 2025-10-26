@@ -13,14 +13,9 @@ export async function sendEmailToSubscribers(filePath) {
 		const fileName = path.basename(filePath);
 
 		// 从文件名中提取日期和时间信息(如果存在)
-		const dateTimeMatch = fileName.match(
-			/(\d{4}-\d{2}-\d{2})[-_]?(\d{2}[-:]?\d{2}[-:]?\d{2})?/
-		);
+		const dateTimeMatch = fileName.match(/(\d{4}-\d{2}-\d{2})[-_]?(\d{2}[-:]?\d{2}[-:]?\d{2})?/);
 		const dateStr = dateTimeMatch
-			? dateTimeMatch[1] +
-				(dateTimeMatch[2]
-					? ' ' + dateTimeMatch[2].replace(/[-_]/g, ':')
-					: '')
+			? dateTimeMatch[1] + (dateTimeMatch[2] ? ' ' + dateTimeMatch[2].replace(/[-_]/g, ':') : '')
 			: new Date().toLocaleString('zh-CN', {
 					year: 'numeric',
 					month: '2-digit',
@@ -31,9 +26,7 @@ export async function sendEmailToSubscribers(filePath) {
 				});
 
 		// 将 HTML 内容转换为 Base64 编码
-		const base64HtmlContent = Buffer.from(htmlContent, 'utf-8').toString(
-			'base64'
-		);
+		const base64HtmlContent = Buffer.from(htmlContent, 'utf-8').toString('base64');
 
 		console.log(`准备发送邮件,HTML 文件大小: ${htmlContent.length} 字节`);
 
@@ -59,9 +52,7 @@ export async function sendEmailToSubscribers(filePath) {
 				content: base64XlsxContent,
 			});
 
-			console.log(
-				`找到 Excel 文件: ${xlsxFileName}, 大小: ${xlsxContent.length} 字节`
-			);
+			console.log(`找到 Excel 文件: ${xlsxFileName}, 大小: ${xlsxContent.length} 字节`);
 		} else {
 			console.log(`未找到 Excel 文件: ${xlsxFilePath}`);
 		}
