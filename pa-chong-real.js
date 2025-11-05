@@ -1,93 +1,11 @@
 import { connect } from 'puppeteer-real-browser';
 import fs from 'fs';
-import { comparePrice, findPreviousJSONFile } from './utils/adidas.js';
+import { comparePrice } from './utils/adidas/adidas.js';
+import { getFilePath } from './utils/adidas/common.js';
+import { generateExcel } from './utils/adidas/create-excel.js';
 
-// async function waitForProductGrid(page) {
-// 	// 首先检查页面上实际存在哪些元素
-// 	console.log('🔍 调试: 检查页面上的 data-testid 属性...');
-// 	const testIds = await page.evaluate(() => {
-// 		const elements = document.querySelectorAll('[data-testid]');
-// 		return Array.from(elements)
-// 			.slice(0, 20) // 只取前20个,避免输出过多
-// 			.map((el) => el.getAttribute('data-testid'));
-// 	});
-// 	console.log('📋 找到的 data-testid (前20个):', testIds);
-
-// 	// 检查页面上是否有包含 "product" 关键字的 class 或 data 属性
-// 	console.log('🔍 调试: 检查包含 "product" 的元素...');
-// 	const productElements = await page.evaluate(() => {
-// 		const selectors = [
-// 			'[class*="product"]',
-// 			'[data-auto-id*="product"]',
-// 			'[id*="product"]',
-// 		];
-// 		const results = {};
-// 		for (const selector of selectors) {
-// 			const elements = document.querySelectorAll(selector);
-// 			if (elements.length > 0) {
-// 				results[selector] = {
-// 					count: elements.length,
-// 					firstClasses: elements[0].className,
-// 				};
-// 			}
-// 		}
-// 		return results;
-// 	});
-// 	console.log('📋 包含 "product" 的元素:', productElements);
-
-// 	const candidateSelectors = [
-// 		'[data-testid="plp-product-card"]',
-// 		'[data-testid="product-grid"]',
-// 		'[data-testid="product-grid-container"]',
-// 		'main [data-auto-id="products-list"]',
-// 	];
-
-// 	for (const selector of candidateSelectors) {
-// 		try {
-// 			console.log(`⏳ 尝试等待选择器: ${selector}`);
-// 			await page.waitForSelector(selector, {
-// 				timeout: 20000,
-// 			});
-// 			console.log(`✅ 通过选择器 ${selector} 检测到产品容器`);
-// 			return;
-// 		} catch {
-// 			console.log(`⚠️ 未检测到 ${selector}, 尝试下一个候选...`);
-// 		}
-// 	}
-
-// 	console.log('⚠️ 产品容器候选未出现,滚动页面触发懒加载...');
-// 	await page.evaluate(() => {
-// 		window.scrollTo(0, document.body.scrollHeight);
-// 	});
-// 	await page.waitForTimeout(1500);
-
-// 	try {
-// 		console.log('⏳ 等待产品卡片出现...');
-// 		await page.waitForFunction(
-// 			() =>
-// 				document.querySelectorAll('[data-testid="plp-product-card"]')
-// 					.length > 0,
-// 			{ timeout: 20000 }
-// 		);
-// 		console.log('✅ 滚动后检测到产品卡片');
-// 		await page.evaluate(() => {
-// 			window.scrollTo(0, 0);
-// 		});
-// 	} catch {
-// 		console.log('❌ 滚动后仍未检测到产品,继续执行流程以便调试');
-
-// 		// 最后的调试信息:检查页面上实际有哪些元素
-// 		const finalDebug = await page.evaluate(() => {
-// 			return {
-// 				bodyHTML: document.body.innerHTML.substring(0, 500), // 前500字符
-// 				allDivs: document.querySelectorAll('div').length,
-// 				allArticles: document.querySelectorAll('article').length,
-// 				allSections: document.querySelectorAll('section').length,
-// 			};
-// 		});
-// 		console.log('📋 页面元素统计:', finalDebug);
-// 	}
-// }
+// 是否为黑色星期五促销页面
+const isBlackFriday = false;
 
 async function handleBlockingOverlays(page) {
 	const dismissSelectors = [
@@ -211,7 +129,9 @@ async function scrapeAdidasProducts() {
 	// );
 
 	// 访问目标网页
-	const url = 'https://www.adidas.co.kr/outlet?grid=true';
+	let url = 'https://www.adidas.co.kr/outlet?grid=true';
+
+	if (isBlackFriday) url = 'https://www.adidas.co.kr/black_friday?grid=true';
 	console.log('现在访问目标页面...');
 
 	await page.goto(url, {
@@ -342,7 +262,7 @@ async function scrapeAdidasProducts() {
 		// 检查是否还有下一页
 		if (pageInfo && pageNum >= pageInfo.total) {
 			// <<<<
-			// if (pageInfo && pageInfo.current >= 1) {
+			// if (pageInfo && pageInfo.current >= 2) {
 			console.log('已到达最后一页');
 			break;
 		}
@@ -350,7 +270,7 @@ async function scrapeAdidasProducts() {
 		// 构建下一页URL
 		pageNum++;
 		const nextStart = (pageNum - 1) * itemsPerPage;
-		const nextUrl = `https://www.adidas.co.kr/outlet?grid=true&start=${nextStart}`;
+		const nextUrl = `${url}&start=${nextStart}`;
 
 		console.log(`访问下一页: ${nextUrl}`);
 
@@ -380,17 +300,13 @@ async function scrapeAdidasProducts() {
 		minute: '2-digit',
 		second: '2-digit',
 	});
-	const collectionFolder = 'collection';
-	if (!fs.existsSync(collectionFolder)) {
-		fs.mkdirSync(collectionFolder);
-	}
-	const fileName = `${collectionFolder}/adidas-extra-sale-products_${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}_${String(
+
+	const fileName = `adidas-extra-sale-products_${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}_${String(
 		today.getHours()
 	).padStart(2, '0')}-${String(today.getMinutes()).padStart(2, '0')}-${String(today.getSeconds()).padStart(2, '0')}`;
 
 	// 保存最新数据到JSON文件
-	const jsonFileName = `${fileName}.json`;
-	// uniqueProducts 现在已经是对象格式了,不需要转换
+	const jsonFilePathAndName = getFilePath(fileName, 'json');
 
 	const jsonData = {
 		dateTimeString: dateTimeString,
@@ -399,15 +315,16 @@ async function scrapeAdidasProducts() {
 		products: uniqueProducts,
 	};
 
-	console.log(`保存最新数据到 JSON 文件: ${jsonFileName}`);
-	fs.writeFileSync(jsonFileName, JSON.stringify(jsonData, null, 2), 'utf-8');
+	console.log(`保存最新数据到 JSON 文件: ${jsonFilePathAndName}`);
+	fs.writeFileSync(jsonFilePathAndName, JSON.stringify(jsonData, null, 2), 'utf-8');
 	console.log('JSON 文件保存成功');
 
-	// 查找之前的JSON文件
-	const prevFileName = findPreviousJSONFile(fileName);
-
 	// 比较价格json data
-	await comparePrice(fileName, prevFileName);
+	await comparePrice(fileName);
+
+	// 生成 Excel 文件
+	console.log(`准备生产Excel文件: ${fileName}.xlsx`);
+	await generateExcel(fileName);
 
 	// 关闭浏览器
 	await browser.close();

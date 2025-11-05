@@ -12,7 +12,10 @@
 	"type": "module",
 	"scripts": {
 		"dev": "node --env-file=.env pa-chong-real.js",
-		"test-email": "node --env-file=.env test-email.js"
+		"test": "bash test/run-all-tests.sh",
+		"test-email": "node --env-file=.env test/adidas/test-email.js",
+		"test-excel": "node test/adidas/test-excel-new.js",
+		"test-find-prev": "node test/adidas/test-find-prev.js"
 	},
 	"devDependencies": {
 		"@eslint/css": "^0.13.0",

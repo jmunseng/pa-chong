@@ -1,7 +1,12 @@
 {
-	"permissions": {
-		"allow": ["Read(//Users/leon/Downloads/**)", "Bash(node:*)"],
-		"deny": [],
-		"ask": []
-	}
+  "permissions": {
+    "allow": [
+      "Read(//Users/leon/Downloads/**)",
+      "Bash(node:*)",
+      "Bash(cat:*)",
+      "Bash(chmod:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
 }
