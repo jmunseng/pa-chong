@@ -1,0 +1,26 @@
+{
+	"adidas": {
+		"url": "https://www.adidas.co.kr/outlet?grid=true",
+		"isBlackFriday": false,
+		"blackFridayUrl": "https://www.adidas.co.kr/black_friday?grid=true",
+		"itemPerPage": 48
+	},
+	"nike": {
+		"url": "https://www.nike.com/kr/ko_kr/w/outlet-3n82yzy7ok",
+		"itemPerPage": 30
+	},
+	"musinsa": {
+		"url": "",
+		"itemPerPage": 90
+	},
+	"CONFIG": {
+		"CLICK_DELAY": 100,
+		"OVERLAY_DISMISS_TIMEOUT": 400,
+		"SELECTOR_TIMEOUT": 5000,
+		"SCROLL_CHECK_TIMEOUT": 5000,
+		"SCROLL_DISTANCE": 100,
+		"SCROLL_INTERVAL": 100,
+		"BADGE_LOAD_WAIT": 1000,
+		"PAGE_LOAD_TIMEOUT": 10000
+	}
+}

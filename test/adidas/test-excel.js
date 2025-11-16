@@ -1,8 +1,8 @@
-import { generateExcel } from '../../utils/adidas/create-excel.js';
+import { generateExcel } from '../../utils/create-excel.js';
 import fs from 'fs';
 
 // 读取 JSON 文件
-const jsonFilePath = './collection/adidas-extra-sale-products_2025-10-27_01-05-46.json';
+const jsonFilePath = './collection/adidas/adidas-extra-sale-products_2025-10-27_01-05-46.json';
 const jsonData = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
 
 // 将产品对象转换为数组

@@ -1,4 +1,4 @@
-import { generateExcel } from '../../utils/adidas/create-excel.js';
+import { generateExcel } from '../../utils/create-excel.js';
 
 // 测试新的简化接口
 // 注意: fileName 不应包含 collection/ 前缀，getFilePath 会自动添加

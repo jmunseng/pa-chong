@@ -35,7 +35,7 @@ function analyzeLatestFile() {
 
 	let productCount = 0;
 
-	rows.forEach((rowHtml, index) => {
+	rows.forEach((rowHtml) => {
 		// Skip header row
 		if (rowHtml.includes('class="row header"')) {
 			return;

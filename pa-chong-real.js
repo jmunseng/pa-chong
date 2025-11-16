@@ -1,106 +1,8 @@
 import { connect } from 'puppeteer-real-browser';
 import fs from 'fs';
-import { comparePrice } from './utils/adidas/adidas.js';
-import { getFilePath } from './utils/adidas/common.js';
-import { generateExcel } from './utils/adidas/create-excel.js';
-
-// 是否为黑色星期五促销页面
-const isBlackFriday = false;
-
-async function handleBlockingOverlays(page) {
-	const dismissSelectors = [
-		'#onetrust-accept-btn-handler',
-		'button[data-testid="cookie-policy-accept"]',
-		'button[data-testid="cookie-policy-accept-button"]',
-		'button[data-testid="cookie-accept-all"]',
-		'button[data-testid="dialog-close-button"]',
-	];
-	for (const selector of dismissSelectors) {
-		const handle = await page.$(selector);
-		if (!handle) {
-			continue;
-		}
-		try {
-			await handle.click({ delay: 100 });
-			console.log(`✅ 已关闭遮挡元素 ${selector}`);
-			await page.waitForTimeout(400);
-		} catch (error) {
-			console.log(`⚠️ 点击遮挡元素 ${selector} 失败: ${error.message}`);
-		}
-	}
-}
-
-async function waitForProductGrid(page) {
-	const candidateSelectors = [
-		'[data-testid="plp-product-card"]',
-		'[data-testid="product-grid"]',
-		'[data-testid="product-grid-container"]',
-		'main [data-auto-id="products-list"]',
-	];
-	const retryLimit = 3;
-
-	for (let attempt = 1; attempt <= retryLimit; attempt += 1) {
-		console.log(`⏳ 第 ${attempt} 次尝试定位产品网格...`);
-		await handleBlockingOverlays(page);
-
-		const alreadyPresent = await page.evaluate((selectors) => {
-			return selectors.some((selector) => {
-				const element = document.querySelector(selector);
-				if (!element) {
-					return false;
-				}
-				const style = window.getComputedStyle(element);
-				return style && style.display !== 'none' && style.visibility !== 'hidden';
-			});
-		}, candidateSelectors);
-
-		if (alreadyPresent) {
-			console.log('✅ 页面加载时已检测到产品容器');
-			return;
-		}
-
-		for (const selector of candidateSelectors) {
-			try {
-				await page.waitForSelector(selector, {
-					timeout: 20000,
-					visible: true,
-				});
-				console.log(`✅ 通过选择器 ${selector} 检测到产品容器`);
-				return;
-			} catch {
-				console.log(`⚠️ 未检测到 ${selector}, 尝试下一个候选...`);
-			}
-		}
-
-		console.log('⚠️ 产品容器候选未出现,滚动页面触发懒加载...');
-		await page.evaluate(() => {
-			window.scrollTo(0, document.body.scrollHeight);
-		});
-		await page.waitForTimeout(1500);
-		await handleBlockingOverlays(page);
-
-		try {
-			await page.waitForFunction(() => document.querySelectorAll('[data-testid="plp-product-card"]').length > 0, { timeout: 15000 });
-			console.log('✅ 滚动后检测到产品卡片');
-			await page.evaluate(() => {
-				window.scrollTo(0, 0);
-			});
-			return;
-		} catch {
-			console.log('⚠️ 滚动后仍未检测到产品,准备重试');
-		}
-
-		if (attempt < retryLimit) {
-			console.log('🔄 重新加载页面后再次尝试...');
-			await page.reload({
-				waitUntil: 'domcontentloaded',
-				timeout: 60000,
-			});
-		}
-	}
-
-	console.log('❌ 多次尝试后仍未检测到产品容器,继续执行流程以便调试');
-}
+import { comparePrice, findPreviousJSONFile, getCurrentDateTimeString, getFilePath, getTotalPages, loadSettings } from './utils/common.js';
+import { generateExcel } from './utils/create-excel.js';
+import { waitForProductGrid } from './utils/adidas/adidas.js';
 
 async function scrapeAdidasProducts() {
 	console.log('启动真实浏览器...');
@@ -123,164 +25,190 @@ async function scrapeAdidasProducts() {
 	// 模拟人类行为：先访问主页
 	console.log('先访问主页建立会话...');
 
-	// // 随机等待
-	// await new Promise((resolve) =>
-	// 	setTimeout(resolve, 3000 + Math.random() * 2000)
-	// );
+	// 读取配置信息
+	const settings = loadSettings();
 
 	// 访问目标网页
-	let url = 'https://www.adidas.co.kr/outlet?grid=true';
-
-	if (isBlackFriday) url = 'https://www.adidas.co.kr/black_friday?grid=true';
+	let url = settings.adidas.url;
+	if (settings.adidas.isBlackFriday) url = settings.adidas.blackFridayUrl;
 	console.log('现在访问目标页面...');
 
 	await page.goto(url, {
 		waitUntil: 'networkidle2',
-		timeout: 60000,
+		timeout: settings.CONFIG.PAGE_LOAD_TIMEOUT,
 	});
 
 	console.log('等待产品网格加载...');
-	await waitForProductGrid(page);
+	let isProductGridLoaded = await waitForProductGrid(page);
+	if (!isProductGridLoaded) {
+		console.log('❌ 产品网格加载失败');
+		return;
+	}
 
 	console.log('开始提取产品信息...');
 
 	// 多页抓取
 	let allProducts = {}; // 改为对象,使用产品代码作为键
+	let hasError = false;
 	let pageNum = 1;
-	const itemsPerPage = 48;
+	const itemsPerPage = settings.adidas.itemPerPage;
+	const pageInfo = await getTotalPages(page);
 
-	while (true) {
-		console.log(`\n正在抓取第 ${pageNum} 页...`);
+	// 检查是否有未完成的抓取任务
+	const latestErroredJSONFile = findPreviousJSONFile(null, true);
 
-		// 等待产品加载
-		await new Promise((resolve) => setTimeout(resolve, 1000));
+	if (latestErroredJSONFile) {
+		const lastErroredFilePath = getFilePath(latestErroredJSONFile.replace('.json', ''), 'json');
+		const lastErroredProductData = JSON.parse(fs.readFileSync(lastErroredFilePath, 'utf-8'));
 
-		// 滚动页面以确保所有产品都被加载
-		console.log('滚动页面以加载所有产品...');
-		await page.evaluate(() => {
-			return new Promise((resolve) => {
-				let totalHeight = 0;
-				const distance = 100;
-				const timer = setInterval(() => {
-					const scrollHeight = document.body.scrollHeight;
-					window.scrollBy(0, distance);
-					totalHeight += distance;
-
-					if (totalHeight >= scrollHeight) {
-						clearInterval(timer);
-						resolve();
-					}
-				}, 100);
-			});
-		});
-
-		// 滚动后再等待一段时间让徽章加载
-		await new Promise((resolve) => setTimeout(resolve, 1000));
-
-		// 回到顶部
-		// await page.evaluate(() => {
-		// 	window.scrollTo(0, 0);
-		// });
-
-		// 获取总页数信息
-		const pageInfo = await page.evaluate(() => {
-			const indicator = document.querySelector('[data-testid="page-indicator"]');
-			if (indicator) {
-				const text = indicator.textContent.trim();
-				const match = text.match(/(\d+)\s*\/\s*(\d+)/);
-				if (match) {
-					return {
-						current: parseInt(match[1]),
-						total: parseInt(match[2]),
-					};
-				}
-			}
-			return null;
-		});
-
-		if (pageInfo) {
-			console.log(`当前页: ${pageInfo.current} / ${pageInfo.total}`);
+		if (lastErroredProductData.hasError && lastErroredProductData.errorPageNum) {
+			console.log(`\n⚠️ 检测到上次抓取未完成,从第 ${lastErroredProductData.errorPageNum} 页继续抓取...`);
+			pageNum = lastErroredProductData.errorPageNum;
+			allProducts = lastErroredProductData.products || {};
+		} else {
+			console.log(`\n✅ 找到上次抓取文件,但已完成,从第1页开始新的抓取`);
 		}
+	} else {
+		console.log(`\n✅ 未找到上次抓取文件,这是首次运行,从第1页开始`);
+	}
 
-		// 提取产品信息
-		const products = await page.evaluate(() => {
-			const productCards = document.querySelectorAll('[data-testid="plp-product-card"]');
-			const productList = {}; // 使用对象来避免重复
-
-			productCards.forEach((card) => {
-				const link = card.querySelector('a[data-testid="product-card-description-link"]');
-				const href = link?.getAttribute('href') || '';
-				const codeMatch = href.match(/\/([A-Z0-9]+)\.html/);
-				const code = codeMatch ? codeMatch[1] : '';
-				// <p data-testid="product-card-badge" class="product-card-description_badge__m75SV">30% 추가 할인✨</p>
-				const badgeElement = card.querySelector('p[data-testid="product-card-badge"]');
-				const badgeText = badgeElement?.textContent || '';
-				const isExtra30Off = badgeText.includes('30%');
-
-				// 构建完整URL
-				const url = href ? (href.startsWith('http') ? href : `https://www.adidas.co.kr${href}`) : '';
-
-				const nameElement = card.querySelector('[data-testid="product-card-title"]');
-				const name = nameElement?.textContent?.trim() || '';
-
-				const priceElement = card.querySelector('[data-testid="main-price"] span:last-child');
-				const priceText = priceElement?.textContent?.trim() || '';
-				// 提取纯数字,移除逗号和"원"
-				const priceMatch = priceText.match(/([\d,]+)/);
-				const price = priceMatch ? parseInt(priceMatch[1].replace(/,/g, '')) : 0;
-
-				// 获取产品图片URL
-				const imageElement = card.querySelector('img[data-testid="product-card-primary-image"]');
-				const imageUrl = imageElement?.getAttribute('src') || '';
-
-				if (code && name && price && url) {
-					productList[code] = {
-						code,
-						name,
-						price,
-						url,
-						imageUrl,
-						isExtra30Off: isExtra30Off,
-					};
-				}
-			});
-
-			return productList;
-		});
-
-		const productValues = Object.values(products);
-		console.log(`第 ${pageNum} 页找到 ${productValues.length} 个产品`);
-
-		// 显示前15个产品的徽章检测情况
-		productValues.slice(0, 15).forEach((p, i) => {
-			console.log(`  ${i + 1}. ${p.code} - ${p.name} - Extra 30%: ${p.isExtra30Off ? '✓' : '✗'}`);
-		});
-
-		// 合并产品对象
-		allProducts = { ...allProducts, ...products };
-
-		// 检查是否还有下一页
-		if (pageInfo && pageNum >= pageInfo.total) {
-			// <<<<
-			// if (pageInfo && pageInfo.current >= 2) {
-			console.log('已到达最后一页');
-			break;
-		}
-
-		// 构建下一页URL
-		pageNum++;
-		const nextStart = (pageNum - 1) * itemsPerPage;
-		const nextUrl = `${url}&start=${nextStart}`;
-
-		console.log(`访问下一页: ${nextUrl}`);
-
+	for (pageNum; pageNum <= pageInfo.total; pageNum++) {
 		try {
-			await page.goto(nextUrl, {
-				waitUntil: 'networkidle2',
-				timeout: 60000,
+			console.log(`\n正在抓取第 ${pageNum} 页...`);
+
+			// 构建下一页URL
+			const nextStart = (pageNum - 1) * itemsPerPage;
+			const nextUrl = `${url}&start=${nextStart}`;
+
+			// testing
+			if (pageNum == 7) {
+				url = 'https://www.adidas.co.kr/search?q=JM9104';
+			}
+			console.log(`访问下一页: ${nextUrl}`);
+
+			try {
+				await page.goto(nextUrl, {
+					waitUntil: 'networkidle2',
+					timeout: settings.CONFIG.PAGE_LOAD_TIMEOUT,
+				});
+			} catch (err) {
+				console.log(`❌ 无法加载下一页: ${err.message}`);
+				hasError = true;
+				break;
+			}
+
+			// 等待产品加载
+			// console.log('等待产品网格加载...');
+			let isProductGridLoaded = await waitForProductGrid(page);
+			if (!isProductGridLoaded) {
+				console.log('❌ 产品网格加载失败');
+				hasError = true;
+				break;
+			}
+
+			// 滚动页面以确保所有产品都被加载
+			console.log('滚动页面以加载所有产品...');
+			await page.evaluate(
+				(scrollDistance, scrollInterval) => {
+					return new Promise((resolve) => {
+						let totalHeight = 0;
+						const distance = scrollDistance;
+						const timer = setInterval(() => {
+							const scrollHeight = document.body.scrollHeight;
+							window.scrollBy(0, distance);
+							totalHeight += distance;
+
+							if (totalHeight >= scrollHeight) {
+								clearInterval(timer);
+								resolve();
+							}
+						}, scrollInterval);
+					});
+				},
+				settings.CONFIG.SCROLL_DISTANCE,
+				settings.CONFIG.SCROLL_INTERVAL
+			);
+
+			// 滚动后再等待一段时间让徽章加载
+			await new Promise((resolve) => setTimeout(resolve, settings.CONFIG.BADGE_LOAD_WAIT));
+
+			// 获取总页数信息
+			console.log(`当前页: ${pageNum} / ${pageInfo.total}`);
+
+			// 提取产品信息
+			const products = await page.evaluate((isBlackFriday) => {
+				const productCards = document.querySelectorAll('[data-testid="plp-product-card"]');
+				const productList = {}; // 使用对象来避免重复
+
+				productCards.forEach((card) => {
+					const link = card.querySelector('a[data-testid="product-card-description-link"]');
+					const href = link?.getAttribute('href') || '';
+					const codeMatch = href.match(/\/([A-Z0-9]+)\.html/);
+					const code = codeMatch ? codeMatch[1] : '';
+					// <p data-testid="product-card-badge" class="product-card-description_badge__m75SV">30% 추가 할인✨</p>
+					const badgeElement = card.querySelector('p[data-testid="product-card-badge"]');
+					const badgeText = badgeElement?.textContent || '';
+					const isExtra30Off = badgeText.includes('30%');
+
+					// 构建完整URL
+					const url = href ? (href.startsWith('http') ? href : `https://www.adidas.co.kr${href}`) : '';
+
+					const nameElement = card.querySelector('[data-testid="product-card-title"]');
+					const name = nameElement?.textContent?.trim() || '';
+
+					const priceElement = card.querySelector('[data-testid="main-price"] span:last-child');
+					const priceText = priceElement?.textContent?.trim() || '';
+					// 提取纯数字,移除逗号和"원"
+					const priceMatch = priceText.match(/([\d,]+)/);
+					const price = priceMatch ? parseInt(priceMatch[1].replace(/,/g, '')) : 0;
+
+					// 获取产品图片URL
+					const imageElement = card.querySelector('img[data-testid="product-card-primary-image"]');
+					const imageUrl = imageElement?.getAttribute('src') || '';
+
+					if (code && name && price && url) {
+						productList[code] = {
+							code,
+							name,
+							price,
+							url,
+							imageUrl,
+							isExtra30Off: isBlackFriday ? true : isExtra30Off,
+						};
+					}
+				});
+
+				return productList;
+			}, settings.adidas.isBlackFriday);
+
+			const productValues = Object.values(products);
+			console.log(`第 ${pageNum} 页找到 ${productValues.length} 个产品`);
+
+			// 显示前3个产品的徽章检测情况
+			productValues.slice(0, 3).forEach((p, i) => {
+				console.log(`  ${i + 1}. ${p.code} - ${p.name} - Extra 30%: ${p.isExtra30Off ? '✓' : '✗'}`);
 			});
+
+			// 合并产品对象
+			allProducts = { ...allProducts, ...products };
+
+			// // debug: 限制只抓取1页
+			// if (pageNum == 2 && forceDown) {
+			// 	hasError = true;
+			// 	forceDown = false;
+			// 	break;
+			// }
+
+			// 检查是否还有下一页
+			// if (pageInfo && pageNum >= pageInfo.total) {
+			if (pageNum == 4) {
+				console.log('已到达最后一页');
+				break;
+			}
 		} catch (err) {
-			console.log('无法加载下一页:', err.message);
+			// 捕获浏览器关闭或其他错误
+			console.error(`❌ 抓取第 ${pageNum} 页时发生错误: ${err.message}`);
+			hasError = true;
 			break;
 		}
 	}
@@ -292,16 +220,9 @@ async function scrapeAdidasProducts() {
 
 	// 保存到HTML文件
 	const today = new Date();
-	const dateTimeString = today.toLocaleString('ko-KR', {
-		year: 'numeric',
-		month: '2-digit',
-		day: '2-digit',
-		hour: '2-digit',
-		minute: '2-digit',
-		second: '2-digit',
-	});
+	const dateTimeString = getCurrentDateTimeString();
 
-	const fileName = `adidas-extra-sale-products_${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}_${String(
+	const fileName = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}_${String(
 		today.getHours()
 	).padStart(2, '0')}-${String(today.getMinutes()).padStart(2, '0')}-${String(today.getSeconds()).padStart(2, '0')}`;
 
@@ -311,6 +232,8 @@ async function scrapeAdidasProducts() {
 	const jsonData = {
 		dateTimeString: dateTimeString,
 		timestamp: today.toISOString(),
+		hasError: hasError,
+		errorPageNum: pageNum,
 		totalProducts: Object.keys(uniqueProducts).length,
 		products: uniqueProducts,
 	};
@@ -319,18 +242,26 @@ async function scrapeAdidasProducts() {
 	fs.writeFileSync(jsonFilePathAndName, JSON.stringify(jsonData, null, 2), 'utf-8');
 	console.log('JSON 文件保存成功');
 
-	// 比较价格json data
-	await comparePrice(fileName);
-
-	// 生成 Excel 文件
-	console.log(`准备生产Excel文件: ${fileName}.xlsx`);
-	await generateExcel(fileName);
-
 	// 关闭浏览器
-	await browser.close();
-	console.log('浏览器已关闭');
+	try {
+		await browser.close();
+		console.log('浏览器已关闭');
+	} catch (err) {
+		console.log(`浏览器已被关闭或无法关闭: ${err.message}`);
+	}
 
-	return;
+	if (hasError) {
+		// re-run whole process if not finished
+		console.log('抓取未完成，准备重新运行爬虫...');
+		await scrapeAdidasProducts();
+	} else {
+		// 比较价格json data
+		await comparePrice(fileName);
+
+		// 生成 Excel 文件
+		console.log(`准备生产Excel文件: ${fileName}.xlsx`);
+		await generateExcel(fileName);
+	}
 }
 
 // 运行脚本

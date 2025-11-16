@@ -5,7 +5,7 @@ import { getFilePath } from './common.js';
 /**
  * 生成 Excel 文件
  * @param {string} fileName - JSON 文件名 (不包含扩展名)
- * 例如: 'adidas-extra-sale-products_2025-11-05_01-30-56'
+ * 例如: '2025-11-05_01-30-56'
  */
 export async function generateExcel(fileName) {
 	// 读取 JSON 文件
