@@ -80,10 +80,6 @@ async function scrapeAdidasProducts() {
 			const nextStart = (pageNum - 1) * itemsPerPage;
 			const nextUrl = `${url}&start=${nextStart}`;
 
-			// testing
-			if (pageNum == 7) {
-				url = 'https://www.adidas.co.kr/search?q=JM9104';
-			}
 			console.log(`访问下一页: ${nextUrl}`);
 
 			try {
@@ -200,8 +196,8 @@ async function scrapeAdidasProducts() {
 			// }
 
 			// 检查是否还有下一页
-			// if (pageInfo && pageNum >= pageInfo.total) {
-			if (pageNum == 4) {
+			if (pageInfo && pageNum >= pageInfo.total) {
+				// if (pageNum == 4) {
 				console.log('已到达最后一页');
 				break;
 			}
