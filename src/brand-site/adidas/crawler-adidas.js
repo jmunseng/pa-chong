@@ -207,8 +207,8 @@ async function scrapeAdidasProducts(eventOption = E_EventOptions.Default) {
 			// }
 
 			// 检查是否还有下一页
-			// if (pageInfo && pageNum >= pageInfo.total) {
-			if (pageNum == 1) {
+			if (pageInfo && pageNum >= pageInfo.total) {
+				// if (pageNum == 1) {
 				console.log('已到达最后一页');
 				break;
 			}

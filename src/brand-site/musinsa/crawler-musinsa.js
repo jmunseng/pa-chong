@@ -14,8 +14,8 @@ async function scrapeMusinsaProducts(brand = E_BrandOption.Adidas) {
 	let pageNum = 1;
 	const uniqueProducts = {}; // 使用对象来存储唯一的产品，键为 goodsNo
 
-	// while (currentPage <= totalPageNumber) {
-	while (currentPage <= 2) {
+	while (currentPage <= totalPageNumber) {
+		// while (currentPage <= 2) { //<<<
 		// 构造 URL，替换 page 参数
 		const apiUrl = settings.musinsa[brand].url.replace('{PAGE}', currentPage);
 
