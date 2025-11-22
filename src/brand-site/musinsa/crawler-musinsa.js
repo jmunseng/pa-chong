@@ -59,7 +59,7 @@ async function scrapeMusinsaProducts(brand = E_BrandOption.Adidas) {
 			} else {
 				code = product.goodsNo.toString();
 			}
-			console.log(code);
+			// console.log(code);
 			product.code = code; // 添加 code 字段
 			uniqueProducts[code] = product;
 		}

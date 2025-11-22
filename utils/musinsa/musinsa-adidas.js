@@ -27,24 +27,24 @@ export function comparePriceMusinsaAdidas(e_brandSite, previousProductData, curr
 			if (!previousPrice) {
 				// 新产品
 				product.isNewItem = true;
-				console.log(`✓ 新产品: ${code} - ${product.goodsName}: ${currentPrice.toLocaleString()} 원`);
+				// console.log(`✓ 新产品: ${code} - ${product.goodsName}: ${currentPrice.toLocaleString()} 원`);
 			} else if (currentPrice < previousPrice) {
 				// 价格下降
 				product.isPriceDropped = true;
 				product.previousPrice = previousPrice;
 				product.priceGap = previousPrice - currentPrice;
 				priceDropCount++;
-				console.log(
-					`✓ 价格下降: ${code} - ${product.goodsName}: ${previousPrice.toLocaleString()} → ${currentPrice.toLocaleString()} (降了 ${product.priceGap.toLocaleString()} 원)`
-				);
+				// console.log(
+				// 	`✓ 价格下降: ${code} - ${product.goodsName}: ${previousPrice.toLocaleString()} → ${currentPrice.toLocaleString()} (降了 ${product.priceGap.toLocaleString()} 원)`
+				// );
 			} else if (currentPrice > previousPrice) {
 				// 价格上涨
 				product.isPriceIncreased = true;
 				product.previousPrice = previousPrice;
 				product.priceGap = currentPrice - previousPrice;
-				console.log(
-					`✓ 价格上涨: ${code} - ${product.goodsName}: ${previousPrice.toLocaleString()} → ${currentPrice.toLocaleString()} (涨了 ${product.priceGap.toLocaleString()} 원)`
-				);
+				// console.log(
+				// 	`✓ 价格上涨: ${code} - ${product.goodsName}: ${previousPrice.toLocaleString()} → ${currentPrice.toLocaleString()} (涨了 ${product.priceGap.toLocaleString()} 원)`
+				// );
 			}
 
 			// 确保 product 对象有 code 字段(用于 HTML 模板)
