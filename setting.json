@@ -1,17 +1,22 @@
 {
 	"adidas": {
 		"url": "https://www.adidas.co.kr/outlet?grid=true",
-		"isBlackFriday": false,
 		"blackFridayUrl": "https://www.adidas.co.kr/black_friday?grid=true",
 		"itemPerPage": 48
+	},
+	"musinsa": {
+		"adidas": {
+			"url": "https://api.musinsa.com/api2/dp/v1/plp/goods?gf=A&brand=adidas&sortCode=POPULAR&category=107&size=60&testGroup=&caller=CATEGORY&page={PAGE}&seen=0&seenAds=",
+			"itemPerPage": 60
+		},
+		"nike": {
+			"url": "",
+			"itemPerPage": 60
+		}
 	},
 	"nike": {
 		"url": "https://www.nike.com/kr/ko_kr/w/outlet-3n82yzy7ok",
 		"itemPerPage": 30
-	},
-	"musinsa": {
-		"url": "",
-		"itemPerPage": 90
 	},
 	"CONFIG": {
 		"CLICK_DELAY": 100,
@@ -21,6 +26,6 @@
 		"SCROLL_DISTANCE": 100,
 		"SCROLL_INTERVAL": 100,
 		"BADGE_LOAD_WAIT": 1000,
-		"PAGE_LOAD_TIMEOUT": 10000
+		"PAGE_LOAD_TIMEOUT": 60000
 	}
 }

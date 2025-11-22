@@ -2,6 +2,7 @@
 	"dependencies": {
 		"axios": "^1.12.2",
 		"exceljs": "^4.4.0",
+		"inquirer": "^8.2.5",
 		"puppeteer": "^24.23.0",
 		"puppeteer-extra": "^3.3.6",
 		"puppeteer-extra-plugin-stealth": "^2.11.2",
@@ -11,11 +12,7 @@
 	},
 	"type": "module",
 	"scripts": {
-		"dev": "node --env-file=.env pa-chong-real.js",
-		"test": "bash test/run-all-tests.sh",
-		"test-email": "node --env-file=.env test/adidas/test-email.js",
-		"test-excel": "node test/adidas/test-excel-new.js",
-		"test-find-prev": "node test/adidas/test-find-prev.js"
+		"dev": "node --env-file=.env index.js"
 	},
 	"devDependencies": {
 		"@eslint/css": "^0.13.0",

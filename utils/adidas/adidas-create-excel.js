@@ -1,15 +1,16 @@
 import ExcelJS from 'exceljs';
 import fs from 'fs';
-import { getFilePath } from './common.js';
+import { getFilePath } from '../common.js';
+import { E_BrandSite } from '../../src/enum/enum-brand-site.js';
 
 /**
  * 生成 Excel 文件
  * @param {string} fileName - JSON 文件名 (不包含扩展名)
  * 例如: '2025-11-05_01-30-56'
  */
-export async function generateExcel(fileName) {
+export async function generateExcel(e_brandSite, fileName) {
 	// 读取 JSON 文件
-	const jsonFilePath = getFilePath(fileName, 'json');
+	const jsonFilePath = getFilePath(e_brandSite, fileName, 'json');
 	if (!fs.existsSync(jsonFilePath)) {
 		throw new Error(`JSON 文件不存在: ${jsonFilePath}`);
 	}
@@ -21,7 +22,7 @@ export async function generateExcel(fileName) {
 	console.log(`从 ${jsonFilePath} 读取了 ${products.length} 个产品`);
 	console.log(`抓取时间: ${dateTimeString}`);
 	const workbook = new ExcelJS.Workbook();
-	const worksheet = workbook.addWorksheet('Adidas Extra Sale');
+	const worksheet = workbook.addWorksheet(`${E_BrandSite.GetString[e_brandSite]} Extra Sale`);
 
 	// 设置列宽和行高
 	worksheet.columns = [
@@ -138,7 +139,7 @@ export async function generateExcel(fileName) {
 
 	// 保存文件
 	// fileName 不包含扩展名，直接添加 .xlsx
-	const excelFileName = getFilePath(fileName, 'xlsx');
+	const excelFileName = getFilePath(e_brandSite, fileName, 'xlsx');
 	await workbook.xlsx.writeFile(excelFileName);
 	console.log(`\nExcel 文件已生成: ${excelFileName}`);
 

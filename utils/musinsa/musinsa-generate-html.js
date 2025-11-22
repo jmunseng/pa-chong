@@ -1,11 +1,11 @@
 // 生成带价格比较的HTML
-export function generateHTMLContent(products, dateTimeString, previousDateTime = null, removedProducts = []) {
+export function generateMusinsaHTMLContent(products, dateTimeString, previousDateTime = null, removedProducts = []) {
 	return `<!DOCTYPE html>
     <html lang="ko">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adidas Extra Sale Products</title>
+    <title>MAdidas Extra Sale Products</title>
     <style>
         * {
         margin: 0;
@@ -520,14 +520,13 @@ export function generateHTMLContent(products, dateTimeString, previousDateTime =
     </head>
     <body>
     <div class="container">
-        <h1>------ Adidas Extra Sale ------</h1>
+        <h1>------ Musinsa Adidas Extra Sale ------</h1>
         <div class="datetime">抓取时间: ${dateTimeString}${previousDateTime ? `<br/>上一次抓取时间: ${previousDateTime}` : ''}
         </div>
 
         <div class="sticky filter-controls">
             <button id="btnNew" onclick="filterNew()">新品</button>
             <button id="btnDrop" onclick="filterDrop()">降价品</button>
-            <button id="btnNewExtra30Off" onclick="filterNewExtra30Off()">New 30%</button>
             <input
             type="text"
             id="exchangeRate"
@@ -543,7 +542,6 @@ export function generateHTMLContent(products, dateTimeString, previousDateTime =
                 <div class="cell">Name</div>
                 <div class="cell">Code</div>
                 <div class="cell">Price</div>
-                <div class="cell">Extra 30%</div>
                 <div class="cell">URL</div>
             </div>
             ${products
@@ -555,10 +553,10 @@ export function generateHTMLContent(products, dateTimeString, previousDateTime =
                         <div class="cell">
                             <img
                             width="100px" height="100px" 
-                            src="${p.imageUrl}" alt="" onclick="showImage('${p.imageUrl}')">
+                            src="${p.thumbnail}" alt="" onclick="showImage('${p.thumbnail}')">
                             &nbsp;&nbsp;
                             <span class="product-name">
-                                ${p.name}
+                                ${p.goodsName}
                                 ${p.isNewItem ? ' <span class="new-item-badge">新产品!</span>' : ''}
                             </span>
                         </div>
@@ -579,26 +577,7 @@ export function generateHTMLContent(products, dateTimeString, previousDateTime =
                             </div>
                         </div>
 
-                        <div class="cell">
-                            <div class="wrap">
-                                ${
-									p.isExtra30Off
-										? `<div class="extra-30-badge"><span>Extra 30% OFF</span>
-                                        ${p.isNewExtra30Off ? '<span class="new">New!</span>' : ''}</div>`
-										: ''
-								}
-                                <div class="price-krw-30">
-                                ${
-									p.isExtra30Off
-										? `<span>${Math.round(p.price * 0.7).toLocaleString('ko-KR')} 원</span>`
-										: `<span>${p.price.toLocaleString('ko-KR')} 원</span>`
-								}
-                                </div>
-                                <div class="price-rmb">RMB: <span></span></div>
-                            </div>
-                        </div>
-                        
-                        <div class="cell"><a href="${p.url}" target="_blank"><button>查看官网</button></a></div>
+                        <div class="cell"><a href="${p.goodsLinkUrl}" target="_blank"><button>查看官网</button></a></div>
                     </div>`
 				)
 				.join('\n')}
