@@ -2,7 +2,7 @@ import fs from 'fs';
 import { getFilePath } from '../common.js';
 import { generateMusinsaHTMLContent } from './musinsa-generate-html.js';
 
-export function comparePriceMusinsaAdidas(e_brandSite, previousProductData, currentProductData, fileName, prevFileName) {
+export function comparePriceMusinsa(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName) {
 	if (previousProductData) {
 		console.log(`从 ${prevFileName} 中提取了 ${Object.keys(previousProductData.products).length} 个产品`);
 		console.log('\n开始比较价格...');
@@ -84,16 +84,22 @@ export function comparePriceMusinsaAdidas(e_brandSite, previousProductData, curr
 		const dateTimeString = currentProductData.dateTimeString;
 
 		// 重新生成HTML，包含价格比较信息
-		const htmlContentWithComparison = generateMusinsaHTMLContent(uniqueProducts, dateTimeString, previousDateTimeString, removedProducts);
-		const htmlFilePathAndName = getFilePath(e_brandSite, fileName, 'html');
+		const htmlContentWithComparison = generateMusinsaHTMLContent(
+			e_brandOption,
+			uniqueProducts,
+			dateTimeString,
+			previousDateTimeString,
+			removedProducts
+		);
+		const htmlFilePathAndName = getFilePath(e_brandSite, e_brandOption, fileName, 'html');
 		fs.writeFileSync(htmlFilePathAndName, htmlContentWithComparison, 'utf8');
 		console.log(`\n产品信息已保存到 ${htmlFilePathAndName} (包含价格比较)`);
 	} else {
 		console.log('无法从之前的文件中提取价格信息');
 		const uniqueProducts = Object.values(currentProductData.products);
 		const dateTimeString = currentProductData.dateTimeString;
-		const htmlContent = generateMusinsaHTMLContent(uniqueProducts, dateTimeString);
-		const htmlFilePathAndName = getFilePath(e_brandSite, fileName, 'html');
+		const htmlContent = generateMusinsaHTMLContent(e_brandOption, uniqueProducts, dateTimeString);
+		const htmlFilePathAndName = getFilePath(e_brandSite, e_brandOption, fileName, 'html');
 		fs.writeFileSync(htmlFilePathAndName, htmlContent, 'utf8');
 		console.log(`\n产品信息已保存到 ${htmlFilePathAndName}`);
 	}

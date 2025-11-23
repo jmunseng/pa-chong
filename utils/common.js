@@ -4,7 +4,7 @@ import { generateAdidasHTMLContent } from './adidas/adidas-generate-html.js';
 import { E_BrandSite } from '../src/enum/enum-brand-site.js';
 import { E_BrandOption } from '../src/enum/enum-musinsa.js';
 import { comparePriceAdidas } from './adidas/adidas.js';
-import { comparePriceMusinsaAdidas } from './musinsa/musinsa-adidas.js';
+import { comparePriceMusinsa } from './musinsa/musinsa-common.js';
 import { generateMusinsaHTMLContent } from './musinsa/musinsa-generate-html.js';
 
 /**
@@ -21,27 +21,25 @@ export async function comparePrice(e_brandSite, e_brandOption, fileName) {
 
 		// prevFileName 已经包含扩展名,如: 2025-10-16_23-06-51.json
 		// 使用 getFilePath 辅助函数获取正确路径
-		const prevFilePath = getFilePath(e_brandSite, prevFileName.replace('.json', ''), 'json');
+		const prevFilePath = getFilePath(e_brandSite, e_brandOption, prevFileName.replace('.json', ''), 'json');
 		const previousProductFile = fs.readFileSync(prevFilePath, 'utf-8');
 		const previousProductData = JSON.parse(previousProductFile);
 
 		// currentFileName 已经包含 collection/e_brandSite/xxx.json
-		const currentJSONFilePath = getFilePath(e_brandSite, fileName, 'json');
+		const currentJSONFilePath = getFilePath(e_brandSite, e_brandOption, fileName, 'json');
 		const currentProductFile = fs.readFileSync(currentJSONFilePath, 'utf-8');
 		const currentProductData = JSON.parse(currentProductFile);
 
 		if (e_brandSite === E_BrandSite.Adidas) {
-			comparePriceAdidas(e_brandSite, previousProductData, currentProductData, fileName, prevFileName);
+			comparePriceAdidas(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName);
 		} else if (e_brandSite === E_BrandSite.Musinsa) {
-			if (e_brandOption === E_BrandOption.Adidas) {
-				comparePriceMusinsaAdidas(e_brandSite, previousProductData, currentProductData, fileName, prevFileName);
-			}
+			comparePriceMusinsa(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName);
 		}
 		// await sendEmailToSubscribers(currentFileName);
 	} else {
 		console.log('未找到之前的文件进行价格比较（这可能是第一次运行）');
 		// 读取当前产品数据
-		const currentFilePath = getFilePath(e_brandSite, fileName, 'json');
+		const currentFilePath = getFilePath(e_brandSite, e_brandOption, fileName, 'json');
 		const currentProductFile = fs.readFileSync(currentFilePath, 'utf-8');
 		const currentProductData = JSON.parse(currentProductFile);
 
@@ -52,12 +50,10 @@ export async function comparePrice(e_brandSite, e_brandOption, fileName) {
 		if (e_brandSite === E_BrandSite.Adidas) {
 			htmlContent = generateAdidasHTMLContent(uniqueProducts, dateTimeString);
 		} else if (e_brandSite === E_BrandSite.Musinsa) {
-			if (e_brandOption === E_BrandOption.Adidas) {
-				htmlContent = generateMusinsaHTMLContent(uniqueProducts, dateTimeString);
-			}
+			htmlContent = generateMusinsaHTMLContent(e_brandOption, uniqueProducts, dateTimeString);
 		}
 
-		const htmlFilePathAndName = getFilePath(e_brandSite, fileName, 'html');
+		const htmlFilePathAndName = getFilePath(e_brandSite, e_brandOption, fileName, 'html');
 		fs.writeFileSync(htmlFilePathAndName, htmlContent, 'utf8');
 		console.log(`\n产品信息已保存到 ${htmlFilePathAndName}`);
 	}
@@ -149,10 +145,10 @@ export function getCurrentDateTimeString() {
 /**
  * @return file path like /path/to/project/collection/e_brandSite/2025-10-05_07-41-45.json
  */
-export function getFilePath(e_brandSite, fileName, extension = 'json') {
+export function getFilePath(e_brandSite, e_brandOption, fileName, extension = 'json') {
 	let collectionFolder = '';
 	if (e_brandSite == E_BrandSite.Musinsa) {
-		collectionFolder = path.resolve(process.cwd(), 'collection', E_BrandSite.Musinsa, E_BrandOption.Adidas); // <<< Musinsa/Adidas 专用路径 or Nike, update later
+		collectionFolder = path.resolve(process.cwd(), 'collection', E_BrandSite.Musinsa, e_brandOption); // <<< Musinsa/Adidas 专用路径 or Nike, update later
 	} else {
 		collectionFolder = path.resolve(process.cwd(), 'collection', e_brandSite);
 	}

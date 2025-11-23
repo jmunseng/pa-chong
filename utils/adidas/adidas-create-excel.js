@@ -8,9 +8,9 @@ import { E_BrandSite } from '../../src/enum/enum-brand-site.js';
  * @param {string} fileName - JSON 文件名 (不包含扩展名)
  * 例如: '2025-11-05_01-30-56'
  */
-export async function generateExcel(e_brandSite, fileName) {
+export async function generateExcel(e_brandSite, e_brandOption, fileName) {
 	// 读取 JSON 文件
-	const jsonFilePath = getFilePath(e_brandSite, fileName, 'json');
+	const jsonFilePath = getFilePath(e_brandSite, e_brandOption, fileName, 'json');
 	if (!fs.existsSync(jsonFilePath)) {
 		throw new Error(`JSON 文件不存在: ${jsonFilePath}`);
 	}
@@ -139,7 +139,7 @@ export async function generateExcel(e_brandSite, fileName) {
 
 	// 保存文件
 	// fileName 不包含扩展名，直接添加 .xlsx
-	const excelFileName = getFilePath(e_brandSite, fileName, 'xlsx');
+	const excelFileName = getFilePath(e_brandSite, e_brandOption, fileName, 'xlsx');
 	await workbook.xlsx.writeFile(excelFileName);
 	console.log(`\nExcel 文件已生成: ${excelFileName}`);
 

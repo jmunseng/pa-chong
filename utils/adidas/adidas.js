@@ -123,7 +123,7 @@ export async function getTotalPages(page) {
 	});
 }
 
-export function comparePriceAdidas(e_brandSite, previousProductData, currentProductData, fileName, prevFileName) {
+export function comparePriceAdidas(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName) {
 	if (previousProductData) {
 		console.log(`从 ${prevFileName} 中提取了 ${Object.keys(previousProductData.products).length} 个产品`);
 		console.log('\n开始比较价格...');
@@ -228,7 +228,7 @@ export function comparePriceAdidas(e_brandSite, previousProductData, currentProd
 
 		// 重新生成HTML，包含价格比较信息
 		const htmlContentWithComparison = generateAdidasHTMLContent(uniqueProducts, dateTimeString, previousDateTimeString, removedProducts);
-		const htmlFilePathAndName = getFilePath(e_brandSite, fileName, 'html');
+		const htmlFilePathAndName = getFilePath(e_brandSite, e_brandOption, fileName, 'html');
 		fs.writeFileSync(htmlFilePathAndName, htmlContentWithComparison, 'utf8');
 		console.log(`\n产品信息已保存到 ${htmlFilePathAndName} (包含价格比较)`);
 	} else {
@@ -236,7 +236,7 @@ export function comparePriceAdidas(e_brandSite, previousProductData, currentProd
 		const uniqueProducts = Object.values(currentProductData.products);
 		const dateTimeString = currentProductData.dateTimeString;
 		const htmlContent = generateAdidasHTMLContent(uniqueProducts, dateTimeString);
-		const htmlFilePathAndName = getFilePath(e_brandSite, fileName, 'html');
+		const htmlFilePathAndName = getFilePath(e_brandSite, e_brandOption, fileName, 'html');
 		fs.writeFileSync(htmlFilePathAndName, htmlContent, 'utf8');
 		console.log(`\n产品信息已保存到 ${htmlFilePathAndName}`);
 	}

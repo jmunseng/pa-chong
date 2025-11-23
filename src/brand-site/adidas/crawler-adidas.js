@@ -67,7 +67,7 @@ async function scrapeAdidasProducts(eventOption = E_EventOptions.Default) {
 	const latestJSONFile = findPreviousJSONFile(E_BrandSite.Adidas, E_BrandOption.Adidas, null);
 
 	if (latestJSONFile) {
-		const lastFilePath = getFilePath(E_BrandSite.Adidas, latestJSONFile.replace('.json', ''), 'json');
+		const lastFilePath = getFilePath(E_BrandSite.Adidas, E_BrandOption.Adidas, latestJSONFile.replace('.json', ''), 'json');
 		const lastProductData = JSON.parse(fs.readFileSync(lastFilePath, 'utf-8'));
 
 		if (lastProductData.hasError && lastProductData.errorPageNum) {
@@ -232,7 +232,7 @@ async function scrapeAdidasProducts(eventOption = E_EventOptions.Default) {
 	const fileName = generateFileName(dateNow);
 
 	// 保存最新数据到JSON文件
-	const jsonFilePathAndName = getFilePath(E_BrandSite.Adidas, fileName, 'json');
+	const jsonFilePathAndName = getFilePath(E_BrandSite.Adidas, E_BrandOption.Adidas, fileName, 'json');
 
 	const jsonData = {
 		dateTimeString: dateTimeString,
@@ -265,7 +265,7 @@ async function scrapeAdidasProducts(eventOption = E_EventOptions.Default) {
 
 		// 生成 Excel 文件
 		console.log(`准备生产Excel文件: ${fileName}.xlsx`);
-		await generateExcel(E_BrandSite.Adidas, fileName);
+		await generateExcel(E_BrandSite.Adidas, E_BrandOption.Adidas, fileName);
 	}
 }
 

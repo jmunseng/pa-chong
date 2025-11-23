@@ -4,7 +4,7 @@ import { E_BrandOption } from '../../enum/enum-musinsa.js';
 import { E_BrandSite } from '../../enum/enum-brand-site.js';
 
 // 读取配置信息
-async function scrapeMusinsaProducts(brand = E_BrandOption.Adidas) {
+async function scrapeMusinsaProducts(e_brandOption = E_BrandOption.Adidas) {
 	const settings = loadSettings();
 	const products = [];
 
@@ -15,9 +15,8 @@ async function scrapeMusinsaProducts(brand = E_BrandOption.Adidas) {
 	const uniqueProducts = {}; // 使用对象来存储唯一的产品，键为 goodsNo
 
 	while (currentPage <= totalPageNumber) {
-		// while (currentPage <= 2) { //<<<
 		// 构造 URL，替换 page 参数
-		const apiUrl = settings.musinsa[brand].url.replace('{PAGE}', currentPage);
+		const apiUrl = settings.musinsa[e_brandOption].url.replace('{PAGE}', currentPage);
 
 		const response = await fetch(apiUrl, {
 			method: 'GET',
@@ -33,6 +32,10 @@ async function scrapeMusinsaProducts(brand = E_BrandOption.Adidas) {
 			if (currentPage === 1) {
 				totalPageNumber = res.data.pagination.totalPages;
 				console.log(`总共 ${totalPageNumber} 页，总商品数: ${res.data.pagination.totalCount}`);
+			}
+
+			if (settings.isDebugMode) {
+				totalPageNumber = 2; // 调试模式只抓前2页
 			}
 
 			console.log(`第 ${currentPage}/${totalPageNumber} 页抓取完成，本页商品数: ${res.data.list.length}`);
@@ -73,7 +76,7 @@ async function scrapeMusinsaProducts(brand = E_BrandOption.Adidas) {
 	const fileName = generateFileName(dateNow);
 
 	// 保存最新数据到JSON文件
-	const jsonFilePathAndName = getFilePath(E_BrandSite.Musinsa, fileName, 'json');
+	const jsonFilePathAndName = getFilePath(E_BrandSite.Musinsa, e_brandOption, fileName, 'json');
 
 	const jsonData = {
 		dateTimeString: dateTimeString,
@@ -88,15 +91,15 @@ async function scrapeMusinsaProducts(brand = E_BrandOption.Adidas) {
 	fs.writeFileSync(jsonFilePathAndName, JSON.stringify(jsonData, null, 2), 'utf-8');
 	console.log('JSON 文件保存成功');
 
-	await comparePrice(E_BrandSite.Musinsa, E_BrandOption.Adidas, fileName);
+	await comparePrice(E_BrandSite.Musinsa, e_brandOption, fileName);
 }
 
 // 运行脚本
-export async function runMusinsaAdidasTask(brand = E_BrandOption.Adidas) {
-	console.log(`正在执行 ${E_BrandOption.GetString[brand]}`);
+export async function runMusinsaTask(e_brandOption = E_BrandOption.Adidas) {
+	console.log(`正在执行 ${E_BrandOption.GetString[e_brandOption]}`);
 
 	// 调用爬虫逻辑,传入 eventOption
-	scrapeMusinsaProducts(brand)
+	scrapeMusinsaProducts(e_brandOption)
 		.then(() => {
 			console.log('\n脚本执行完成!');
 			setTimeout(() => {

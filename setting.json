@@ -10,8 +10,8 @@
 			"itemPerPage": 60
 		},
 		"nike": {
-			"url": "",
-			"itemPerPage": 60
+			"url": "https://api.musinsa.com/api2/dp/v1/plp/goods?gf=A&isSale=true&sortCode=POPULAR&category=103&brand=nike&page={PAGE}&size=30&caller=FLAGSHIP",
+			"itemPerPage": 30
 		}
 	},
 	"nike": {
@@ -27,5 +27,6 @@
 		"SCROLL_INTERVAL": 100,
 		"BADGE_LOAD_WAIT": 1000,
 		"PAGE_LOAD_TIMEOUT": 60000
-	}
+	},
+	"isDebugMode": false
 }

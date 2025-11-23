@@ -1,11 +1,11 @@
 // 生成带价格比较的HTML
-export function generateMusinsaHTMLContent(products, dateTimeString, previousDateTime = null, removedProducts = []) {
+export function generateMusinsaHTMLContent(e_brandOption, products, dateTimeString, previousDateTime = null, removedProducts = []) {
 	return `<!DOCTYPE html>
     <html lang="ko">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAdidas Extra Sale Products</title>
+    <title>${e_brandOption} Extra Sale Products</title>
     <style>
         * {
         margin: 0;
@@ -519,7 +519,7 @@ export function generateMusinsaHTMLContent(products, dateTimeString, previousDat
     </head>
     <body>
     <div class="container">
-        <h1>------ Musinsa Adidas Extra Sale ------</h1>
+        <h1>------ Musinsa ${e_brandOption} Extra Sale ------</h1>
         <div class="datetime">抓取时间: ${dateTimeString}${previousDateTime ? `<br/>上一次抓取时间: ${previousDateTime}` : ''}
         </div>
 

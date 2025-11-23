@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import { runAdidasTask } from './src/brand-site/adidas/crawler-adidas.js';
 import { E_EventOptions } from './src/enum/enum-adidas.js';
-import { runMusinsaAdidasTask } from './src/brand-site/musinsa/crawler-musinsa.js';
+import { runMusinsaTask } from './src/brand-site/musinsa/crawler-musinsa.js';
 import { E_BrandOption } from './src/enum/enum-musinsa.js';
 
 async function handleAdidasSelection() {
@@ -50,7 +50,7 @@ async function handleMusinsaSelection() {
 	// 第二级菜单：Musinsa 品牌选项
 	const musinsaChoices = [
 		{ name: 'Adidas', value: 'adidas' },
-		// { name: 'Nike', value: 'nike' },
+		{ name: 'Nike', value: 'nike' },
 		{ name: '返回', value: 'back' },
 	];
 
@@ -76,11 +76,11 @@ async function handleMusinsaSelection() {
 	switch (subAnswer.brand) {
 		case 'adidas':
 			console.log('正在执行 Musinsa Adidas 任务...');
-			runMusinsaAdidasTask(E_BrandOption.Adidas);
+			runMusinsaTask(E_BrandOption.Adidas);
 			break;
 		case 'nike':
 			console.log('正在执行 Musinsa Nike 任务...');
-			runMusinsaAdidasTask(E_BrandOption.Nike);
+			runMusinsaTask(E_BrandOption.Nike);
 			break;
 	}
 }
