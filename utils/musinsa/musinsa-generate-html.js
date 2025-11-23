@@ -329,8 +329,7 @@ export function generateMusinsaHTMLContent(products, dateTimeString, previousDat
                         var priceMatch = priceText.match(/([\\d,]+)\\s*원/);
                         if (priceMatch) {
                             var priceKRW = parseInt(priceMatch[1].replace(/,/g, ''));
-                            var isExtra30Off = row.querySelector('.extra-30-badge') !== null;
-                            var priceRMB = (priceKRW * (isExtra30Off ? 0.7 : 1) / rate).toFixed(2);
+                            var priceRMB = (priceKRW / rate).toFixed(2);
                             var rmbSpan = row.querySelector('.price-rmb span');
                             if (rmbSpan) {
                                 rmbSpan.textContent = priceRMB + ' 元';
@@ -542,6 +541,7 @@ export function generateMusinsaHTMLContent(products, dateTimeString, previousDat
                 <div class="cell">Name</div>
                 <div class="cell">Code</div>
                 <div class="cell">Price</div>
+                <div class="cell">RMB</div>
                 <div class="cell">URL</div>
             </div>
             ${products
@@ -574,6 +574,12 @@ export function generateMusinsaHTMLContent(products, dateTimeString, previousDat
 												: ''
 									}
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="cell">
+                            <div class="wrap">
+                                <div class="price-rmb">RMB: <span></span></div>
                             </div>
                         </div>
 

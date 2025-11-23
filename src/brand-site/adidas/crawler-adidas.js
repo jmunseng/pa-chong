@@ -71,7 +71,7 @@ async function scrapeAdidasProducts(eventOption = E_EventOptions.Default) {
 		const lastProductData = JSON.parse(fs.readFileSync(lastFilePath, 'utf-8'));
 
 		if (lastProductData.hasError && lastProductData.errorPageNum) {
-			console.log(`\n⚠️ 检测到上次抓取未完成,从第 ${lastProductData.errorPageNum} 页继续抓取...`);
+			console.log(`\n⚠️ 检测到上次抓取失败,从第 ${lastProductData.errorPageNum} 页继续抓取...`);
 			pageNum = lastProductData.errorPageNum;
 			allProducts = lastProductData.products || {};
 		}
