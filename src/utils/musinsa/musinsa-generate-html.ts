@@ -1,11 +1,32 @@
 // 生成带价格比较的HTML
-export function generateAdidasHTMLContent(products, dateTimeString, previousDateTime = null, removedProducts = []) {
+
+import { E_BrandOption } from '../../enum/enum-musinsa';
+import { RemovedProduct } from '../../types/musinsa-product';
+import { MusinsaProduct } from '../../types/musinsa-product';
+
+/**
+ * 生成 Musinsa HTML 内容
+ * @param e_brandOption - 品牌选项
+ * @param products - 产品列表
+ * @param dateTimeString - 当前日期时间字符串
+ * @param previousDateTime - 上一次抓取的日期时间字符串(可选)
+ * @param removedProducts - 已下架产品列表(可选)
+ * @returns HTML 内容字符串
+ */
+
+export function generateMusinsaHTMLContent(
+	e_brandOption: E_BrandOption,
+	products: MusinsaProduct[],
+	dateTimeString: string,
+	previousDateTime: string | null = null,
+	removedProducts: RemovedProduct[] = []
+) {
 	return `<!DOCTYPE html>
     <html lang="ko">
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adidas Extra Sale Products</title>
+    <title>${e_brandOption} Extra Sale Products</title>
     <style>
         * {
         margin: 0;
@@ -329,8 +350,7 @@ export function generateAdidasHTMLContent(products, dateTimeString, previousDate
                         var priceMatch = priceText.match(/([\\d,]+)\\s*원/);
                         if (priceMatch) {
                             var priceKRW = parseInt(priceMatch[1].replace(/,/g, ''));
-                            var isExtra30Off = row.querySelector('.extra-30-badge') !== null;
-                            var priceRMB = (priceKRW * (isExtra30Off ? 0.7 : 1) / rate).toFixed(2);
+                            var priceRMB = (priceKRW / rate).toFixed(2);
                             var rmbSpan = row.querySelector('.price-rmb span');
                             if (rmbSpan) {
                                 rmbSpan.textContent = priceRMB + ' 元';
@@ -520,14 +540,13 @@ export function generateAdidasHTMLContent(products, dateTimeString, previousDate
     </head>
     <body>
     <div class="container">
-        <h1>------ Adidas Extra Sale ------</h1>
+        <h1>------ Musinsa ${e_brandOption} Extra Sale ------</h1>
         <div class="datetime">抓取时间: ${dateTimeString}${previousDateTime ? `<br/>上一次抓取时间: ${previousDateTime}` : ''}
         </div>
 
         <div class="sticky filter-controls">
             <button id="btnNew" onclick="filterNew()">新品</button>
             <button id="btnDrop" onclick="filterDrop()">降价品</button>
-            <button id="btnNewExtra30Off" onclick="filterNewExtra30Off()">New 30%</button>
             <input
             type="text"
             id="exchangeRate"
@@ -543,7 +562,7 @@ export function generateAdidasHTMLContent(products, dateTimeString, previousDate
                 <div class="cell">Name</div>
                 <div class="cell">Code</div>
                 <div class="cell">Price</div>
-                <div class="cell">Extra 30%</div>
+                <div class="cell">RMB</div>
                 <div class="cell">URL</div>
             </div>
             ${products
@@ -555,10 +574,10 @@ export function generateAdidasHTMLContent(products, dateTimeString, previousDate
                         <div class="cell">
                             <img
                             width="100px" height="100px" 
-                            src="${p.imageUrl}" alt="" onclick="showImage('${p.imageUrl}')">
+                            src="${p.thumbnail}" alt="" onclick="showImage('${p.thumbnail}')">
                             &nbsp;&nbsp;
                             <span class="product-name">
-                                ${p.name}
+                                ${p.goodsName}
                                 ${p.isNewItem ? ' <span class="new-item-badge">新产品!</span>' : ''}
                             </span>
                         </div>
@@ -581,24 +600,11 @@ export function generateAdidasHTMLContent(products, dateTimeString, previousDate
 
                         <div class="cell">
                             <div class="wrap">
-                                ${
-									p.isExtra30Off
-										? `<div class="extra-30-badge"><span>Extra 30% OFF</span>
-                                        ${p.isNewExtra30Off ? '<span class="new">New!</span>' : ''}</div>`
-										: ''
-								}
-                                <div class="price-krw-30">
-                                ${
-									p.isExtra30Off
-										? `<span>${Math.round(p.price * 0.7).toLocaleString('ko-KR')} 원</span>`
-										: `<span>${p.price.toLocaleString('ko-KR')} 원</span>`
-								}
-                                </div>
                                 <div class="price-rmb">RMB: <span></span></div>
                             </div>
                         </div>
-                        
-                        <div class="cell"><a href="${p.url}" target="_blank"><button>查看官网</button></a></div>
+
+                        <div class="cell"><a href="${p.goodsLinkUrl}" target="_blank"><button>查看官网</button></a></div>
                     </div>`
 				)
 				.join('\n')}

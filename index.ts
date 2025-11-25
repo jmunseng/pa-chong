@@ -1,18 +1,28 @@
 import inquirer from 'inquirer';
-import { runAdidasTask } from './src/brand-site/adidas/crawler-adidas.js';
-import { E_EventOptions } from './src/enum/enum-adidas.js';
-import { runMusinsaTask } from './src/brand-site/musinsa/crawler-musinsa.js';
-import { E_BrandOption } from './src/enum/enum-musinsa.js';
 
-async function handleAdidasSelection() {
+import { runAdidasTask } from './src/brand-site/adidas/crawler-adidas';
+import { runMusinsaTask } from './src/brand-site/musinsa/crawler-musinsa';
+import { E_EventOptions } from './src/enum/enum-adidas';
+import { E_BrandOption } from './src/enum/enum-musinsa';
+
+interface AdidasChoice {
+	name: string;
+	value: 'default' | 'black-friday' | 'back';
+}
+
+interface AdidasAnswer {
+	mode: 'default' | 'black-friday' | 'back';
+}
+
+async function handleAdidasSelection(): Promise<void> {
 	// 第二级菜单：Adidas 子选项
-	const adidasChoices = [
+	const adidasChoices: AdidasChoice[] = [
 		{ name: 'Default (默认)', value: 'default' },
 		{ name: 'Black Friday (黑色星期五)', value: 'black-friday' },
 		{ name: '返回', value: 'back' },
 	];
 
-	const subAnswer = await inquirer.prompt([
+	const subAnswer = await inquirer.prompt<AdidasAnswer>([
 		{
 			type: 'list',
 			name: 'mode',
@@ -46,15 +56,24 @@ async function handleAdidasSelection() {
 	}
 }
 
-async function handleMusinsaSelection() {
+interface MusinsaChoice {
+	name: string;
+	value: 'adidas' | 'nike' | 'back';
+}
+
+interface MusinsaAnswer {
+	brand: 'adidas' | 'nike' | 'back';
+}
+
+async function handleMusinsaSelection(): Promise<void> {
 	// 第二级菜单：Musinsa 品牌选项
-	const musinsaChoices = [
+	const musinsaChoices: MusinsaChoice[] = [
 		{ name: 'Adidas', value: 'adidas' },
 		{ name: 'Nike', value: 'nike' },
 		{ name: '返回', value: 'back' },
 	];
 
-	const subAnswer = await inquirer.prompt([
+	const subAnswer = await inquirer.prompt<MusinsaAnswer>([
 		{
 			type: 'list',
 			name: 'brand',
@@ -85,16 +104,25 @@ async function handleMusinsaSelection() {
 	}
 }
 
-async function main() {
+interface MainChoice {
+	name: string;
+	value: 'Adidas' | 'Musinsa' | 'cancel';
+}
+
+interface MainAnswer {
+	option: 'Adidas' | 'Musinsa' | 'cancel';
+}
+
+async function main(): Promise<void> {
 	// 第一级菜单：选择网站
-	const choices = [
+	const choices: MainChoice[] = [
 		{ name: 'Adidas', value: 'Adidas' },
 		{ name: 'Musinsa', value: 'Musinsa' },
 		// { name: 'Nike', value: 'Nike' },
 		{ name: '退出', value: 'cancel' },
 	];
 
-	const answer = await inquirer.prompt([
+	const answer = await inquirer.prompt<MainAnswer>([
 		{
 			type: 'list',
 			name: 'option',
@@ -128,7 +156,7 @@ async function main() {
 	}
 }
 
-main().catch((error) => {
+main().catch((error: Error & { isTtyError?: boolean }) => {
 	// 用户按 Ctrl+C 退出
 	if (error.isTtyError || error.message.includes('User force closed')) {
 		console.log('\n\n已退出');

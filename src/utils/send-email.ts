@@ -1,20 +1,36 @@
-import { Resend } from 'resend';
 import fs from 'fs';
 import path from 'path';
+import { Resend } from 'resend';
 
-export async function sendEmailToSubscribers(filePath) {
+interface EmailAttachment {
+	filename: string;
+	content: string;
+}
+
+interface EmailResult {
+	success: boolean;
+	data?: any;
+	error?: any;
+}
+
+/**
+ * 发送邮件给订阅者
+ * @param filePath - HTML 文件路径
+ * @returns 邮件发送结果
+ */
+export async function sendEmailToSubscribers(filePath: string): Promise<EmailResult> {
 	const resend = new Resend(process.env.RESEND_API_KEY);
 
 	try {
 		// 读取 HTML 文件内容
-		const htmlContent = fs.readFileSync(filePath, 'utf-8');
+		const htmlContent: string = fs.readFileSync(filePath, 'utf-8');
 
 		// 从文件路径中提取文件名
-		const fileName = path.basename(filePath);
+		const fileName: string = path.basename(filePath);
 
 		// 从文件名中提取日期和时间信息(如果存在)
-		const dateTimeMatch = fileName.match(/(\d{4}-\d{2}-\d{2})[-_]?(\d{2}[-:]?\d{2}[-:]?\d{2})?/);
-		const dateStr = dateTimeMatch
+		const dateTimeMatch: RegExpMatchArray | null = fileName.match(/(\d{4}-\d{2}-\d{2})[-_]?(\d{2}[-:]?\d{2}[-:]?\d{2})?/);
+		const dateStr: string = dateTimeMatch
 			? dateTimeMatch[1] + (dateTimeMatch[2] ? ' ' + dateTimeMatch[2].replace(/[-_]/g, ':') : '')
 			: new Date().toLocaleString('zh-CN', {
 					year: 'numeric',
@@ -26,12 +42,12 @@ export async function sendEmailToSubscribers(filePath) {
 				});
 
 		// 将 HTML 内容转换为 Base64 编码
-		const base64HtmlContent = Buffer.from(htmlContent, 'utf-8').toString('base64');
+		const base64HtmlContent: string = Buffer.from(htmlContent, 'utf-8').toString('base64');
 
 		console.log(`准备发送邮件,HTML 文件大小: ${htmlContent.length} 字节`);
 
 		// 准备附件数组
-		const attachments = [
+		const attachments: EmailAttachment[] = [
 			{
 				filename: fileName,
 				content: base64HtmlContent,
@@ -39,13 +55,13 @@ export async function sendEmailToSubscribers(filePath) {
 		];
 
 		// // 检查同名的 .xlsx 文件是否存在
-		const xlsxFilePath = filePath.replace('.html', '.xlsx');
-		const xlsxFileName = fileName.replace('.html', '.xlsx');
+		const xlsxFilePath: string = filePath.replace('.html', '.xlsx');
+		const xlsxFileName: string = fileName.replace('.html', '.xlsx');
 
 		if (fs.existsSync(xlsxFilePath)) {
 			// 读取 Excel 文件并转换为 Base64
-			const xlsxContent = fs.readFileSync(xlsxFilePath);
-			const base64XlsxContent = xlsxContent.toString('base64');
+			const xlsxContent: Buffer = fs.readFileSync(xlsxFilePath);
+			const base64XlsxContent: string = xlsxContent.toString('base64');
 
 			attachments.push({
 				filename: xlsxFileName,
@@ -75,6 +91,7 @@ export async function sendEmailToSubscribers(filePath) {
 		return { success: true, data };
 	} catch (err) {
 		console.error('读取文件或发送邮件时出错:', err);
-		return { success: false, error: err.message };
+		const errorMessage = err instanceof Error ? err.message : String(err);
+		return { success: false, error: errorMessage };
 	}
 }

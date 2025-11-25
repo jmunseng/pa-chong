@@ -1,22 +1,29 @@
 import fs from 'fs';
-import { comparePrice, generateFileName, getCurrentDateTimeString, getFilePath, loadSettings } from '../../../utils/common.js';
-import { E_BrandOption } from '../../enum/enum-musinsa.js';
-import { E_BrandSite } from '../../enum/enum-brand-site.js';
 
-// 读取配置信息
-async function scrapeMusinsaProducts(e_brandOption = E_BrandOption.Adidas) {
-	const settings = loadSettings();
-	const products = [];
+import type { MusinsaApiProduct, MusinsaApiResponse, MusinsaProduct, MusinsaProductData } from '../../types/musinsa-product';
+import type { Settings } from '../../types/settings';
 
-	let totalPageNumber = 1;
-	let currentPage = 1;
-	let hasError = false;
-	let pageNum = 1;
-	const uniqueProducts = {}; // 使用对象来存储唯一的产品，键为 goodsNo
+import { E_BrandSite } from '../../enum/enum-brand-site';
+import { E_BrandOption, E_BrandOption_GetString } from '../../enum/enum-musinsa';
+import { comparePrice, generateFileName, getCurrentDateTimeString, getFilePath, loadSettings } from '../../utils/common';
+
+/**
+ * 抓取 Musinsa 产品数据
+ * @param e_brandOption - 品牌选项 (默认为 Adidas)
+ */
+async function scrapeMusinsaProducts(e_brandOption: E_BrandOption = E_BrandOption.Adidas): Promise<void> {
+	const settings: Settings = loadSettings();
+	const products: MusinsaApiProduct[] = [];
+
+	let totalPageNumber: number = 1;
+	let currentPage: number = 1;
+	let hasError: boolean = false;
+	let pageNum: number = 1;
+	const uniqueProducts: Record<string, MusinsaProduct> = {}; // 使用对象来存储唯一的产品，键为 goodsNo
 
 	while (currentPage <= totalPageNumber) {
 		// 构造 URL，替换 page 参数
-		const apiUrl = settings.musinsa[e_brandOption].url.replace('{PAGE}', currentPage);
+		const apiUrl = settings.musinsa[e_brandOption].url.replace('{PAGE}', currentPage.toString());
 
 		const response = await fetch(apiUrl, {
 			method: 'GET',
@@ -24,7 +31,7 @@ async function scrapeMusinsaProducts(e_brandOption = E_BrandOption.Adidas) {
 				Accept: 'application/json',
 			},
 		});
-		const res = await response.json();
+		const res = (await response.json()) as MusinsaApiResponse;
 		if (res && res.data && res.data.list && res.data.pagination && res.meta.result === 'SUCCESS') {
 			products.push(...res.data.list);
 
@@ -55,7 +62,7 @@ async function scrapeMusinsaProducts(e_brandOption = E_BrandOption.Adidas) {
 		// 去重
 		for (const product of products) {
 			// goodsName: '아디폼 슈퍼스타 - 화이트:블랙 / HQ8750'
-			let code = '';
+			let code: string = '';
 			const nameParts = product.goodsName.split('/');
 			if (nameParts.length > 1) {
 				code = nameParts[1].trim();
@@ -63,22 +70,26 @@ async function scrapeMusinsaProducts(e_brandOption = E_BrandOption.Adidas) {
 				code = product.goodsNo.toString();
 			}
 			// console.log(code);
-			product.code = code; // 添加 code 字段
-			uniqueProducts[code] = product;
+			// 将 MusinsaApiProduct 转换为 MusinsaProduct (添加 code 字段)
+			const musinsaProduct: MusinsaProduct = {
+				...product,
+				code: code,
+			};
+			uniqueProducts[code] = musinsaProduct;
 		}
 		console.log(`去重后共有 ${Object.keys(uniqueProducts).length} 个唯一商品`);
 	}
 
 	// 保存到HTML文件
-	const dateNow = new Date();
-	const dateTimeString = getCurrentDateTimeString();
+	const dateNow: Date = new Date();
+	const dateTimeString: string = getCurrentDateTimeString();
 
-	const fileName = generateFileName(dateNow);
+	const fileName: string = generateFileName(dateNow);
 
 	// 保存最新数据到JSON文件
-	const jsonFilePathAndName = getFilePath(E_BrandSite.Musinsa, e_brandOption, fileName, 'json');
+	const jsonFilePathAndName: string = getFilePath(E_BrandSite.Musinsa, e_brandOption, fileName, 'json');
 
-	const jsonData = {
+	const jsonData: MusinsaProductData = {
 		dateTimeString: dateTimeString,
 		timestamp: dateNow.toISOString(),
 		hasError: hasError,
@@ -94,11 +105,14 @@ async function scrapeMusinsaProducts(e_brandOption = E_BrandOption.Adidas) {
 	await comparePrice(E_BrandSite.Musinsa, e_brandOption, fileName);
 }
 
-// 运行脚本
-export async function runMusinsaTask(e_brandOption = E_BrandOption.Adidas) {
-	console.log(`正在执行 ${E_BrandOption.GetString[e_brandOption]}`);
+/**
+ * 运行 Musinsa 爬虫任务
+ * @param e_brandOption - 品牌选项 (默认为 Adidas)
+ */
+export async function runMusinsaTask(e_brandOption: E_BrandOption = E_BrandOption.Adidas): Promise<void> {
+	console.log(`正在执行 ${E_BrandOption_GetString[e_brandOption]}`);
 
-	// 调用爬虫逻辑,传入 eventOption
+	// 调用爬虫逻辑,传入 e_brandOption
 	scrapeMusinsaProducts(e_brandOption)
 		.then(() => {
 			console.log('\n脚本执行完成!');
@@ -106,7 +120,7 @@ export async function runMusinsaTask(e_brandOption = E_BrandOption.Adidas) {
 				process.exit(0);
 			}, 1000);
 		})
-		.catch((error) => {
+		.catch((error: Error) => {
 			console.error('发生错误:', error);
 			process.exit(1);
 		});

@@ -1,8 +1,20 @@
 import fs from 'fs';
-import { getFilePath } from '../common.js';
-import { generateMusinsaHTMLContent } from './musinsa-generate-html.js';
 
-export function comparePriceMusinsa(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName) {
+import type { MusinsaProduct, MusinsaProductData, RemovedProduct } from '../../types/musinsa-product';
+
+import { E_BrandSite } from '../../enum/enum-brand-site';
+import { E_BrandOption } from '../../enum/enum-musinsa';
+import { getFilePath } from '../common';
+import { generateMusinsaHTMLContent } from './musinsa-generate-html';
+
+export function comparePriceMusinsa(
+	e_brandSite: E_BrandSite,
+	e_brandOption: E_BrandOption,
+	previousProductData: MusinsaProductData | null,
+	currentProductData: MusinsaProductData,
+	fileName: string,
+	prevFileName: string
+) {
 	if (previousProductData) {
 		console.log(`从 ${prevFileName} 中提取了 ${Object.keys(previousProductData.products).length} 个产品`);
 		console.log('\n开始比较价格...');
@@ -52,7 +64,7 @@ export function comparePriceMusinsa(e_brandSite, e_brandOption, previousProductD
 		});
 
 		// 查找已下架的产品
-		const removedProducts = [];
+		const removedProducts: RemovedProduct[] = [];
 		const currentCodes = new Set(Object.keys(currentProductData.products));
 		Object.entries(previousProductData.products).forEach(([code, productInfo]) => {
 			if (!currentCodes.has(code)) {

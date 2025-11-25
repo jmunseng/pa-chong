@@ -11,9 +11,10 @@
 			{
 				"type": "node",
 				"request": "launch",
-				"name": "启动 Index.js (主菜单)",
+				"name": "启动 Index.ts (主菜单)",
 				"skipFiles": ["<node_internals>/**"],
-				"program": "${workspaceFolder}/index.js",
+				"runtimeExecutable": "tsx",
+				"program": "${workspaceFolder}/index.ts",
 				"envFile": "${workspaceFolder}/.env",
 				"console": "integratedTerminal",
 				"outputCapture": "std",

@@ -1,28 +1,35 @@
 import ExcelJS from 'exceljs';
 import fs from 'fs';
-import { getFilePath } from '../common.js';
-import { E_BrandSite } from '../../src/enum/enum-brand-site.js';
+
+import type { E_BrandSite } from '../../enum/enum-brand-site';
+import type { E_BrandOption } from '../../enum/enum-musinsa';
+import type { AdidasProduct, AdidasProductData } from '../../types/adidas-product';
+
+import { E_BrandSite_GetString } from '../../enum/enum-brand-site';
+import { getFilePath } from '../common';
 
 /**
  * 生成 Excel 文件
- * @param {string} fileName - JSON 文件名 (不包含扩展名)
- * 例如: '2025-11-05_01-30-56'
+ * @param e_brandSite - 品牌网站
+ * @param e_brandOption - 品牌选项
+ * @param fileName - JSON 文件名 (不包含扩展名), 例如: '2025-11-05_01-30-56'
+ * @returns Excel 文件路径
  */
-export async function generateExcel(e_brandSite, e_brandOption, fileName) {
+export async function generateExcel(e_brandSite: E_BrandSite, e_brandOption: E_BrandOption, fileName: string): Promise<string> {
 	// 读取 JSON 文件
-	const jsonFilePath = getFilePath(e_brandSite, e_brandOption, fileName, 'json');
+	const jsonFilePath: string = getFilePath(e_brandSite, e_brandOption, fileName, 'json');
 	if (!fs.existsSync(jsonFilePath)) {
 		throw new Error(`JSON 文件不存在: ${jsonFilePath}`);
 	}
 
-	const jsonData = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
-	const products = Object.values(jsonData.products);
-	const dateTimeString = jsonData.dateTimeString;
+	const jsonData: AdidasProductData = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
+	const products: AdidasProduct[] = Object.values(jsonData.products);
+	const dateTimeString: string = jsonData.dateTimeString;
 
 	console.log(`从 ${jsonFilePath} 读取了 ${products.length} 个产品`);
 	console.log(`抓取时间: ${dateTimeString}`);
-	const workbook = new ExcelJS.Workbook();
-	const worksheet = workbook.addWorksheet(`${E_BrandSite.GetString[e_brandSite]} Extra Sale`);
+	const workbook: ExcelJS.Workbook = new ExcelJS.Workbook();
+	const worksheet: ExcelJS.Worksheet = workbook.addWorksheet(`${E_BrandSite_GetString[e_brandSite]} Extra Sale`);
 
 	// 设置列宽和行高
 	worksheet.columns = [
@@ -47,16 +54,16 @@ export async function generateExcel(e_brandSite, e_brandOption, fileName) {
 
 	// 添加产品数据
 	console.log(`开始处理 ${products.length} 个产品...`);
-	const startTime = Date.now();
+	const startTime: number = Date.now();
 
 	// 添加所有产品行
-	const rows = [];
-	products.forEach((product, index) => {
+	const rows: ExcelJS.Row[] = [];
+	products.forEach((product: AdidasProduct, index: number) => {
 		// 计算30%折扣后的价格
-		const originalPrice = product.price || 0;
-		// 兼容 isExtra30Off 和 hasExtra30Off 两种字段名
-		const hasExtra30Off = product.isExtra30Off || product.hasExtra30Off || false;
-		const discountedPrice = hasExtra30Off ? Math.round(originalPrice * 0.7) : originalPrice;
+		const originalPrice: number = product.price || 0;
+		// 兼容 isExtra30Off 字段名
+		const hasExtra30Off: boolean = product.isExtra30Off || false;
+		const discountedPrice: number = hasExtra30Off ? Math.round(originalPrice * 0.7) : originalPrice;
 
 		const row = worksheet.addRow({
 			index: index + 1,
@@ -101,7 +108,7 @@ export async function generateExcel(e_brandSite, e_brandOption, fileName) {
 		rows.push(row);
 	});
 
-	const totalTime = ((Date.now() - startTime) / 1000).toFixed(1);
+	const totalTime: string = ((Date.now() - startTime) / 1000).toFixed(1);
 	console.log(`\n产品处理完成! 总计: ${products.length} | 用时: ${totalTime}秒`);
 
 	// 添加自动筛选
@@ -114,7 +121,7 @@ export async function generateExcel(e_brandSite, e_brandOption, fileName) {
 	worksheet.views = [{ state: 'frozen', xSplit: 0, ySplit: 1 }];
 
 	// 添加信息工作表
-	const infoSheet = workbook.addWorksheet('抓取信息');
+	const infoSheet: ExcelJS.Worksheet = workbook.addWorksheet('抓取信息');
 	infoSheet.columns = [
 		{ header: '项目', key: 'item', width: 25 },
 		{ header: '值', key: 'value', width: 40 },
@@ -134,12 +141,12 @@ export async function generateExcel(e_brandSite, e_brandOption, fileName) {
 	infoSheet.addRow({ item: '总产品数', value: products.length });
 	infoSheet.addRow({
 		item: '有额外30%折扣的产品数',
-		value: products.filter((p) => p.isExtra30Off || p.hasExtra30Off).length,
+		value: products.filter((p: AdidasProduct) => p.isExtra30Off).length,
 	});
 
 	// 保存文件
 	// fileName 不包含扩展名，直接添加 .xlsx
-	const excelFileName = getFilePath(e_brandSite, e_brandOption, fileName, 'xlsx');
+	const excelFileName: string = getFilePath(e_brandSite, e_brandOption, fileName, 'xlsx');
 	await workbook.xlsx.writeFile(excelFileName);
 	console.log(`\nExcel 文件已生成: ${excelFileName}`);
 
