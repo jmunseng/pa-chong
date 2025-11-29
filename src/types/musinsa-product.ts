@@ -94,8 +94,8 @@ export interface MusinsaProductData {
 	timestamp: string;
 	/** 是否有错误 */
 	hasError: boolean;
-	/** 错误页码 */
-	errorPageNum: number;
+	/** 错误页码 (可选,用于串行抓取时记录错误) */
+	errorPageNum?: number;
 	/** 产品总数 */
 	totalProducts: number;
 	/** 产品数据对象,键为产品代码 */

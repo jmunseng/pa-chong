@@ -2,21 +2,24 @@
 	"adidas": {
 		"url": "https://www.adidas.co.kr/outlet?grid=true",
 		"blackFridayUrl": "https://www.adidas.co.kr/black_friday?grid=true",
+		"apiUrl": "https://www.adidas.co.kr/plp-app/_next/data/t-FHvkbYLQtGrZLU-fEos/outlet.json?grid=true&start={StartIndex}&path=outlet",
+		"apiExtra30ItemUrl": "https://www.adidas.co.kr/plp-app/_next/data/t-FHvkbYLQtGrZLU-fEos/extra_sale.json?start={StartIndex}&path=extra_sale",
+		"apiExtra30Url": "https://www.adidas.co.kr/plp-app/api/product/{ProductCode}?dxp=true",
 		"itemPerPage": 48
 	},
 	"musinsa": {
 		"adidas": {
-			"url": "https://api.musinsa.com/api2/dp/v1/plp/goods?gf=A&brand=adidas&sortCode=POPULAR&category=107&size=60&testGroup=&caller=CATEGORY&page={PAGE}&seen=0&seenAds=",
-			"itemPerPage": 60
+			"url": "https://api.musinsa.com/api2/dp/v1/plp/goods?gf=A&brand=adidas&sortCode=POPULAR&category=107&size=90&testGroup=&caller=CATEGORY&page={PAGE}&seen=0&seenAds=",
+			"itemPerPage": 90
 		},
 		"nike": {
-			"url": "https://api.musinsa.com/api2/dp/v1/plp/goods?gf=A&isSale=true&sortCode=POPULAR&category=103&brand=nike&page={PAGE}&size=30&caller=FLAGSHIP",
-			"itemPerPage": 30
+			"url": "https://api.musinsa.com/api2/dp/v1/plp/goods?gf=A&isSale=true&sortCode=POPULAR&category=103&brand=nike&page={PAGE}&size=90&caller=FLAGSHIP",
+			"itemPerPage": 90
 		}
 	},
 	"nike": {
-		"url": "https://www.nike.com/kr/ko_kr/w/outlet-3n82yzy7ok",
-		"itemPerPage": 30
+		"apiUrl": "https://api.musinsa.com/api2/dp/v1/plp/goods?gf=A&isSale=true&sortCode=POPULAR&category=103&brand=nike&page=6&size=90&caller=FLAGSHIP",
+		"itemPerPage": 90
 	},
 	"CONFIG": {
 		"CLICK_DELAY": 100,
@@ -28,5 +31,5 @@
 		"BADGE_LOAD_WAIT": 1000,
 		"PAGE_LOAD_TIMEOUT": 60000
 	},
-	"isDebugMode": false
+	"isDebugMode": true
 }

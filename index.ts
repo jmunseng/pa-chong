@@ -1,23 +1,25 @@
 import inquirer from 'inquirer';
 
 import { runAdidasTask } from './src/brand-site/adidas/crawler-adidas';
+import { runAdidasApiTask } from './src/brand-site/adidas/crawler-adidas-api';
 import { runMusinsaTask } from './src/brand-site/musinsa/crawler-musinsa';
 import { E_EventOptions } from './src/enum/enum-adidas';
 import { E_BrandOption } from './src/enum/enum-musinsa';
 
 interface AdidasChoice {
 	name: string;
-	value: 'default' | 'black-friday' | 'back';
+	value: 'default' | 'api-mode' | 'black-friday' | 'back';
 }
 
 interface AdidasAnswer {
-	mode: 'default' | 'black-friday' | 'back';
+	mode: 'default' | 'api-mode' | 'black-friday' | 'back';
 }
 
 async function handleAdidasSelection(): Promise<void> {
 	// 第二级菜单：Adidas 子选项
 	const adidasChoices: AdidasChoice[] = [
 		{ name: 'Default (默认)', value: 'default' },
+		{ name: 'API 模式', value: 'api-mode' },
 		{ name: 'Black Friday (黑色星期五)', value: 'black-friday' },
 		{ name: '返回', value: 'back' },
 	];
@@ -47,6 +49,11 @@ async function handleAdidasSelection(): Promise<void> {
 			console.log('正在执行 Adidas 默认任务...');
 			// 在这里调用默认的爬虫逻辑
 			runAdidasTask(E_EventOptions.Default);
+			break;
+		case 'api-mode':
+			console.log('正在执行 Adidas API 模式任务...');
+			// 在这里调用默认的爬虫逻辑
+			runAdidasApiTask();
 			break;
 		case 'black-friday':
 			console.log('正在执行 Adidas 黑色星期五任务...');

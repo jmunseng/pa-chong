@@ -8,7 +8,8 @@
 		"puppeteer-extra-plugin-stealth": "^2.11.2",
 		"puppeteer-real-browser": "^1.4.4",
 		"resend": "^6.1.2",
-		"sqlite3": "^5.1.6"
+		"sqlite3": "^5.1.6",
+		"undici": "^7.16.0"
 	},
 	"type": "module",
 	"scripts": {

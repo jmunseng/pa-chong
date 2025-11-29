@@ -209,7 +209,7 @@ export function comparePriceAdidas(
 			if (!previousPrice) {
 				// 新产品
 				product.isNewItem = true;
-				console.log(`✓ 新产品: ${product.code} - ${product.name}: ${currentPrice.toLocaleString()} 원`);
+				// console.log(`✓ 新产品: ${product.code} - ${product.name}: ${currentPrice.toLocaleString()} 원`);
 			} else if (currentPrice < previousPrice) {
 				// 价格下降
 				product.isPriceDropped = true;
@@ -253,7 +253,7 @@ export function comparePriceAdidas(
 					code: code,
 					price: productInfo.price,
 				});
-				console.log(`✓ 已下架: ${code}: ${productInfo.price}`);
+				// console.log(`✓ 已下架: ${code}: ${productInfo.price}`);
 			}
 		});
 

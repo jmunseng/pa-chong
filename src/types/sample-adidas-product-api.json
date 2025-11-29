@@ -1,0 +1,109 @@
+{
+	"pageProps": {
+		"audience": "default",
+		"fullUrl": "https://www.www.adidas.co.kr/extra_sale?start=48",
+		"cms": null,
+		"consent": {},
+		"context": {
+			"locale": "ko_KR",
+			"brand": "adidas",
+			"env": "production"
+		},
+		"isCrawler": false,
+		"pageCategory": null,
+		"pageType": "ProductListingPage",
+		"pathname": "/extra_sale",
+		"activeSeoTestIds": [],
+		"taxonomy": "extra_sale",
+		"info": {
+			"viewSize": 48,
+			"viewSetSize": "10",
+			"count": 579,
+			"startIndex": 48,
+			"currentSet": 2,
+			"collection": [],
+			"ranking": [
+				{
+					"direction": "desc",
+					"attribute": "in_stock_kr"
+				},
+				{
+					"direction": "asc",
+					"attribute": "outlet_numerical_ko_kr"
+				},
+				{
+					"direction": "desc",
+					"attribute": "new_arrivals_ko_kr"
+				},
+				{
+					"direction": "desc",
+					"attribute": "omn_pdp_views_kr_last_7_days"
+				},
+				{
+					"direction": "desc",
+					"attribute": "online_from_date_ko_kr"
+				},
+				{
+					"direction": "desc",
+					"attribute": "$rc_kr_backup_nav"
+				}
+			]
+		},
+		"title": "Extra Sale",
+		"products": [
+			{
+				"id": "JQ2847",
+				"modelNumber": "OOB28",
+				"title": "키즈용 삼바 OG 컴포트 클로저 EL",
+				"subTitle": "Infants originals",
+				"url": "/%ED%82%A4%EC%A6%88%EC%9A%A9-%EC%82%BC%EB%B0%94-og-%EC%BB%B4%ED%8F%AC%ED%8A%B8-%ED%81%B4%EB%A1%9C%EC%A0%80-el/JQ2847.html",
+				"image": "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/407de0f4dae046feb6b2c67f849500ab_9366/%ED%82%A4%EC%A6%88%EC%9A%A9-%EC%82%BC%EB%B0%94-og-%EC%BB%B4%ED%8F%AC%ED%8A%B8-%ED%81%B4%EB%A1%9C%EC%A0%80-el.jpg",
+				"priceData": {
+					"prices": [
+						{
+							"type": "original",
+							"valueNoVat": 79000,
+							"value": 79000,
+							"discountPercentage": 30
+						},
+						{
+							"type": "sale",
+							"valueNoVat": 55300,
+							"value": 55300
+						}
+					]
+				},
+				"colourVariations": [],
+				"ratingCount": -99,
+				"hoverImage": "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/ff8564ec9b6f47bc87dcdef3d6990456_9366/%ED%82%A4%EC%A6%88%EC%9A%A9-%EC%82%BC%EB%B0%94-og-%EC%BB%B4%ED%8F%AC%ED%8A%B8-%ED%81%B4%EB%A1%9C%EC%A0%80-el.jpg",
+				"unisex": false
+			},
+			{
+				"id": "JN1248",
+				"modelNumber": "KCJ79",
+				"title": "테렉스 테크록 클라이마쿨 하이킹 베스트 15L",
+				"subTitle": "Hiking",
+				"url": "/%ED%85%8C%EB%A0%89%EC%8A%A4-%ED%85%8C%ED%81%AC%EB%A1%9D-%ED%81%B4%EB%9D%BC%EC%9D%B4%EB%A7%88%EC%BF%A8-%ED%95%98%EC%9D%B4%ED%82%B9-%EB%B2%A0%EC%8A%A4%ED%8A%B8-15l/JN1248.html",
+				"image": "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/7104bfebfd5743f0a351849958ff62a6_9366/%ED%85%8C%EB%A0%89%EC%8A%A4-%ED%85%8C%ED%81%AC%EB%A1%9D-%ED%81%B4%EB%9D%BC%EC%9D%B4%EB%A7%88%EC%BF%A8-%ED%95%98%EC%9D%B4%ED%82%B9-%EB%B2%A0%EC%8A%A4%ED%8A%B8-15l.jpg",
+				"priceData": {
+					"prices": [
+						{
+							"type": "original",
+							"valueNoVat": 159000,
+							"value": 159000,
+							"discountPercentage": 20
+						},
+						{
+							"type": "sale",
+							"valueNoVat": 127200,
+							"value": 127200
+						}
+					]
+				},
+				"colourVariations": [],
+				"hoverImage": "https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/8561a291361a44a1b5fa32fc0ee1cade_9366/%ED%85%8C%EB%A0%89%EC%8A%A4-%ED%85%8C%ED%81%AC%EB%A1%9D-%ED%81%B4%EB%9D%BC%EC%9D%B4%EB%A7%88%EC%BF%A8-%ED%95%98%EC%9D%B4%ED%82%B9-%EB%B2%A0%EC%8A%A4%ED%8A%B8-15l.jpg",
+				"unisex": true
+			}
+		]
+	}
+}

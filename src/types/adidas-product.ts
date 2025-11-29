@@ -17,7 +17,13 @@ export interface AdidasProduct {
 	/** 产品图片 URL */
 	imageUrl: string;
 	/** 是否有额外 30% 折扣 */
-	isExtra30Off: boolean;
+	isExtra30Off?: boolean;
+	/** 原价 (韩元) */
+	originalPrice?: number;
+	/** 折扣百分比 */
+	discountPercentage?: number;
+	/** 副标题/类别 */
+	subTitle?: string;
 	/** 是否为新产品 */
 	isNewItem?: boolean;
 	/** 是否降价 */
