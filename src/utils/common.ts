@@ -10,6 +10,7 @@ import { generateAdidasHTMLContent } from './adidas/adidas-generate-html';
 import { comparePriceMusinsa } from './musinsa/musinsa-common';
 import { generateMusinsaHTMLContent } from './musinsa/musinsa-generate-html';
 import { comparePriceNike } from './nike/nike-common';
+import { generateNikeHTMLContent } from './nike/nike-generate-html';
 
 /**
  * 比较价格并生成 HTML 报告
@@ -60,6 +61,8 @@ export async function comparePrice(e_brandSite: E_BrandSite, e_brandOption: E_Br
 			htmlContent = generateAdidasHTMLContent(uniqueProducts, dateTimeString);
 		} else if (e_brandSite === E_BrandSite.Musinsa) {
 			htmlContent = generateMusinsaHTMLContent(e_brandOption, uniqueProducts, dateTimeString);
+		} else if (e_brandSite === E_BrandSite.Nike) {
+			htmlContent = generateNikeHTMLContent(e_brandSite, uniqueProducts, dateTimeString);
 		}
 
 		const htmlFilePathAndName: string = getFilePath(e_brandSite, e_brandOption, fileName, 'html');

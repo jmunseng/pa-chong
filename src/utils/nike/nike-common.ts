@@ -9,7 +9,7 @@ import { generateNikeHTMLContent } from './nike-generate-html';
 export function comparePriceNike(
 	e_brandSite: E_BrandSite,
 	e_brandOption: null,
-	previousProductData: NikeProductData | null,
+	previousProductData: NikeProductData | null = null,
 	currentProductData: NikeProductData,
 	fileName: string,
 	prevFileName: string
