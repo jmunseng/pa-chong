@@ -3,6 +3,7 @@ import inquirer from 'inquirer';
 import { runAdidasTask } from './src/brand-site/adidas/crawler-adidas';
 import { runAdidasApiTask } from './src/brand-site/adidas/crawler-adidas-api';
 import { runMusinsaTask } from './src/brand-site/musinsa/crawler-musinsa';
+import { runNikeApiTask } from './src/brand-site/nike/crawler-nike';
 import { E_EventOptions } from './src/enum/enum-adidas';
 import { E_BrandOption } from './src/enum/enum-musinsa';
 
@@ -113,11 +114,11 @@ async function handleMusinsaSelection(): Promise<void> {
 
 interface MainChoice {
 	name: string;
-	value: 'Adidas' | 'Musinsa' | 'cancel';
+	value: 'Adidas' | 'Musinsa' | 'Nike' | 'cancel';
 }
 
 interface MainAnswer {
-	option: 'Adidas' | 'Musinsa' | 'cancel';
+	option: 'Adidas' | 'Musinsa' | 'Nike' | 'cancel';
 }
 
 async function main(): Promise<void> {
@@ -125,7 +126,7 @@ async function main(): Promise<void> {
 	const choices: MainChoice[] = [
 		{ name: 'Adidas', value: 'Adidas' },
 		{ name: 'Musinsa', value: 'Musinsa' },
-		// { name: 'Nike', value: 'Nike' },
+		{ name: 'Nike', value: 'Nike' },
 		{ name: '退出', value: 'cancel' },
 	];
 
@@ -157,9 +158,10 @@ async function main(): Promise<void> {
 			console.log('正在执行 Musinsa 任务...');
 			await handleMusinsaSelection();
 			break;
-		// case 'Nike':
-		// 	console.log('正在执行 Nike 任务...');
-		// 	break;
+		case 'Nike':
+			console.log('正在执行 Nike 任务...');
+			await runNikeApiTask();
+			break;
 	}
 }
 

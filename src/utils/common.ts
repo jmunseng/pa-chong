@@ -9,6 +9,7 @@ import { comparePriceAdidas } from './adidas/adidas';
 import { generateAdidasHTMLContent } from './adidas/adidas-generate-html';
 import { comparePriceMusinsa } from './musinsa/musinsa-common';
 import { generateMusinsaHTMLContent } from './musinsa/musinsa-generate-html';
+import { comparePriceNike } from './nike/nike-common';
 
 /**
  * 比较价格并生成 HTML 报告
@@ -40,6 +41,8 @@ export async function comparePrice(e_brandSite: E_BrandSite, e_brandOption: E_Br
 			comparePriceAdidas(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName);
 		} else if (e_brandSite === E_BrandSite.Musinsa) {
 			comparePriceMusinsa(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName);
+		} else if (e_brandSite === E_BrandSite.Nike) {
+			comparePriceNike(e_brandSite, null, previousProductData, currentProductData, fileName, prevFileName);
 		}
 		// await sendEmailToSubscribers(currentFileName);
 	} else {
@@ -102,8 +105,10 @@ export function findPreviousJSONFile(e_brandSite: E_BrandSite, e_brandOption: E_
 		} else if (e_brandOption === E_BrandOption.Nike) {
 			collectionDir = path.resolve(process.cwd(), 'collection', e_brandSite, E_BrandOption.Nike);
 		}
-	} else if (e_brandSite === E_BrandSite.Adidas) {
+	} else if (e_brandSite === E_BrandSite.Adidas || e_brandSite === E_BrandSite.Nike) {
 		collectionDir = path.resolve(process.cwd(), 'collection', e_brandSite);
+	} else {
+		throw new Error(`Collection brand folder missing: ${e_brandSite}`);
 	}
 
 	if (!fs.existsSync(collectionDir)) {
@@ -175,10 +180,15 @@ export function getCurrentDateTimeString(): string {
  * @param extension - 文件扩展名,默认为 'json'
  * @returns 完整文件路径,如 /path/to/project/collection/e_brandSite/2025-10-05_07-41-45.json
  */
-export function getFilePath(e_brandSite: E_BrandSite, e_brandOption: E_BrandOption, fileName: string, extension: string | null = 'json'): string {
+export function getFilePath(
+	e_brandSite: E_BrandSite,
+	e_brandOption: E_BrandOption | null,
+	fileName: string,
+	extension: string | null = 'json'
+): string {
 	let collectionFolder: string = '';
 	if (e_brandSite == E_BrandSite.Musinsa) {
-		collectionFolder = path.resolve(process.cwd(), 'collection', E_BrandSite.Musinsa, e_brandOption); // <<< Musinsa/Adidas 专用路径 or Nike, update later
+		collectionFolder = path.resolve(process.cwd(), 'collection', E_BrandSite.Musinsa, e_brandOption as E_BrandOption);
 	} else {
 		collectionFolder = path.resolve(process.cwd(), 'collection', e_brandSite);
 	}

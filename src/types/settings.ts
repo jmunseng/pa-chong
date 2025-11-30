@@ -24,9 +24,11 @@ export interface AdidasSettings {
  */
 export interface NikeSettings {
 	/** Nike 官网 URL */
-	url: string;
-	/** 每页商品数 */
-	itemPerPage: number;
+	apiUrl: string;
+	path: string;
+	attributeIds: string;
+	queryType: string;
+	count: number;
 }
 
 /**

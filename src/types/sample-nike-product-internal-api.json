@@ -1,0 +1,4924 @@
+{
+	"searchTerm": null,
+	"canonicalUrl": "https://www.nike.com/kr/w/clearance-shoes-3yaepzy7ok",
+	"title": "Sale 신발",
+	"primaryHeading": "Sale 신발",
+	"attributeIds": ["16633190-45e5-4830-a068-232ac7aea82c", "5b21a62a-0503-400c-8336-3ccfbff2a684"],
+	"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+	"marketplace": "KR",
+	"locationId": null,
+	"language": "ko",
+	"selectedFiltersCount": null,
+	"mlModels": ["NONE"],
+	"analyzer": null,
+	"contentData": null,
+	"navigation": null,
+	"productGroupings": [
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "acj8oQUK",
+					"productCode": "HQ4502-001",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "18948249-c679-4ad9-96ab-0c677f831dae",
+					"internalPid": "1015723873",
+					"merchProductId": "350bc908-a5ed-551c-83e5-3fdc44fad19c",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 테라 만타",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/블랙/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 92600,
+						"employeePrice": 92600,
+						"initialPrice": 109000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/b9609d16-6ab4-43f8-a244-b14c29c79992/NIKE+TERRA+MANTA.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/8b65395a-f762-4bb5-b911-81a84ea4715b/NIKE+TERRA+MANTA.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/테라-만타-남성-신발-acj8oQUK/HQ4502-001",
+						"path": "/kr/t/테라-만타-남성-신발-acj8oQUK/HQ4502-001"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "T3BOcrHf",
+					"productCode": "BV1021-108",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "feb7d8f0-36f1-4f32-b2bb-e4fa4cd11087",
+					"internalPid": "1015742854",
+					"merchProductId": "2c904c41-ea63-5b87-8132-0bc33ca72170",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 P-6000",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/엘리멘탈 핑크/블랙/메탈릭 실버"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 118100,
+						"employeePrice": 118100,
+						"initialPrice": 139000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/1b76e1d3-9b36-41e5-8cb5-2aa8e4edb175/W+NIKE+P-6000.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/a7e33836-1adc-46cb-a2db-9480214405ec/W+NIKE+P-6000.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/p-6000-여성-신발-T3BOcrHf/BV1021-108",
+						"path": "/kr/t/p-6000-여성-신발-T3BOcrHf/BV1021-108"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "vF079vTj",
+					"productCode": "CD6404-106",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "04f629fd-b99d-4175-929c-4972e1bcbebb",
+					"internalPid": "1015713091",
+					"merchProductId": "cb6fd05d-caf5-5e40-891c-1558b2b8ed7b",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 P-6000",
+						"subTitle": "신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "라이트 오어우드 브라운/팬텀/서밋 화이트/라이트 브리티시 탠"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 118100,
+						"employeePrice": 118100,
+						"initialPrice": 139000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/f2730a31-0d4d-402f-9d93-b484ea17e62c/NIKE+P-6000.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/bf61bbba-6807-42c1-a728-c70d08397af0/NIKE+P-6000.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/p-6000-신발-vF079vTj/CD6404-106",
+						"path": "/kr/t/p-6000-신발-vF079vTj/CD6404-106"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "jgu2m1dV",
+					"productCode": "AR3565-101",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "51e35785-b768-36b1-97c5-95f2c8b477cf",
+					"internalPid": "12544797",
+					"merchProductId": "195d9f69-01f1-5263-b700-baf23cae968c",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 샥스 R4",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/메탈릭 실버/맥스 오렌지/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 152100,
+						"employeePrice": 152100,
+						"initialPrice": 179000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/t9f7rsjchzglx747kgtp/NIKE+SHOX+R4.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/oy67rae9fi4aqqhc330j/NIKE+SHOX+R4.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/샥스-r4-여성-신발-jgu2m1dV/AR3565-101",
+						"path": "/kr/t/샥스-r4-여성-신발-jgu2m1dV/AR3565-101"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "QkCkxbx2",
+					"productCode": "HF7310-002",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "3cb76675-3442-4d51-98cc-1997e9b62e23",
+					"internalPid": "1015652146",
+					"merchProductId": "5f1b7485-af1f-5f01-b2d2-f76be7cebc56",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 에어맥스 Dn8",
+						"subTitle": "주니어 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/블랙/블랙/앤트러사이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 159200,
+						"employeePrice": 159200,
+						"initialPrice": 199000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/f083b9a9-021a-418d-9579-7c327ee5343d/AIR+MAX+DN8+%28GS%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/5686e277-6d33-4102-8511-8fb78f3118d2/AIR+MAX+DN8+%28GS%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어맥스-dn8-주니어-신발-QkCkxbx2/HF7310-002",
+						"path": "/kr/t/에어맥스-dn8-주니어-신발-QkCkxbx2/HF7310-002"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "3FQ6HwoI",
+					"productCode": "HM9594-004",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "e0ccbd46-176e-4bc4-97c3-8c7502c63b0c",
+					"internalPid": "1015700653",
+					"merchProductId": "02171266-55b9-583d-b1e0-739d40de245c",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 런 디파이",
+						"subTitle": "남성 로드 러닝화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 71100,
+						"employeePrice": 71100,
+						"initialPrice": 79000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/503220d8-e123-48a6-be64-3dc019e5bdc1/NIKE+RUN+DEFY.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/ba2ab3da-0d91-4ebf-8dc0-b6e858b3bcd8/NIKE+RUN+DEFY.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/런-디파이-남성-로드-러닝화-3FQ6HwoI/HM9594-004",
+						"path": "/kr/t/런-디파이-남성-로드-러닝화-3FQ6HwoI/HM9594-004"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "GpGZXLgO",
+					"productCode": "DM4044-105",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "3adf19fe-4c4b-4e29-868e-0f1dfd5f15ab",
+					"internalPid": "1015569976",
+					"merchProductId": "b72d0f9c-9614-534e-99ea-ad6ed6588242",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코르테즈 레더",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 101100,
+						"employeePrice": 101100,
+						"initialPrice": 119000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/3086bc60-2873-4bb1-9858-6ee2f94757e0/NIKE+CORTEZ.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/4eea30b0-fcae-4804-a6b5-ac01a3cd1c93/NIKE+CORTEZ.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코르테즈-레더-남성-신발-GpGZXLgO/DM4044-105",
+						"path": "/kr/t/코르테즈-레더-남성-신발-GpGZXLgO/DM4044-105"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "CSRNDl7Z",
+					"productCode": "DV1238-001",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "61258361-3673-4a76-b3ec-c40210366bd0",
+					"internalPid": "1010084833",
+					"merchProductId": "b09d287e-773b-5d09-a6e8-1ae7d9ff7ae1",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 모티바",
+						"subTitle": "여성 워킹화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/앤트러사이트/화이트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 118100,
+						"employeePrice": 118100,
+						"initialPrice": 139000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/518cd64a-d5cd-40d9-8100-46aad324496d/WMNS+NIKE+MOTIVA.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/7cad2466-73c8-4df3-a512-295155346c76/WMNS+NIKE+MOTIVA.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/모티바-여성-워킹화-CSRNDl7Z/DV1238-001",
+						"path": "/kr/t/모티바-여성-워킹화-CSRNDl7Z/DV1238-001"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "ScwMaYUG",
+					"productCode": "FD0736-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "d5a984c0-7abc-4e2a-9a3e-1949b94f372e",
+					"internalPid": "1012664384",
+					"merchProductId": "52f96bd9-e5c3-5dc8-8e74-b8108c5270a7",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 V2K 런",
+						"subTitle": "반사 디자인 액센트가 있는 여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "서밋 화이트/퓨어 플래티넘/라이트 아이언 오어/메탈릭 실버"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 126600,
+						"employeePrice": 126600,
+						"initialPrice": 149000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/2fb6ff59-aca1-4f1f-a836-0888d4f119a6/W+NIKE+V2K+RUN.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/3e8455ad-c00c-4996-a85a-b5c4d38c6ae2/W+NIKE+V2K+RUN.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/v2k-런-반사-디자인-액센트-여성-신발-ScwMaYUG/FD0736-100",
+						"path": "/kr/t/v2k-런-반사-디자인-액센트-여성-신발-ScwMaYUG/FD0736-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "41j1AKsg",
+					"productCode": "HF6998-600",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "1f18a874-3927-4dd5-99ae-0924da00e9f7",
+					"internalPid": "1015718861",
+					"merchProductId": "39ead3e6-cdbe-5dde-b3d1-80e5c6aedfe1",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 보메로 5",
+						"subTitle": "반사 디자인 액센트 주니어 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "핑크",
+							"hex": "FF00FF"
+						},
+						"colorDescription": "펄 핑크/블리치트 라일락/서밋 화이트/배스트 그레이"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 90300,
+						"employeePrice": 90300,
+						"initialPrice": 129000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/a23c61f4-de94-4561-b0b7-88232f9558af/VOMERO+5+%28GS%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/4e4c4104-592b-4b5f-b460-88656d9133dd/VOMERO+5+%28GS%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/보메로-5-반사-디자인-액센트-주니어-신발-41j1AKsg/HF6998-600",
+						"path": "/kr/t/보메로-5-반사-디자인-액센트-주니어-신발-41j1AKsg/HF6998-600"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "yCCi2krE",
+					"productCode": "IB3731-001",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "305951d1-7ca2-4773-8d5a-d1106bb3ee44",
+					"internalPid": "1015797570",
+					"merchProductId": "1d056962-0aa8-5da6-a4b0-e088171a1b11",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "조던 세션",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/검 라이트 브라운/화이트/바시티 레드"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 92600,
+						"employeePrice": 92600,
+						"initialPrice": 109000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/9df7610e-a7ba-4900-b6ab-00a7300ea92d/JORDAN+SESSION.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/d265a682-0ec7-4b6f-b834-18c88c34531e/JORDAN+SESSION.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/조던-세션-남성-신발-yCCi2krE/IB3731-001",
+						"path": "/kr/t/조던-세션-남성-신발-yCCi2krE/IB3731-001"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "eBWaPINX",
+					"productCode": "FJ2028-104",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "1c74dba4-61a5-4663-9735-7228696348cf",
+					"internalPid": "1015712390",
+					"merchProductId": "4cbfa4e2-d720-5be8-b6b1-a33634086ca6",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 줌 보메로 5",
+						"subTitle": "반사 디자인 액센트가 있는 여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/팬텀/서밋 화이트/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 132300,
+						"employeePrice": 132300,
+						"initialPrice": 189000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/f7b0bc52-2682-46ac-89f7-55b616f276bc/W+NIKE+ZOOM+VOMERO+5.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/305c791b-9bf6-4e24-aba2-0f5148f891be/W+NIKE+ZOOM+VOMERO+5.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/줌-보메로-5-반사-디자인-액센트-여성-신발-eBWaPINX/FJ2028-104",
+						"path": "/kr/t/줌-보메로-5-반사-디자인-액센트-여성-신발-eBWaPINX/FJ2028-104"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "0EyAToXG",
+					"productCode": "HJ1101-103",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "fff8ae29-cf34-401b-bb86-bebbb3660733",
+					"internalPid": "1015746224",
+					"merchProductId": "eecfb30d-8ea9-5540-b887-30b806827bef",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 스트럭처 26",
+						"subTitle": "여성 로드 러닝화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "서밋 화이트/배얼리 볼트/세일/크롬"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 143600,
+						"employeePrice": 143600,
+						"initialPrice": 169000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/efcd31e2-bce7-4aec-9697-343c3fdc103b/W+NIKE+STRUCTURE+26.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/377c42b1-f035-4b2a-bcb4-250a82b89be6/W+NIKE+STRUCTURE+26.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/스트럭처-26-여성-로드-러닝화-0EyAToXG/HJ1101-103",
+						"path": "/kr/t/스트럭처-26-여성-로드-러닝화-0EyAToXG/HJ1101-103"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "hspwNv0g",
+					"productCode": "DQ8423-500",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "0dac461d-e961-4f89-ba28-aa579720f102",
+					"internalPid": "1015744289",
+					"merchProductId": "6d61b3ac-5594-588f-9ea4-0fc7d42af4d9",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "에어 조던 1 미드",
+						"subTitle": "주니어 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "퍼플",
+							"hex": "472B7E"
+						},
+						"colorDescription": "더스티 애미시스트/화이트/코트 퍼플"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 103200,
+						"employeePrice": 103200,
+						"initialPrice": 129000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c4348994-5d67-48f0-9fe9-5e94692c191e/AIR+JORDAN+1+MID+%28GS%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/912f458f-593b-4e6a-9e97-a4acc8c718f3/AIR+JORDAN+1+MID+%28GS%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어-조던-1-미드-주니어-신발-hspwNv0g/DQ8423-500",
+						"path": "/kr/t/에어-조던-1-미드-주니어-신발-hspwNv0g/DQ8423-500"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "kgwIADua",
+					"productCode": "DQ8425-500",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "59c5746c-0ad0-40c9-a159-0182897e3169",
+					"internalPid": "1015743786",
+					"merchProductId": "0f9250bc-8e99-5543-8927-31167e1d7bfd",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "조던 1 미드",
+						"subTitle": "베이비 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "퍼플",
+							"hex": "472B7E"
+						},
+						"colorDescription": "더스티 애미시스트/화이트/코트 퍼플"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 55200,
+						"employeePrice": 55200,
+						"initialPrice": 69000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/1354c866-c3f8-4bef-8ab2-ed47019d067f/JORDAN+1+MID+%28TD%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/3d243bfd-5634-48a3-aa6d-cf9929ccad42/JORDAN+1+MID+%28TD%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/조던-1-미드-베이비-신발-kgwIADua/DQ8425-500",
+						"path": "/kr/t/조던-1-미드-베이비-신발-kgwIADua/DQ8425-500"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "ttrpWdmd",
+					"productCode": "IH4466-095",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "4670d87d-b366-44b3-9210-9cdfb5a03504",
+					"internalPid": "1015779768",
+					"merchProductId": "155caa57-5cfe-5e09-8c25-63bcaed8510c",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 샥스 TL",
+						"subTitle": "남성 리플렉티브 액센트 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "메탈릭 실버/울프 그레이/앤트러사이트/서밋 화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 186100,
+						"employeePrice": 186100,
+						"initialPrice": 219000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/9fec6d74-9c5a-456f-9759-71eb4177d20e/NIKE+SHOX+TL+PRINT.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/a88e2bef-3526-4287-b8fc-245126b31838/NIKE+SHOX+TL+PRINT.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/반사-디자인-액센트가-있는-샥스-tl-남성-신발-ttrpWdmd/IH4466-095",
+						"path": "/kr/t/반사-디자인-액센트가-있는-샥스-tl-남성-신발-ttrpWdmd/IH4466-095"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "4z9bHqbJ",
+					"productCode": "HQ2164-102",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "11252f3a-b635-44e6-b1fe-07c72d470b5d",
+					"internalPid": "1015747090",
+					"merchProductId": "11301bf1-b85a-5deb-8c92-2c36922c9de5",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "조던 트러너 LX",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "라이트 오어우드 브라운/앤트러사이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 135100,
+						"employeePrice": 135100,
+						"initialPrice": 159000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/c321ff6c-a197-437c-9924-9f276077d6ad/WMNS+JORDAN+TRUNNER+LX.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/573cbf07-2e9f-4e70-990b-dd1c5b984603/WMNS+JORDAN+TRUNNER+LX.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/조던-트러너-lx-여성-신발-4z9bHqbJ/HQ2164-102",
+						"path": "/kr/t/조던-트러너-lx-여성-신발-4z9bHqbJ/HQ2164-102"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "PEucyB9k",
+					"productCode": "CJ1288-001",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "762effd9-0735-3d06-a5b5-6ba8fa5593e2",
+					"internalPid": "12786521",
+					"merchProductId": "4912bfe2-ce44-5909-89fb-ac6ade12ccea",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 에어 줌 스피리돈 케이지 2",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "라이트 샌드스톤/카디널 레드/블랙/메탈릭 실버"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 156700,
+						"employeePrice": 156700,
+						"initialPrice": 209000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/i1-591d047e-b5e1-44a1-a919-5bff7084cf06/AIR+ZOOM+SPIRIDON+CAGE+2.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/a814995d-a806-4c82-9c1f-7cd2361a8bb6/AIR+ZOOM+SPIRIDON+CAGE+2.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어-줌-스피리돈-케이지-2-남성-신발-PEucyB9k/CJ1288-001",
+						"path": "/kr/t/에어-줌-스피리돈-케이지-2-남성-신발-PEucyB9k/CJ1288-001"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "qTk67xkr",
+					"productCode": "IB4339-001",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "40601c19-a75d-4bb3-8e61-5185d7912197",
+					"internalPid": "1015702544",
+					"merchProductId": "862c5e3f-ca3d-5bf1-9e8a-b9661c1e63fc",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 이니시에이터",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "팬텀/라이트 본/세일/밍크 브라운"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 81700,
+						"employeePrice": 81700,
+						"initialPrice": 109000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/7f70ff54-e8ab-4164-806d-d89cc6b04a34/WMNS+NIKE+INITIATOR.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/65ffec23-7818-444e-95a2-f70876af18c1/WMNS+NIKE+INITIATOR.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/이니시에이터-여성-신발-qTk67xkr/IB4339-001",
+						"path": "/kr/t/이니시에이터-여성-신발-qTk67xkr/IB4339-001"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "vF079vTj",
+					"productCode": "CD6404-002",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "d7d5100d-bef5-3a6a-8d95-bb94cedb84b5",
+					"internalPid": "12627377",
+					"merchProductId": "240284cf-5bdc-5528-b6ab-69066991770e",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 P-6000",
+						"subTitle": "신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 125100,
+						"employeePrice": 125100,
+						"initialPrice": 139000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/a86cd4c4-3148-41cd-99f7-f5f1714f6a50/NIKE+P-6000.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/v6vr4e25eoq1ncjxqcjq/NIKE+P-6000.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/p-6000-신발-vF079vTj/CD6404-002",
+						"path": "/kr/t/p-6000-신발-vF079vTj/CD6404-002"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "vkhs7GAL",
+					"productCode": "HJ4316-200",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "94b58030-0362-4ca3-8961-2762db6bc11c",
+					"internalPid": "1015742885",
+					"merchProductId": "8576ff2e-3a72-55f2-aee1-2e703b3b1396",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 C1TY 프리미엄 CORDURA®",
+						"subTitle": "신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "플랙스/블랙/검 옐로우/와일드 그레이프"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 111200,
+						"employeePrice": 111200,
+						"initialPrice": 139000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/9386d4b8-491a-4e5e-ba16-625ddcefed5f/NIKE+C1TY+PRM.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/d2f6f962-c11c-414d-8c1e-19a514cf93a7/NIKE+C1TY+PRM.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/c1ty-프리미엄-cordura-신발-vkhs7GAL/HJ4316-200",
+						"path": "/kr/t/c1ty-프리미엄-cordura-신발-vkhs7GAL/HJ4316-200"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "vIJi6g5q",
+					"productCode": "DZ2795-001",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "36f6bc6f-0957-4822-a272-6b3a7e424571",
+					"internalPid": "1012328795",
+					"merchProductId": "801e9abf-d4d6-5ddd-8308-76153cf8542b",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코르테즈 텍스타일",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 89200,
+						"employeePrice": 89200,
+						"initialPrice": 119000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/8bd40f1c-94cb-4319-8161-37a3fdd93698/NIKE+CORTEZ.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/9ab8e739-b9e7-4ce9-b071-cb7db0535b99/NIKE+CORTEZ.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코르테즈-텍스타일-여성-신발-vIJi6g5q/DZ2795-001",
+						"path": "/kr/t/코르테즈-텍스타일-여성-신발-vIJi6g5q/DZ2795-001"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "HSNnxxRU",
+					"productCode": "FJ4151-003",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "4ee67205-aadf-4e39-bbb9-19f0db998101",
+					"internalPid": "1015600849",
+					"merchProductId": "1b4d4747-ef14-5622-adf0-e76468b06d34",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 줌 보메로 5",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "울프 그레이/메탈릭 실버/쿨 그레이/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 170100,
+						"employeePrice": 170100,
+						"initialPrice": 189000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/bf7dee49-3c31-42ab-8f49-fd394d99539f/NIKE+ZOOM+VOMERO+5.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/4ee1d6f1-5efc-4e2a-84a6-7e40b02de73d/NIKE+ZOOM+VOMERO+5.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/줌-보메로-5-남성-신발-HSNnxxRU/FJ4151-003",
+						"path": "/kr/t/줌-보메로-5-남성-신발-HSNnxxRU/FJ4151-003"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "fUs1aeTp",
+					"productCode": "CD5463-105",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "42774cad-797c-3fc2-abb2-888e3f3940ad",
+					"internalPid": "12926469",
+					"merchProductId": "63c82f77-8493-5444-9e08-0df3eb7f37de",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코트 비전 로우",
+						"subTitle": "신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/포톤 더스트/검 라이트 브라운/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 69300,
+						"employeePrice": 69300,
+						"initialPrice": 99000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/17d1f7af-ad65-4e9c-80bd-2d9a669c033e/NIKE+COURT+VISION+LO.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/3ff1c296-53f3-472f-9f06-c27b6c666d7b/NIKE+COURT+VISION+LO.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코트-비전-로우-신발-fUs1aeTp/CD5463-105",
+						"path": "/kr/t/코트-비전-로우-신발-fUs1aeTp/CD5463-105"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "SLbxNzG2",
+					"productCode": "HQ2056-103",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "c347a6b6-5022-4b58-a376-fb2bf708b2e5",
+					"internalPid": "1015810711",
+					"merchProductId": "91fad461-70c1-540d-a1db-627e226937ff",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 에어맥스 모토 2K",
+						"subTitle": "반사 디자인 액센트가 있는 여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/메탈릭 실버/블랙/포톤 더스트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 134100,
+						"employeePrice": 134100,
+						"initialPrice": 149000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/128904c9-6281-4d00-8ff0-ed791031c0bd/W+NIKE+AIR+MAX+MOTO+2K.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/30ecd6fb-40a4-4cb6-bcb8-29f687b8a514/W+NIKE+AIR+MAX+MOTO+2K.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어맥스-모토-2k-반사-디자인-액센트-여성-신발-SLbxNzG2/HQ2056-103",
+						"path": "/kr/t/에어맥스-모토-2k-반사-디자인-액센트-여성-신발-SLbxNzG2/HQ2056-103"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "T3BOcrHf",
+					"productCode": "IF1787-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "a97d3391-9343-405d-bb69-3e8b7aaa6ba7",
+					"internalPid": "1015722771",
+					"merchProductId": "a28ac2cd-3675-569a-bab6-92934278bffc",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 P-6000 골드",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/그레인/메탈릭 골드 그레인/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 104300,
+						"employeePrice": 104300,
+						"initialPrice": 149000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/45d92209-54b0-479e-b704-5ba7e752d006/W+NIKE+P-6000+GLD.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/02280fc7-53e9-4d4d-a407-8f28544f67b8/W+NIKE+P-6000+GLD.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/p-6000-골드-여성-신발-T3BOcrHf/IF1787-100",
+						"path": "/kr/t/p-6000-골드-여성-신발-T3BOcrHf/IF1787-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "MmS2tH8x",
+					"productCode": "HQ1940-200",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "c192b835-6406-4a36-b638-90bd7229a65c",
+					"internalPid": "1015723034",
+					"merchProductId": "84ab1e8f-bab7-5261-9589-cd3dd5a53821",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 테라 만타",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "플랙스/검 라이트 브라운/세일"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 81700,
+						"employeePrice": 81700,
+						"initialPrice": 109000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/b727c520-5442-485d-94dd-5b52e92625da/W+NIKE+TERRA+MANTA.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/f4065dac-22ff-4586-82b9-d668ed2c4e45/W+NIKE+TERRA+MANTA.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/테라-만타-여성-신발-MmS2tH8x/HQ1940-200",
+						"path": "/kr/t/테라-만타-여성-신발-MmS2tH8x/HQ1940-200"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "fL2JAjod",
+					"productCode": "DM0950-115",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "b3208511-c11f-4409-94c9-0516328764ad",
+					"internalPid": "1015685477",
+					"merchProductId": "8ae5b9df-7c04-57ad-a48e-0210ce24d1c2",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코르테즈",
+						"subTitle": "주니어 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/바시티 블루/바시티 레드"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 59500,
+						"employeePrice": 59500,
+						"initialPrice": 85000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/b75cd78c-536f-43c3-a105-383faf3b2f31/NIKE+KIDS+CORTEZ+%28GS%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/bc43d840-fce8-4619-b395-c6fd7d0d1010/NIKE+KIDS+CORTEZ+%28GS%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코르테즈-주니어-신발-fL2JAjod/DM0950-115",
+						"path": "/kr/t/코르테즈-주니어-신발-fL2JAjod/DM0950-115"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "eBWaPINX",
+					"productCode": "IB7253-500",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "f7707a2a-8b75-4493-a983-326bf32ff75d",
+					"internalPid": "1015712272",
+					"merchProductId": "eb00da01-fcfe-56f0-9460-37d98e4923fb",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 줌 보메로 5",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "퍼플",
+							"hex": "472B7E"
+						},
+						"colorDescription": "배얼리 그레이프/포톤 더스트/서밋 화이트/메탈릭 실버"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 132300,
+						"employeePrice": 132300,
+						"initialPrice": 189000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/ce2429b2-a59e-49c6-9f3b-ac9b34973b68/W+NIKE+ZOOM+VOMERO+5+M.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/da24e896-7601-4c8d-8220-ef5e43121ae0/W+NIKE+ZOOM+VOMERO+5+M.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/줌-보메로-5-여성-신발-eBWaPINX/IB7253-500",
+						"path": "/kr/t/줌-보메로-5-여성-신발-eBWaPINX/IB7253-500"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "vIJi6g5q",
+					"productCode": "DN1791-108",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "bec5d79f-5b05-4237-bd0a-9f33c5c59b07",
+					"internalPid": "1015621513",
+					"merchProductId": "18bf5a77-0418-5766-ac5f-041a7c616c34",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코르테즈 레더",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/바시티 블루/바시티 레드"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 89200,
+						"employeePrice": 89200,
+						"initialPrice": 119000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/236a53ed-106f-44bb-855d-05abab45f414/W+NIKE+CORTEZ.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/1ffa33d7-7c39-4b91-805d-7db531db0d35/W+NIKE+CORTEZ.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코르테즈-레더-여성-신발-vIJi6g5q/DN1791-108",
+						"path": "/kr/t/코르테즈-레더-여성-신발-vIJi6g5q/DN1791-108"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "vF079vTj",
+					"productCode": "IF0668-001",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "a52728b9-9e67-4d66-abc1-938ef28f1c50",
+					"internalPid": "1015723759",
+					"merchProductId": "ad4efd7f-49d8-5caa-a9dc-82e1fae7d5dd",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 P-6000 PRM",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "배스트 그레이/퍼/라임라이트/배스트 그레이"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 127200,
+						"employeePrice": 127200,
+						"initialPrice": 159000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/cf4adba1-a532-43c3-a27d-e10ac170dd3d/NIKE+P-6000+PRM.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/b0cb1cab-9c0b-4e25-8837-701d8dd95b54/NIKE+P-6000+PRM.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/p-6000-prm-남성-신발-vF079vTj/IF0668-001",
+						"path": "/kr/t/p-6000-prm-남성-신발-vF079vTj/IF0668-001"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "JVHadXAA",
+					"productCode": "HQ7901-101",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "449934e4-9403-4602-9037-4cd7c4a6f040",
+					"internalPid": "1015712159",
+					"merchProductId": "2f3b4d96-13f9-5c34-874d-e1a335e263c5",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 V5 RNR",
+						"subTitle": "반사 디자인 액센트가 있는 여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/블랙/메탈릭 실버/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 101100,
+						"employeePrice": 101100,
+						"initialPrice": 119000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/a5adfdbb-7c07-4581-9a5a-1fceaf186af0/W+NIKE+V5+RNR.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/1b745c86-3c33-4fb3-8cfc-c49178ed7bb9/W+NIKE+V5+RNR.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/v5-rnr-반사-디자인-액센트-여성-신발-JVHadXAA/HQ7901-101",
+						"path": "/kr/t/v5-rnr-반사-디자인-액센트-여성-신발-JVHadXAA/HQ7901-101"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "02TV6Tvy",
+					"productCode": "HJ5228-101",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "b3df4e71-f8e7-42f8-a234-1e6c31f0f60b",
+					"internalPid": "1015713184",
+					"merchProductId": "23bc8c23-6378-5abf-8af0-232101552cb0",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 V5 RNR",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/블랙/메탈릭 실버/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 101100,
+						"employeePrice": 101100,
+						"initialPrice": 119000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/7d82b564-abb2-4140-94fa-6f5625d98bdf/NIKE+V5+RNR.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/049f7a7e-a122-4f8d-b020-e26499a035df/NIKE+V5+RNR.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/v5-rnr-남성-신발-02TV6Tvy/HJ5228-101",
+						"path": "/kr/t/v5-rnr-남성-신발-02TV6Tvy/HJ5228-101"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "CKE7NTnn",
+					"productCode": "IF2621-006",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "eda2234d-afda-492e-a829-a344e545f7c8",
+					"internalPid": "1015780573",
+					"merchProductId": "0638786e-a52a-5b04-bb07-7fc86c830870",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 에어맥스 파이어",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "포톤 더스트/라이트 스모크 그레이/데님 터콰이즈"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 103200,
+						"employeePrice": 103200,
+						"initialPrice": 129000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/15ddbd4d-3822-4560-8949-b0a7a9a1e930/AIR+MAX+FIRE.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/8f25bce7-92e5-4026-abce-b8a47ec5fc56/AIR+MAX+FIRE.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어맥스-파이어-남성-신발-CKE7NTnn/IF2621-006",
+						"path": "/kr/t/에어맥스-파이어-남성-신발-CKE7NTnn/IF2621-006"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "ERjGCCbF",
+					"productCode": "FZ3863-200",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "19e70e71-f4b8-40e8-b3ef-b66aa5cc6b68",
+					"internalPid": "1015621651",
+					"merchProductId": "97cb46ca-36f1-5bf4-affb-7f53bd84a51c",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 C1TY '브라운스톤'",
+						"subTitle": "신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "플랙스/세서미/스타디움 그린/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 103200,
+						"employeePrice": 103200,
+						"initialPrice": 129000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/3ea1951b-cf47-4bef-8e96-510ef54b2ec1/NIKE+C1TY.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/38f3c7c3-263c-434a-afcb-13bccfa04424/NIKE+C1TY.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/c1ty-브라운스톤-신발-ERjGCCbF/FZ3863-200",
+						"path": "/kr/t/c1ty-브라운스톤-신발-ERjGCCbF/FZ3863-200"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "vIJi6g5q",
+					"productCode": "FV5420-002",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "c9cf222c-a799-4efa-9f81-bf86eebdb165",
+					"internalPid": "1015573750",
+					"merchProductId": "33954fde-fc5b-535e-b419-5d1bce0af715",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코르테즈 텍스타일",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/다크 스모크 그레이/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 103200,
+						"employeePrice": 103200,
+						"initialPrice": 129000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/e5a12af8-df9c-4875-a8e3-6a4ba97f8dd6/W+NIKE+CORTEZ.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/ee65658e-279e-48f8-9bab-9cbf7f07a06d/W+NIKE+CORTEZ.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코르테즈-텍스타일-여성-신발-vIJi6g5q/FV5420-002",
+						"path": "/kr/t/코르테즈-텍스타일-여성-신발-vIJi6g5q/FV5420-002"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "41j1AKsg",
+					"productCode": "HF6998-010",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "f81b52f9-5ee4-4902-846c-da70af5efe84",
+					"internalPid": "1015763942",
+					"merchProductId": "9a182da2-aaef-5717-9439-97ab885b6f64",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 보메로 5",
+						"subTitle": "반사 디자인 액센트 주니어 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "칼리지 그레이/케이브 스톤/메탈릭 실버/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 116100,
+						"employeePrice": 116100,
+						"initialPrice": 129000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/285512b1-ea20-4341-9da9-1818ef1ad80e/VOMERO+5+%28GS%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/511e353f-9741-435d-aa10-7d03babf5f7c/VOMERO+5+%28GS%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/보메로-5-반사-디자인-액센트-주니어-신발-41j1AKsg/HF6998-010",
+						"path": "/kr/t/보메로-5-반사-디자인-액센트-주니어-신발-41j1AKsg/HF6998-010"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "IMcRYwd2",
+					"productCode": "FD2292-003",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "3246624e-bb9f-4c48-b3fb-f33639f45653",
+					"internalPid": "1013296925",
+					"merchProductId": "228b039f-366a-5bec-8927-bfdf7441f1b0",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 인터랙트 런",
+						"subTitle": "여성 로드 러닝화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/앤트러사이트/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 69300,
+						"employeePrice": 69300,
+						"initialPrice": 99000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/3e5a9391-57b3-4854-853c-6d54030b9f58/W+NIKE+INTERACT+RUN.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/1797b1ab-99e7-4391-ba94-899ebc9aecb9/W+NIKE+INTERACT+RUN.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/인터랙트-런-여성-로드-러닝화-IMcRYwd2/FD2292-003",
+						"path": "/kr/t/인터랙트-런-여성-로드-러닝화-IMcRYwd2/FD2292-003"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "NEE52kop",
+					"productCode": "HM4402-003",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "b02d034d-0e3a-477c-bb85-669bf232d64b",
+					"internalPid": "1015685418",
+					"merchProductId": "787288df-e66f-50b0-a163-9d2c49dab2c1",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코스믹 러너",
+						"subTitle": "주니어 로드 러닝화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/앤트러사이트/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 58500,
+						"employeePrice": 58500,
+						"initialPrice": 65000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/67b8b786-609d-4257-8b9e-0bb06823a118/NIKE+COSMIC+RUNNER+%28GS%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/e6ae931f-4090-46fc-85cd-3a221bd089eb/NIKE+COSMIC+RUNNER+%28GS%29.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코스믹-러너-주니어-로드-러닝화-NEE52kop/HM4402-003",
+						"path": "/kr/t/코스믹-러너-주니어-로드-러닝화-NEE52kop/HM4402-003"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "WvBcGabz",
+					"productCode": "IB2746-002",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "b43fbadf-add7-448a-9afd-79dbfbf4962d",
+					"internalPid": "1015709145",
+					"merchProductId": "75698745-4895-5ce5-bae9-21a04e11aee6",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 에어 줌 업턴 SC",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/블랙/앤트러사이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 89200,
+						"employeePrice": 89200,
+						"initialPrice": 119000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/3cd99714-df63-485e-9d55-e758b0785a15/NIKE+AIR+ZOOM+UPTURN+SC.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/25aa8691-b630-401a-8d4c-688ac8b00a72/NIKE+AIR+ZOOM+UPTURN+SC.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어-줌-업턴-sc-남성-신발-WvBcGabz/IB2746-002",
+						"path": "/kr/t/에어-줌-업턴-sc-남성-신발-WvBcGabz/IB2746-002"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "6I1g425u",
+					"productCode": "DR9748-044",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "44796874-8bfe-492b-af8a-32aca09c0bd1",
+					"internalPid": "1015750488",
+					"merchProductId": "002fc8b5-788e-5732-b108-a5b1ffb345fd",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "조던 1 로우 알트",
+						"subTitle": "리틀키즈 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "아이언 그레이/서밋 화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 68000,
+						"employeePrice": 68000,
+						"initialPrice": 85000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/0e36b0fa-5e76-4b03-9564-2b4bb9990092/JORDAN+1+LOW+ALT+%28PS%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b8850b5a-dd7e-4aaa-973b-273576091451/JORDAN+1+LOW+ALT+%28PS%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/조던-1-로우-알트-리틀키즈-신발-6I1g425u/DR9748-044",
+						"path": "/kr/t/조던-1-로우-알트-리틀키즈-신발-6I1g425u/DR9748-044"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "moxw2vwF",
+					"productCode": "394055-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "bb2d0bb2-f328-3da8-8e59-119afe32a2b3",
+					"internalPid": "10792045",
+					"merchProductId": "581cc428-dae6-5f77-b31c-5f804162779d",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 이니시에이터",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 92600,
+						"employeePrice": 92600,
+						"initialPrice": 109000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/cb4c6e83-63dc-41a0-a8d7-8b087ba9491f/NIKE+INITIATOR.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/3ea0dc7e-a2a4-48ad-a0f6-f3fde2ab1e49/NIKE+INITIATOR.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/이니시에이터-남성-신발-moxw2vwF/394055-100",
+						"path": "/kr/t/이니시에이터-남성-신발-moxw2vwF/394055-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "vIJi6g5q",
+					"productCode": "DN1791-104",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "d865924b-f66f-43e2-82da-d55da6eba373",
+					"internalPid": "1013249127",
+					"merchProductId": "a449232a-8aef-59cb-813a-4e57ab91a825",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코르테즈 레더",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "세일/카키/화이트/코카오 와우"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 107100,
+						"employeePrice": 107100,
+						"initialPrice": 119000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/e4acbdf1-367b-4412-8820-8f2a41d16da7/W+NIKE+CORTEZ.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/8ab3cec7-f85d-4b36-b535-853943aca1d9/W+NIKE+CORTEZ.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코르테즈-레더-여성-신발-vIJi6g5q/DN1791-104",
+						"path": "/kr/t/코르테즈-레더-여성-신발-vIJi6g5q/DN1791-104"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "WnFkPCTH",
+					"productCode": "HM4771-104",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "fe61d9de-a595-46f1-a6f1-2c5b9ae4c1b3",
+					"internalPid": "1015725307",
+					"merchProductId": "9dab9519-744b-53b5-af0a-133a8471b1c7",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 퍼시픽",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "모슬린/화이트/세이프티 오렌지/세일"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 74200,
+						"employeePrice": 74200,
+						"initialPrice": 99000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/0a9a95e9-30ae-4761-9756-06a23cc6e985/W+NIKE+PACIFIC.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/655a4dc5-4b6b-4258-8f30-cc45c75bd4ea/W+NIKE+PACIFIC.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/퍼시픽-여성-신발-WnFkPCTH/HM4771-104",
+						"path": "/kr/t/퍼시픽-여성-신발-WnFkPCTH/HM4771-104"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "ERjGCCbF",
+					"productCode": "FZ3863-006",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "0b53342c-524e-4250-bcc4-891f583337ed",
+					"internalPid": "1015621623",
+					"merchProductId": "13d597a8-a02f-515d-9e15-ae236f06d782",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 C1TY '스트리트'",
+						"subTitle": "신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/스타디움 그린/서밋 화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 109600,
+						"employeePrice": 109600,
+						"initialPrice": 129000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/a3ebbc27-c03d-4a15-adf4-fb57346f4a2c/NIKE+C1TY.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/a00ddf4a-0378-4189-a4fc-09f1a92439aa/NIKE+C1TY.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/c1ty-스트리트-신발-ERjGCCbF/FZ3863-006",
+						"path": "/kr/t/c1ty-스트리트-신발-ERjGCCbF/FZ3863-006"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "H5QRvXVe",
+					"productCode": "IH3204-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "fbf985f2-223e-4991-b1c1-f696494a4f06",
+					"internalPid": "1015750968",
+					"merchProductId": "375edd03-c715-5785-8043-e039d225b5d8",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 에어 포스 1 '07",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/멀티컬러/고스트/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 119200,
+						"employeePrice": 119200,
+						"initialPrice": 149000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/fae49674-7fb9-4cd0-90f2-0cf049b5cf8a/W+AIR+FORCE+1+%2707.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/e53b9e12-4a2a-4e03-b264-fe7e8a1eb076/W+AIR+FORCE+1+%2707.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어-포스-1-07-여성-신발-H5QRvXVe/IH3204-100",
+						"path": "/kr/t/에어-포스-1-07-여성-신발-H5QRvXVe/IH3204-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "vkhs7GAL",
+					"productCode": "HJ4316-201",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "8d07e0a9-f685-46e3-97a0-53ecfcc07f16",
+					"internalPid": "1015742910",
+					"merchProductId": "73ca6eac-a4e9-5dff-bca7-529ee06fda46",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 C1TY 프리미엄 CORDURA®",
+						"subTitle": "신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "라이트 브리티시 탠/블랙/퍼"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 111200,
+						"employeePrice": 111200,
+						"initialPrice": 139000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/223c60f1-6d75-4216-9cd2-e913c0f6d6c2/NIKE+C1TY+PRM.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/7e97f83f-cc3c-48e3-8cfa-03da70ec460e/NIKE+C1TY+PRM.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/c1ty-프리미엄-cordura-신발-vkhs7GAL/HJ4316-201",
+						"path": "/kr/t/c1ty-프리미엄-cordura-신발-vkhs7GAL/HJ4316-201"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "oVLJrCLn",
+					"productCode": "HF5441-105",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "107d4651-5f29-4bc8-8d87-39ed0963f752",
+					"internalPid": "1015651858",
+					"merchProductId": "57e12ab9-e12a-50c8-b72b-bc2c35b748e7",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 덩크 로우 레트로",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/화이트/라이트 스모크 그레이"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 125100,
+						"employeePrice": 125100,
+						"initialPrice": 139000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/79a35c4b-23ec-4d9e-a2f3-bb0049f96fbd/NIKE+DUNK+LOW+RETRO.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/2990f85d-8844-4e5b-a222-31ed53a5a9d4/NIKE+DUNK+LOW+RETRO.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/덩크-로우-레트로-남성-신발-oVLJrCLn/HF5441-105",
+						"path": "/kr/t/덩크-로우-레트로-남성-신발-oVLJrCLn/HF5441-105"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "al5OD65W",
+					"productCode": "DM0951-115",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "29bac03e-85c3-48e0-b5a3-e849094e0415",
+					"internalPid": "1015685482",
+					"merchProductId": "8aecf4a3-08ce-5b9a-a23b-813c2fbec58c",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코르테즈 이지온",
+						"subTitle": "리틀키즈 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/바시티 블루/바시티 레드"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 48300,
+						"employeePrice": 48300,
+						"initialPrice": 69000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/bc607f7b-7b32-4704-a4cd-b9e68de27cf0/NIKE+KIDS+CORTEZ+EASYON+%28PSV%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/fe2fdf58-8a58-4c33-ae0b-eb19f7b0ea2d/NIKE+KIDS+CORTEZ+EASYON+%28PSV%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코르테즈-이지온-리틀키즈-신발-al5OD65W/DM0951-115",
+						"path": "/kr/t/코르테즈-이지온-리틀키즈-신발-al5OD65W/DM0951-115"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "ScwMaYUG",
+					"productCode": "HJ5269-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "efd718ac-f097-4628-8185-4c9e10bd5b86",
+					"internalPid": "1015767035",
+					"merchProductId": "383f2a12-06ec-5df3-b171-ddc2b1ffcb07",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 V2K 런",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/서밋 화이트/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 118300,
+						"employeePrice": 118300,
+						"initialPrice": 169000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/b8658816-ee51-49d2-92d3-24b99df96a7d/W+NIKE+V2K+RUN.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/257d50f2-e5c3-45c4-aae7-689ebb0d9d06/W+NIKE+V2K+RUN.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/v2k-런-여성-신발-ScwMaYUG/HJ5269-100",
+						"path": "/kr/t/v2k-런-여성-신발-ScwMaYUG/HJ5269-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "SfU6Z9Qv",
+					"productCode": "FQ7939-061",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "ac4535ee-41a7-4e96-a19d-68286ec58617",
+					"internalPid": "1015750913",
+					"merchProductId": "1968b4bc-df6f-5173-bf20-faeac63a9e35",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "에어 조던 4 RM",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/울프 그레이/화이트/바시티 레드"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 151200,
+						"employeePrice": 151200,
+						"initialPrice": 189000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/44b19e90-6f30-4ae2-99c7-bf78dc1d7cfb/AIR+JORDAN+4+RM.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/cd845740-9e8f-4f87-b2b0-bb9c4617bba9/AIR+JORDAN+4+RM.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어-조던-4-rm-남성-신발-SfU6Z9Qv/FQ7939-061",
+						"path": "/kr/t/에어-조던-4-rm-남성-신발-SfU6Z9Qv/FQ7939-061"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "xj9vIjFT",
+					"productCode": "DD1503-101",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "93fa77fa-16bc-3861-8511-e28fab573233",
+					"internalPid": "13087061",
+					"merchProductId": "3eaac048-5192-5d70-88c0-0d2a18fa9cb0",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 덩크 로우",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/화이트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 118100,
+						"employeePrice": 118100,
+						"initialPrice": 139000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/af53d53d-561f-450a-a483-70a7ceee380f/W+NIKE+DUNK+LOW.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/d14fc386-1067-4a72-961e-9f8134680703/W+NIKE+DUNK+LOW.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/덩크-로우-여성-신발-xj9vIjFT/DD1503-101",
+						"path": "/kr/t/덩크-로우-여성-신발-xj9vIjFT/DD1503-101"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "PbaFnne6",
+					"productCode": "IB0612-001",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "e44a264b-94a5-466f-ae98-a30ba681676e",
+					"internalPid": "1015685539",
+					"merchProductId": "03fea808-b543-54b2-8ec3-72edb8be0de6",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 에어 페가수스 웨이브",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/앤트러사이트/사이버/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 141700,
+						"employeePrice": 141700,
+						"initialPrice": 189000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/e17dd536-868c-477e-8de8-4bbda1540ca1/NIKE+AIR+PEGASUS+WAVE.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/fda7871b-3fd5-445f-90c8-68fd1c87929c/NIKE+AIR+PEGASUS+WAVE.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어-페가수스-웨이브-남성-신발-PbaFnne6/IB0612-001",
+						"path": "/kr/t/에어-페가수스-웨이브-남성-신발-PbaFnne6/IB0612-001"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "XGVlB6Q2",
+					"productCode": "HF3165-102",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "4bc5440d-9fbe-4ccc-9817-3a04e7865a11",
+					"internalPid": "1015723318",
+					"merchProductId": "495f9612-129d-5cf5-b689-eb0ef76a5655",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 필드 제너럴",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "페일 아이보리/검 옐로우/미드나이트 네이비"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 96700,
+						"employeePrice": 96700,
+						"initialPrice": 129000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/bd838cf0-5f57-4b46-a09a-c33f4ff78e7a/NIKE+FIELD+GENERAL.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/a4baec06-157d-4b49-bf2f-9c926a0fbabe/NIKE+FIELD+GENERAL.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/필드-제너럴-남성-신발-XGVlB6Q2/HF3165-102",
+						"path": "/kr/t/필드-제너럴-남성-신발-XGVlB6Q2/HF3165-102"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "NUTFDIMN",
+					"productCode": "HQ6411-103",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "92b7b681-63ca-4a5a-9d1c-2a426f744565",
+					"internalPid": "1015775913",
+					"merchProductId": "1035fc2f-0cf0-53c4-913c-4474a5836e56",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 V5 RNR",
+						"subTitle": "주니어 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/퓨어 플래티넘/화이트/메탈릭 실버"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 80100,
+						"employeePrice": 80100,
+						"initialPrice": 89000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/b70b12de-010f-4a40-acf8-fff78a8e1dc9/NIKE+V5+RNR+%28GS%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/476f6301-ba68-4efe-b337-74ee8616a1b1/NIKE+V5+RNR+%28GS%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/v5-rnr-주니어-신발-NUTFDIMN/HQ6411-103",
+						"path": "/kr/t/v5-rnr-주니어-신발-NUTFDIMN/HQ6411-103"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "wsMerZC0",
+					"productCode": "IH4114-140",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "3bd1ab54-d8b2-4c80-ab67-909ed44f0c79",
+					"internalPid": "1015778781",
+					"merchProductId": "9c8bb924-3eb8-5b1f-8a6f-080583aa46b0",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 보메로 18",
+						"subTitle": "남성 로드 러닝화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "오트밀/앤트러사이트/볼트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 170100,
+						"employeePrice": 170100,
+						"initialPrice": 189000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/078246da-5735-486d-b74d-058e8397c448/NIKE+VOMERO+18.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/0ed7d67a-3cd8-476b-92c0-f233cfd24bd5/NIKE+VOMERO+18.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/보메로-18-남성-로드-러닝화-wsMerZC0/IH4114-140",
+						"path": "/kr/t/보메로-18-남성-로드-러닝화-wsMerZC0/IH4114-140"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "L0vZZqfx",
+					"productCode": "FD2722-009",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "2911e625-72f1-43e3-b388-77ec61a3cf62",
+					"internalPid": "1015651979",
+					"merchProductId": "96618d3d-39c4-58e9-ba74-cff32265619e",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 페가수스 41",
+						"subTitle": "남성 로드 러닝화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "쿨 그레이/울프 그레이/퓨어 플래티넘/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 119200,
+						"employeePrice": 119200,
+						"initialPrice": 159000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/9d2062f4-4d8a-43b4-9837-4a9aea2923d1/AIR+ZOOM+PEGASUS+41.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/2d158090-0b1f-4a76-a453-a1e1277af85e/AIR+ZOOM+PEGASUS+41.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/페가수스-41-남성-로드-러닝화-L0vZZqfx/FD2722-009",
+						"path": "/kr/t/페가수스-41-남성-로드-러닝화-L0vZZqfx/FD2722-009"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "vF079vTj",
+					"productCode": "IH3646-499",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "3c8bfd44-0508-414f-892e-bd26e951e5b1",
+					"internalPid": "1015781747",
+					"merchProductId": "96562a4b-6501-5b4f-b175-556f843e20aa",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 P-6000 '데님'",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블루",
+							"hex": "1F4090"
+						},
+						"colorDescription": "원 블루/애션 슬레이트/디퓨즈드 블루/소프트 펄"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 119200,
+						"employeePrice": 119200,
+						"initialPrice": 149000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/5cde37c6-88cf-404b-81b3-e7f1b7f673c9/NIKE+P-6000+SE.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/b8216c3d-35a7-4131-92f7-d5d8ea676ea4/NIKE+P-6000+SE.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/p-6000-데님-남성-신발-vF079vTj/IH3646-499",
+						"path": "/kr/t/p-6000-데님-남성-신발-vF079vTj/IH3646-499"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "HV6uQL6j",
+					"productCode": "AA2146-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "ecd5b0e9-d6c9-33cf-8194-030450418e31",
+					"internalPid": "12117380",
+					"merchProductId": "544eab3a-5788-5015-b6fa-693a6d1f22ee",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 에어맥스 엑시스",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 89200,
+						"employeePrice": 89200,
+						"initialPrice": 119000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/9f698b2b-deb4-4aa4-bf60-580a5dbe60e0/NIKE+AIR+MAX+AXIS.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/pf5p7dznisfx9paemxam/NIKE+AIR+MAX+AXIS.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어맥스-엑시스-남성-신발-HV6uQL6j/AA2146-100",
+						"path": "/kr/t/에어맥스-엑시스-남성-신발-HV6uQL6j/AA2146-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "eBWaPINX",
+					"productCode": "FB8825-001",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "b417ecd5-e4df-45ad-8648-6908362bb957",
+					"internalPid": "1007298245",
+					"merchProductId": "9515b440-912d-59f5-bf4c-64dab9a6cccc",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 줌 보메로 5",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "코블스톤/라이트 본/미디엄 애쉬/라이트 본"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 170100,
+						"employeePrice": 170100,
+						"initialPrice": 189000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/d4c5c687-921d-4599-bcb7-a9e083c91d7c/W+NIKE+ZOOM+VOMERO+5.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/db17b92b-e81f-4667-9f3d-586b4653df82/W+NIKE+ZOOM+VOMERO+5.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/줌-보메로-5-여성-신발-eBWaPINX/FB8825-001",
+						"path": "/kr/t/줌-보메로-5-여성-신발-eBWaPINX/FB8825-001"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "NLaXje55",
+					"productCode": "HJ6000-200",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "bd3885ee-570d-4c69-aa49-0132f076dda7",
+					"internalPid": "1015712422",
+					"merchProductId": "545f25e7-0f6f-5276-8ca9-c472e3fdb00e",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 필드 제너럴",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "비치/검 다크 브라운/코카오 와우"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 116100,
+						"employeePrice": 116100,
+						"initialPrice": 129000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/c6e5d562-21d6-4d41-805b-d94dc1466902/WMNS+NIKE+FIELD+GENERAL.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/ac400d7d-567e-45e2-ab57-ff3f592eae17/WMNS+NIKE+FIELD+GENERAL.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/필드-제너럴-여성-신발-NLaXje55/HJ6000-200",
+						"path": "/kr/t/필드-제너럴-여성-신발-NLaXje55/HJ6000-200"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "BU6gzDK8",
+					"productCode": "FD4329-101",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "570fd978-6e59-4b43-877f-236733e24a2c",
+					"internalPid": "1015651916",
+					"merchProductId": "eac6e9cb-65ae-5c76-ba9d-5931517355a1",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 에어맥스 누엑시스",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/화이트/화이트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 81700,
+						"employeePrice": 81700,
+						"initialPrice": 109000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/6561671e-0ff3-4c20-8463-1ce3b14249dd/NIKE+AIR+MAX+NUAXIS.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/b0b708c3-6f11-451d-94cb-eebbe3b12e6c/NIKE+AIR+MAX+NUAXIS.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어맥스-누엑시스-남성-신발-BU6gzDK8/FD4329-101",
+						"path": "/kr/t/에어맥스-누엑시스-남성-신발-BU6gzDK8/FD4329-101"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "T3BOcrHf",
+					"productCode": "IF1756-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "48a3816d-db33-46a6-8e0c-ac4d4ca20773",
+					"internalPid": "1015722773",
+					"merchProductId": "d324095f-756c-5240-874c-f2b4a6346c88",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 P-6000 SE",
+						"subTitle": "반사 디자인 액센트가 있는 여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "서밋 화이트/배스트 그레이/울프 그레이"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 134100,
+						"employeePrice": 134100,
+						"initialPrice": 149000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/e139d39b-b027-457e-a147-2ac8f53e4197/W+NIKE+P-6000+SE.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/761421d2-1784-4f37-a724-d502878866df/W+NIKE+P-6000+SE.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/p-6000-se-반사-디자인-액센트-여성-신발-T3BOcrHf/IF1756-100",
+						"path": "/kr/t/p-6000-se-반사-디자인-액센트-여성-신발-T3BOcrHf/IF1756-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "5owKtgZY",
+					"productCode": "553558-081",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "8f32dc4d-4acb-47ec-b5fd-6244d61314fe",
+					"internalPid": "1015748786",
+					"merchProductId": "c7428666-3214-5510-9bb4-715ef6d5c6c4",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "에어 조던 1 로우",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/화이트/세일/스타피쉬"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 111200,
+						"employeePrice": 111200,
+						"initialPrice": 139000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/75b3e5db-07df-4405-96f6-277c471ce53f/AIR+JORDAN+1+LOW.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/1d8526b6-ca7a-4f3c-a1fb-fbb79fd475c5/AIR+JORDAN+1+LOW.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어-조던-1-로우-남성-신발-5owKtgZY/553558-081",
+						"path": "/kr/t/에어-조던-1-로우-남성-신발-5owKtgZY/553558-081"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "OcDmaEIl",
+					"productCode": "CW1590-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "b81dc202-2715-3953-9450-b46a79a3746c",
+					"internalPid": "13098154",
+					"merchProductId": "fcf13434-46f8-569c-a38d-402e516f25a9",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 덩크 로우",
+						"subTitle": "주니어 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/화이트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 101100,
+						"employeePrice": 101100,
+						"initialPrice": 119000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/4371ac31-97cd-4057-bd6e-41440e39f3b9/NIKE+DUNK+LOW+%28GS%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/56ff13a0-d2e6-49ed-bfd2-43dc2ba0922b/NIKE+DUNK+LOW+%28GS%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/덩크-로우-주니어-신발-OcDmaEIl/CW1590-100",
+						"path": "/kr/t/덩크-로우-주니어-신발-OcDmaEIl/CW1590-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "eBWaPINX",
+					"productCode": "HQ0458-200",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "0e764924-c82d-4545-b51e-0de168aa0d79",
+					"internalPid": "1015651541",
+					"merchProductId": "b7502b4b-32c2-5bc6-8236-c8e4e7a4cdd3",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 줌 보메로 5",
+						"subTitle": "반사 디자인 액센트 여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "비치/라이트 카키/페일 아이보리/세일"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 132300,
+						"employeePrice": 132300,
+						"initialPrice": 189000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/e28f914c-5a40-4897-88f4-2fe14649fb83/W+NIKE+ZOOM+VOMERO+5.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/0c1e5173-ecc6-4358-aafe-526ca0b12a16/W+NIKE+ZOOM+VOMERO+5.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/줌-보메로-5-반사-디자인-액센트-여성-신발-eBWaPINX/HQ0458-200",
+						"path": "/kr/t/줌-보메로-5-반사-디자인-액센트-여성-신발-eBWaPINX/HQ0458-200"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "eBWaPINX",
+					"productCode": "IB4397-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "df47d1c3-5d2b-4d51-8442-2dc11fe275b4",
+					"internalPid": "1015747583",
+					"merchProductId": "aa93088b-d63b-5ea1-b62f-f4f603ffb22a",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 줌 보메로 5 SE",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/플래티넘 틴트/서밋 화이트/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 151200,
+						"employeePrice": 151200,
+						"initialPrice": 189000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/b9281288-3a6d-4738-9838-0eddc8f86166/W+NIKE+ZOOM+VOMERO+5+SE.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/aab132ab-1e86-404d-9b20-9e7bf9c46c57/W+NIKE+ZOOM+VOMERO+5+SE.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/줌-보메로-5-se-여성-신발-eBWaPINX/IB4397-100",
+						"path": "/kr/t/줌-보메로-5-se-여성-신발-eBWaPINX/IB4397-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "ScwMaYUG",
+					"productCode": "FD0736-003",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "6f568873-0cc7-405d-b48c-2138c37bfda0",
+					"internalPid": "1014197969",
+					"merchProductId": "fdb9f2a2-cc6a-58a7-810b-1a6da445b27e",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 V2K 런",
+						"subTitle": "반사 디자인 액센트가 있는 여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "퓨어 플래티넘/울프 그레이/쿨 그레이/메탈릭 쿨 그레이"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 126600,
+						"employeePrice": 126600,
+						"initialPrice": 149000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/a8ecc919-b1f0-40d6-8f1d-b040480424c9/W+NIKE+V2K+RUN.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/a200f9ed-aefe-4f27-89c0-dc861f23c0e1/W+NIKE+V2K+RUN.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/v2k-런-반사-디자인-액센트-여성-신발-ScwMaYUG/FD0736-003",
+						"path": "/kr/t/v2k-런-반사-디자인-액센트-여성-신발-ScwMaYUG/FD0736-003"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "LY1u9iaC",
+					"productCode": "FD8311-600",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "83ddb940-7ed7-4152-8f19-bb781c93d5b6",
+					"internalPid": "1015652045",
+					"merchProductId": "81b669e0-4517-51c2-958d-a30886598c51",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 알파플라이 3",
+						"subTitle": "남성 로드 레이싱화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "레드",
+							"hex": "B40033"
+						},
+						"colorDescription": "브라이트 크림슨/라임 블라스트/민트 폼/케이브 퍼플"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 288100,
+						"employeePrice": 288100,
+						"initialPrice": 339000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/1a5c3044-5824-44b8-aadc-11ef214dce68/AIR+ZOOM+ALPHAFLY+NEXT%25+3.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/31b6e47b-2a79-4c53-9cc0-a505aba7795d/AIR+ZOOM+ALPHAFLY+NEXT%25+3.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/알파플라이-3-남성-로드-레이싱화-LY1u9iaC/FD8311-600",
+						"path": "/kr/t/알파플라이-3-남성-로드-레이싱화-LY1u9iaC/FD8311-600"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "jlGu7cZC",
+					"productCode": "FD4116-004",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "98ba8e11-42ab-4e06-9163-d963406874bb",
+					"internalPid": "1015711437",
+					"merchProductId": "7c4ea97b-4cb0-5cd6-8228-0784e76ac82a",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 캄",
+						"subTitle": "남성 슬라이드"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "울프 그레이/포톤 더스트/울프 그레이"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 41300,
+						"employeePrice": 41300,
+						"initialPrice": 59000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/a08764ae-55a2-416f-833c-2fea20a201fc/NIKE+CALM+SLIDE.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/22987d38-92e8-4716-a40c-dad0633dfae3/NIKE+CALM+SLIDE.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/캄-남성-슬라이드-jlGu7cZC/FD4116-004",
+						"path": "/kr/t/캄-남성-슬라이드-jlGu7cZC/FD4116-004"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "JmoeELGy",
+					"productCode": "FQ8146-111",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "931a9238-33e3-4867-8f8a-901dba1f2294",
+					"internalPid": "1015711878",
+					"merchProductId": "1a5def1f-bcdb-5e75-ae43-bfcf443fc7f0",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코트 슛",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/블랙/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 74200,
+						"employeePrice": 74200,
+						"initialPrice": 99000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/e195c577-547d-4e6f-b165-540f5741cffa/COURT+SHOT.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/aa94c91b-b33a-4ef2-98ff-eca69cada0f1/COURT+SHOT.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코트-슛-남성-신발-JmoeELGy/FQ8146-111",
+						"path": "/kr/t/코트-슛-남성-신발-JmoeELGy/FQ8146-111"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "41j1AKsg",
+					"productCode": "IB5853-002",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "aa3f7cac-f34f-4768-9cf9-63bc84adac3d",
+					"internalPid": "1015767253",
+					"merchProductId": "f3ef4019-fa14-55fc-898f-f846d8dfce4c",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 보메로 5",
+						"subTitle": "반사 디자인 액센트 주니어 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "소프트 펄/버건디 크러시/코밋 블루/라이트 오어우드 브라운"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 111200,
+						"employeePrice": 111200,
+						"initialPrice": 139000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/e7a1f480-731f-4065-a055-4222409b7f21/VOMERO+5+EE+%28GS%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/cb94cbe0-c0f5-4731-ad58-644483b8d4a8/VOMERO+5+EE+%28GS%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/보메로-5-반사-디자인-액센트-주니어-신발-41j1AKsg/IB5853-002",
+						"path": "/kr/t/보메로-5-반사-디자인-액센트-주니어-신발-41j1AKsg/IB5853-002"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "Mzly7LWW",
+					"productCode": "IH7330-020",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "a3bd3f21-27ce-4ab1-8f1f-a9edf02a94b3",
+					"internalPid": "1015785935",
+					"merchProductId": "6e4f1263-3005-5101-a6fe-f80c15e6a522",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 LD-1000",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "소프트 펄/블랙/포너 브라운"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 111200,
+						"employeePrice": 111200,
+						"initialPrice": 139000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/97d2735e-9f3f-4f89-ab88-1053e7d68678/LD-1000.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/c492a6d1-1d0b-4f75-b924-dd5beb060e03/LD-1000.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/ld-1000-남성-신발-Mzly7LWW/IH7330-020",
+						"path": "/kr/t/ld-1000-남성-신발-Mzly7LWW/IH7330-020"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "xj9vIjFT",
+					"productCode": "HJ5864-700",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "45a40218-a8f6-467e-bdce-be5604509257",
+					"internalPid": "1015711971",
+					"merchProductId": "4d96ce8c-baa2-5d62-b39a-d200ad303233",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 덩크 로우 넥스트 네이처 SE",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "팀 골드/페일 아이보리/검 옐로우/소프트 옐로우"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 104300,
+						"employeePrice": 104300,
+						"initialPrice": 149000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/5268ac1a-5f97-4a18-b872-f433623d5565/W+NIKE+DUNK+LOW+NN+SE.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/4c20a0b9-08f1-433b-9de9-a853ff6c268e/W+NIKE+DUNK+LOW+NN+SE.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/덩크-로우-넥스트-네이처-se-여성-신발-xj9vIjFT/HJ5864-700",
+						"path": "/kr/t/덩크-로우-넥스트-네이처-se-여성-신발-xj9vIjFT/HJ5864-700"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "AkSHFgCv",
+					"productCode": "DC0774-101",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "c92f3880-ca81-4aa8-af11-12077fc2a099",
+					"internalPid": "1010061844",
+					"merchProductId": "5cac02f8-4064-58d4-8e14-303620f33185",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "에어 조던 1 로우",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/화이트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 125100,
+						"employeePrice": 125100,
+						"initialPrice": 139000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/9909210d-48ba-459e-96f4-faab32a41ce7/WMNS+AIR+JORDAN+1+LOW.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/d3123e79-53e5-4a03-aa5b-fbc5c18b9bfd/WMNS+AIR+JORDAN+1+LOW.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어-조던-1-로우-여성-신발-AkSHFgCv/DC0774-101",
+						"path": "/kr/t/에어-조던-1-로우-여성-신발-AkSHFgCv/DC0774-101"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "WjLXs9cD",
+					"productCode": "AR3566-002",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "a679c14d-cdf5-3fe2-99ae-8320f3e8b6b5",
+					"internalPid": "12541898",
+					"merchProductId": "bfe4da0b-f047-5081-9260-f6936e2b45d8",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 샥스 TL",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/메탈릭 헤머타이트/맥스 오렌지/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 188100,
+						"employeePrice": 188100,
+						"initialPrice": 209000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/wj5ju8ralfciojw5agrv/W+NIKE+SHOX+TL.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/f9j2xztqk9bn0ixns8ne/W+NIKE+SHOX+TL.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/샥스-tl-여성-신발-WjLXs9cD/AR3566-002",
+						"path": "/kr/t/샥스-tl-여성-신발-WjLXs9cD/AR3566-002"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "lziK4mFO",
+					"productCode": "HF6414-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "ce587165-89bd-45c3-b667-8ee5e75228a8",
+					"internalPid": "1015714638",
+					"merchProductId": "265b2ffa-fb9a-53de-97db-d81c5aae0eb6",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 베이퍼플라이 4",
+						"subTitle": "남성 로드 레이싱화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/옵시디언 미스트/퓨어 플래티넘/그리드아이언"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 247200,
+						"employeePrice": 247200,
+						"initialPrice": 309000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/d1982c82-662b-48b7-9e23-940c526c9ee7/ZOOMX+VAPORFLY+NEXT%25+4.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/117eaf48-f736-44cf-9619-abf75a7e4320/ZOOMX+VAPORFLY+NEXT%25+4.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/베이퍼플라이-4-남성-로드-레이싱화-lziK4mFO/HF6414-100",
+						"path": "/kr/t/베이퍼플라이-4-남성-로드-레이싱화-lziK4mFO/HF6414-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "fL2JAjod",
+					"productCode": "IH7653-105",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "e34cc52f-e58c-4fab-91c7-b78174a9de6c",
+					"internalPid": "1015788954",
+					"merchProductId": "f3b1001b-b3af-5562-9e6f-7028cfa63174",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코르테즈",
+						"subTitle": "주니어 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 76500,
+						"employeePrice": 76500,
+						"initialPrice": 85000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/cf9d12de-5a3b-4d01-82b1-117b5500e74b/NIKE+CORTEZ+%28GS%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/9f3184a2-e7ae-4bf1-a951-329673085dd6/NIKE+CORTEZ+%28GS%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코르테즈-주니어-신발-fL2JAjod/IH7653-105",
+						"path": "/kr/t/코르테즈-주니어-신발-fL2JAjod/IH7653-105"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "2ZNxF44J",
+					"productCode": "HF3255-201",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "07b4a494-516e-4f81-8723-ecaf4cb84727",
+					"internalPid": "1015749932",
+					"merchProductId": "646d4fd1-7ef7-5691-803e-e059eb41b3bc",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "조던 플라이트 코트",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "머시룸/데저트 카모/파슬/파이어 레드"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 95200,
+						"employeePrice": 95200,
+						"initialPrice": 119000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/f3880878-d904-4fd1-ae77-d55bdda22672/JORDAN+FLIGHT+COURT.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/ffadd652-df30-4a1d-9dec-c9c3d94894d4/JORDAN+FLIGHT+COURT.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/조던-플라이트-코트-남성-신발-2ZNxF44J/HF3255-201",
+						"path": "/kr/t/조던-플라이트-코트-남성-신발-2ZNxF44J/HF3255-201"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "HSNnxxRU",
+					"productCode": "IB2987-700",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "face5cd4-5a1e-4a27-92d9-a2af3a089938",
+					"internalPid": "1015743043",
+					"merchProductId": "83b55df9-c2ff-5d78-b2e0-64661d51b847",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 줌 보메로 5 SE",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "팀 골드/페일 아이보리/씨폼/포너 브라운"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 177600,
+						"employeePrice": 177600,
+						"initialPrice": 209000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/158136db-6a4c-48c2-adb5-30b688c038fa/NIKE+ZOOM+VOMERO+5+SE.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/abbc2d6e-05e7-4c9c-9060-3bbd090a1136/NIKE+ZOOM+VOMERO+5+SE.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/줌-보메로-5-se-남성-신발-HSNnxxRU/IB2987-700",
+						"path": "/kr/t/줌-보메로-5-se-남성-신발-HSNnxxRU/IB2987-700"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "srf6JH0R",
+					"productCode": "IF2624-005",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "a4a1349b-2bfb-4ff1-bfdc-2d0424b8c45b",
+					"internalPid": "1015778453",
+					"merchProductId": "d7d058c3-14f2-596e-9af5-fc8cd19eba3e",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 에어맥스 비아",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 87200,
+						"employeePrice": 87200,
+						"initialPrice": 109000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/a9794a70-f07d-4f1e-a5fd-e5641abc2ca8/AIR+MAX+BIA.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/4cb0fb78-ea5d-47ea-99bb-679dc9131907/AIR+MAX+BIA.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어맥스-비아-남성-신발-srf6JH0R/IF2624-005",
+						"path": "/kr/t/에어맥스-비아-남성-신발-srf6JH0R/IF2624-005"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "qEhmYECQ",
+					"productCode": "HF3227-001",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "c349a883-866e-4bed-bc50-642944377e92",
+					"internalPid": "1015722825",
+					"merchProductId": "fdeb9c58-3944-5ead-a11e-5555e35bc009",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 LD-1000",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/세이프티 오렌지/검 라이트 브라운/세일"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 109600,
+						"employeePrice": 109600,
+						"initialPrice": 129000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/e13bde84-8804-4718-a763-be5adc66b801/W+LD-1000.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/4df68d82-bcad-4214-908d-973a5b71f6a4/W+LD-1000.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/ld-1000-여성-신발-qEhmYECQ/HF3227-001",
+						"path": "/kr/t/ld-1000-여성-신발-qEhmYECQ/HF3227-001"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "yvY96u52",
+					"productCode": "HF7095-700",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "a57e8432-d8e2-49c7-8af1-f8bad7aa6040",
+					"internalPid": "1015747558",
+					"merchProductId": "a1609e9c-519c-580d-8159-f28c55606f10",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 마노아 레더",
+						"subTitle": "남성 부츠"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "브라운",
+							"hex": "6C5627"
+						},
+						"colorDescription": "헤이스택/벨벳 브라운/버치/헤이스택"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 125100,
+						"employeePrice": 125100,
+						"initialPrice": 139000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/34f18c7e-b237-4a77-939e-0ea45c0d66ba/NIKE+MANOA+LEATHER.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/9dae10f2-407a-4e99-ac7e-e500f408fdad/NIKE+MANOA+LEATHER.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/마노아-레더-남성-부츠-yvY96u52/HF7095-700",
+						"path": "/kr/t/마노아-레더-남성-부츠-yvY96u52/HF7095-700"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "GpGZXLgO",
+					"productCode": "HQ3490-099",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "b7fb3005-5275-4abd-8e8b-dfb32d33e317",
+					"internalPid": "1015631304",
+					"merchProductId": "c3e1f34f-5091-5f4c-aa1e-c69247ea17c8",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코르테즈 SE",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "메탈릭 쿨 그레이/검 다크 브라운/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 116100,
+						"employeePrice": 116100,
+						"initialPrice": 129000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/a5d6c45d-49fa-4f41-805c-9eb0d02d0e82/NIKE+CORTEZ+SE.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/b28ec80a-e46e-4e2e-9a5e-3137cbb48160/NIKE+CORTEZ+SE.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코르테즈-se-남성-신발-GpGZXLgO/HQ3490-099",
+						"path": "/kr/t/코르테즈-se-남성-신발-GpGZXLgO/HQ3490-099"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "ChMsMuyB",
+					"productCode": "HF1078-200",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "83d00743-50d7-4648-812c-24bab217f98c",
+					"internalPid": "1015646891",
+					"merchProductId": "566941b0-d6a2-5d5b-adf3-fd385630f9d5",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 프리 2025",
+						"subTitle": "남성 운동화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그린",
+							"hex": "007A44"
+						},
+						"colorDescription": "미디엄 올리브/카고 카키/세일/세쿼이아"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 96700,
+						"employeePrice": 96700,
+						"initialPrice": 129000,
+						"discountPercentage": 25,
+						"employeeDiscountPercentage": 25
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/4f648d41-2cf4-4741-a3a7-6e5c48c493d2/NIKE+FREE+2025.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/81966a18-cacd-4802-97f2-59bd4313b0f9/NIKE+FREE+2025.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/프리-2025-남성-운동화-ChMsMuyB/HF1078-200",
+						"path": "/kr/t/프리-2025-남성-운동화-ChMsMuyB/HF1078-200"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "yb2e0KD8",
+					"productCode": "432997-107",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "f4562507-d244-3abf-bef3-5174ab99c906",
+					"internalPid": "10107447",
+					"merchProductId": "481c3fb8-e023-55b3-9233-2d62e49a5694",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 킬샷 2 레더",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "세일/검 옐로우/미드나이트 네이비"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 101100,
+						"employeePrice": 101100,
+						"initialPrice": 119000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/73627869-5239-40d9-b41f-5dcdaba413e4/KILLSHOT+2+LEATHER.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/4e0f6d2a-62c3-47c0-8272-57bde95ca6c8/KILLSHOT+2+LEATHER.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/킬샷-2-레더-남성-신발-yb2e0KD8/432997-107",
+						"path": "/kr/t/킬샷-2-레더-남성-신발-yb2e0KD8/432997-107"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "MEBY7oOa",
+					"productCode": "DV3864-002",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "50574991-7023-43e1-9aa9-97a681f0a9a6",
+					"internalPid": "1015145892",
+					"merchProductId": "d4d8062a-1920-5d98-a5b4-a699ec934820",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 페가수스 트레일 5",
+						"subTitle": "남성 트레일 러닝화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/벨벳 브라운/앤트러사이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 152100,
+						"employeePrice": 152100,
+						"initialPrice": 169000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/12f0bbe7-1d4e-4e81-b8e1-b1a5c6874204/NIKE+REACTX+PEGASUS+TRAIL+5.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/331290bd-a691-4c79-a846-3d8ce51f39b4/NIKE+REACTX+PEGASUS+TRAIL+5.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/페가수스-트레일-5-남성-트레일-러닝화-MEBY7oOa/DV3864-002",
+						"path": "/kr/t/페가수스-트레일-5-남성-트레일-러닝화-MEBY7oOa/DV3864-002"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "BRPc6uoY",
+					"productCode": "FZ5593-002",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "73d8c85f-389d-47e9-b4a4-55fcc410db12",
+					"internalPid": "1015692388",
+					"merchProductId": "99752c6e-1bd2-558a-8251-95faca78ecd7",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 필드 제너럴",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/검 라이트 브라운/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 116100,
+						"employeePrice": 116100,
+						"initialPrice": 129000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/d2f322fe-5d6b-439b-9229-4b5f1540b227/WMNS+NIKE+FIELD+GENERAL.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/1208ea13-a8f7-4095-aaeb-d280c4094811/WMNS+NIKE+FIELD+GENERAL.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/필드-제너럴-여성-신발-BRPc6uoY/FZ5593-002",
+						"path": "/kr/t/필드-제너럴-여성-신발-BRPc6uoY/FZ5593-002"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "Dqzv22Cs",
+					"productCode": "HJ9198-003",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "844715d8-3f51-4709-b5b2-10538dc109be",
+					"internalPid": "1015713588",
+					"merchProductId": "208e555b-f805-5533-9820-0e2a90620528",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 레볼루션 8",
+						"subTitle": "남성 로드 러닝화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/블랙/화이트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 80100,
+						"employeePrice": 80100,
+						"initialPrice": 89000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/72787153-b9c7-47ea-9fc1-2b8c753fd7c0/NIKE+REVOLUTION+8.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/e02cc15b-9d44-4154-b20d-1e03ad36952b/NIKE+REVOLUTION+8.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/레볼루션-8-남성-로드-러닝화-Dqzv22Cs/HJ9198-003",
+						"path": "/kr/t/레볼루션-8-남성-로드-러닝화-Dqzv22Cs/HJ9198-003"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "0t7e3Hb2",
+					"productCode": "DV1237-001",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "d0ca78ae-3757-4132-afb2-12a8dd8d75c5",
+					"internalPid": "1010083531",
+					"merchProductId": "707c9dde-3a19-5794-8af9-a4f15b2fe964",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 모티바",
+						"subTitle": "남성 워킹화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/앤트러사이트/화이트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 118100,
+						"employeePrice": 118100,
+						"initialPrice": 139000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/8b96cce5-03df-40b6-8d6c-efe831d11115/NIKE+MOTIVA.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/ea08d51f-4841-403c-bbc3-fc256164d05b/NIKE+MOTIVA.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/모티바-남성-워킹화-0t7e3Hb2/DV1237-001",
+						"path": "/kr/t/모티바-남성-워킹화-0t7e3Hb2/DV1237-001"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "7ztwrJkH",
+					"productCode": "DN1338-004",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "c34e7a2d-469b-4ece-9590-b65ee029f9fb",
+					"internalPid": "1013249126",
+					"merchProductId": "ff3f6955-1254-5cd8-b87f-669d91b3e767",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 에어 리프트 브리드",
+						"subTitle": "여성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/화이트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 97300,
+						"employeePrice": 97300,
+						"initialPrice": 139000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/fcac886a-5931-4d65-8b7e-744e2099cbd4/WMNS+NIKE+AIR+RIFT+BR.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/202e4c62-1f37-4b60-b735-17c8a2e3ce1f/WMNS+NIKE+AIR+RIFT+BR.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어-리프트-브리드-여성-신발-7ztwrJkH/DN1338-004",
+						"path": "/kr/t/에어-리프트-브리드-여성-신발-7ztwrJkH/DN1338-004"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "emlPQs9S",
+					"productCode": "FN0697-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "25c86757-561a-42c7-a8d3-7a95fcc4d5bb",
+					"internalPid": "1014177437",
+					"merchProductId": "c4d9b6a9-88b6-58c7-8ecc-0ea22231b88d",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 에어맥스 1 '86 OG G",
+						"subTitle": "남성 골프화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/검 미디엄 브라운/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 169100,
+						"employeePrice": 169100,
+						"initialPrice": 199000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/a9e02dd4-062b-4625-8166-bb066f68bc14/NIKE+AIR+MAX+1+%2786+OG+G.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/50ea5d8e-6c15-43ea-80d6-73156db9657e/NIKE+AIR+MAX+1+%2786+OG+G.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/에어맥스-1-86-og-g-남성-골프화-emlPQs9S/FN0697-100",
+						"path": "/kr/t/에어맥스-1-86-og-g-남성-골프화-emlPQs9S/FN0697-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "fL2JAjod",
+					"productCode": "IH7659-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "44bf7070-9953-4ff1-b130-3221ba00ebf7",
+					"internalPid": "1015788828",
+					"merchProductId": "49318842-9a08-598d-a804-e8c0a9dd52cc",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 코르테즈 이지온",
+						"subTitle": "베이비 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "서밋 화이트/하이퍼 로얄/화이트/노블 레드"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 52000,
+						"employeePrice": 52000,
+						"initialPrice": 65000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/0a3ca683-66be-4619-9029-788860f03d23/NIKE+CORTEZ+EASYON+SE+%28TD%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/1b17cd2e-7c59-48f9-9aa4-2afe19ce4ae2/NIKE+CORTEZ+EASYON+SE+%28TD%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/코르테즈-이지온-베이비-신발-fL2JAjod/IH7659-100",
+						"path": "/kr/t/코르테즈-이지온-베이비-신발-fL2JAjod/IH7659-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "1lJq3UXf",
+					"productCode": "FQ0908-104",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "be6bb8d2-e095-4448-b84c-d94579792332",
+					"internalPid": "1015745994",
+					"merchProductId": "04a2c688-a84c-5418-aeb3-977a78b08896",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 페가수스 트레일 5 GORE-TEX",
+						"subTitle": "남성 워터프루프 트레일 러닝화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "세일/글레이셔 블루/다크 팀 레드/하이퍼 크림슨"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 177600,
+						"employeePrice": 177600,
+						"initialPrice": 209000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/7cea8020-fe81-42ac-81f0-9daa924bc200/NIKE+PEGASUS+TRAIL+5+GTX.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/160d8736-e539-4fd8-849d-d7459c557f7e/NIKE+PEGASUS+TRAIL+5+GTX.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/페가수스-트레일-5-gore-tex-남성-워터프루프-트레일-러닝화-1lJq3UXf/FQ0908-104",
+						"path": "/kr/t/페가수스-트레일-5-gore-tex-남성-워터프루프-트레일-러닝화-1lJq3UXf/FQ0908-104"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "lziK4mFO",
+					"productCode": "HF6414-600",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "afd53961-50a3-4a1e-9a82-e1fb8ee663a8",
+					"internalPid": "1015714786",
+					"merchProductId": "045c6edb-b07a-5846-ae09-ab390e3b71aa",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 베이퍼플라이 4",
+						"subTitle": "남성 로드 레이싱화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "레드",
+							"hex": "B40033"
+						},
+						"colorDescription": "브라이트 크림슨/민트 폼/케이브 퍼플/라임 블라스트"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 247200,
+						"employeePrice": 247200,
+						"initialPrice": 309000,
+						"discountPercentage": 20,
+						"employeeDiscountPercentage": 20
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/9b390895-8786-4437-99bf-af03be5c20a0/ZOOMX+VAPORFLY+NEXT%25+4.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/aa5e57af-f852-49ea-ada9-dc0ae07eae0d/ZOOMX+VAPORFLY+NEXT%25+4.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/베이퍼플라이-4-남성-로드-레이싱화-lziK4mFO/HF6414-600",
+						"path": "/kr/t/베이퍼플라이-4-남성-로드-레이싱화-lziK4mFO/HF6414-600"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "41j1AKsg",
+					"productCode": "HF6998-107",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "aad5df52-b4d2-4a03-b551-6b8610793436",
+					"internalPid": "1015724470",
+					"merchProductId": "b0a06b50-6bc7-5eee-92db-ad498bee79e6",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 보메로 5",
+						"subTitle": "반사 디자인 액센트 주니어 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/블랙/세일/배스트 그레이"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 116100,
+						"employeePrice": 116100,
+						"initialPrice": 129000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/9aef87f5-91db-470c-923a-7ec929686be8/VOMERO+5+%28GS%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/a8eeb462-8313-4456-a7e6-ab7f6a0435bc/VOMERO+5+%28GS%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/보메로-5-반사-디자인-액센트-주니어-신발-41j1AKsg/HF6998-107",
+						"path": "/kr/t/보메로-5-반사-디자인-액센트-주니어-신발-41j1AKsg/HF6998-107"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "OcDmaEIl",
+					"productCode": "CW1589-100",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "cd55ba02-4207-32bb-b8ef-073b7ea2f983",
+					"internalPid": "13097899",
+					"merchProductId": "350ee50a-2f44-58ea-852d-11e1a6fc1d10",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 덩크 로우",
+						"subTitle": "베이비 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "화이트",
+							"hex": "EEF3FF"
+						},
+						"colorDescription": "화이트/화이트/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 67100,
+						"employeePrice": 67100,
+						"initialPrice": 79000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/78093c5f-19cf-4462-834c-a3e46de38386/NIKE+DUNK+LOW+%28TDE%29.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/60753fb7-f964-4c3e-810b-f23adab208e5/NIKE+DUNK+LOW+%28TDE%29.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/덩크-로우-베이비-신발-OcDmaEIl/CW1589-100",
+						"path": "/kr/t/덩크-로우-베이비-신발-OcDmaEIl/CW1589-100"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "eU36ckn8",
+					"productCode": "DZ4475-003",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "15f8782b-52b7-42c0-bd47-b8df583657ca",
+					"internalPid": "1015714029",
+					"merchProductId": "accf9655-65bc-557c-a186-ec7f7902d070",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "점프맨 MVP",
+						"subTitle": "남성 신발"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "그레이",
+							"hex": "808080"
+						},
+						"colorDescription": "울프 그레이/화이트/뉴트럴 그레이/유니버시티 블루"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 139300,
+						"employeePrice": 139300,
+						"initialPrice": 199000,
+						"discountPercentage": 30,
+						"employeeDiscountPercentage": 30
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/5b50036d-c36e-4eb9-bc48-6c443b610180/JORDAN+MVP.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/935a9d46-c646-42e9-94b5-b3df850145d7/JORDAN+MVP.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/점프맨-mvp-남성-신발-eU36ckn8/DZ4475-003",
+						"path": "/kr/t/점프맨-mvp-남성-신발-eU36ckn8/DZ4475-003"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "DXTuhZ4J",
+					"productCode": "FQ7262-002",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "14b0dbc6-60a3-44be-9b2a-ea82f8c3f625",
+					"internalPid": "1015582722",
+					"merchProductId": "e9b448b5-fb38-52cd-8eb2-3e2176e72d7a",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 페가수스 플러스",
+						"subTitle": "남성 로드 러닝화"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/앤트러사이트/화이트/퓨어 플래티넘"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 197100,
+						"employeePrice": 197100,
+						"initialPrice": 219000,
+						"discountPercentage": 10,
+						"employeeDiscountPercentage": 10
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/d6c435e3-f6f6-451a-9052-160531612392/PEGASUS+PLUS.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/be57a430-8d83-4546-901f-47dc2cd9de7c/PEGASUS+PLUS.png"
+					},
+					"featuredAttributes": null,
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/페가수스-플러스-남성-로드-러닝화-DXTuhZ4J/FQ7262-002",
+						"path": "/kr/t/페가수스-플러스-남성-로드-러닝화-DXTuhZ4J/FQ7262-002"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": null,
+					"badgeLabel": null
+				}
+			]
+		},
+		{
+			"cardType": "default",
+			"properties": null,
+			"products": [
+				{
+					"groupKey": "bjia1tcP",
+					"productCode": "FZ7939-001",
+					"productType": "FOOTWEAR",
+					"productSubType": "STANDARD",
+					"globalProductId": "03f673a9-6c74-4ffc-93bc-eaa987fceff9",
+					"internalPid": "1015621306",
+					"merchProductId": "9e865c56-24da-5d16-b375-05ebc22b8fa8",
+					"consumerChannelId": "d9a5bc42-4b9c-4976-858a-f159cf99c647",
+					"copy": {
+						"title": "나이키 버로우 SE",
+						"subTitle": "여성 슬리퍼"
+					},
+					"displayColors": {
+						"simpleColor": {
+							"label": "블랙",
+							"hex": "26292B"
+						},
+						"colorDescription": "블랙/블랙"
+					},
+					"prices": {
+						"currency": "KRW",
+						"currentPrice": 67100,
+						"employeePrice": 67100,
+						"initialPrice": 79000,
+						"discountPercentage": 15,
+						"employeeDiscountPercentage": 15
+					},
+					"colorwayImages": {
+						"portraitURL": "https://static.nike.com/a/images/t_default/b6332394-8ee9-4d99-8ba5-d60d226d4792/W+NIKE+BURROW+SE.png",
+						"squarishURL": "https://static.nike.com/a/images/t_default/1e3abe50-acac-49a0-b59b-465bec9eae39/W+NIKE+BURROW+SE.png"
+					},
+					"featuredAttributes": ["SUSTAINABLE_MATERIALS"],
+					"pdpUrl": {
+						"url": "https://www.nike.com/kr/t/버로우-se-여성-슬리퍼-bjia1tcP/FZ7939-001",
+						"path": "/kr/t/버로우-se-여성-슬리퍼-bjia1tcP/FZ7939-001"
+					},
+					"isNewUntil": null,
+					"promotions": null,
+					"customization": null,
+					"badgeAttribute": "SUSTAINABLE_MATERIALS",
+					"badgeLabel": "재생 소재"
+				}
+			]
+		}
+	],
+	"pages": {
+		"next": "/discover/product_wall/v1/marketplace/KR/language/ko/consumerChannelId/d9a5bc42-4b9c-4976-858a-f159cf99c647?path=/kr/w/clearance-shoes-3yaepzy7ok&attributeIds=16633190-45e5-4830-a068-232ac7aea82c,5b21a62a-0503-400c-8336-3ccfbff2a684&queryType=PRODUCTS&anchor=100&count=100",
+		"prev": "",
+		"totalPages": 11,
+		"totalResources": 1063
+	}
+}

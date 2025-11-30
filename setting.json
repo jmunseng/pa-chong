@@ -18,8 +18,11 @@
 		}
 	},
 	"nike": {
-		"apiUrl": "https://api.musinsa.com/api2/dp/v1/plp/goods?gf=A&isSale=true&sortCode=POPULAR&category=103&brand=nike&page=6&size=90&caller=FLAGSHIP",
-		"itemPerPage": 90
+		"apiUrl": "https://api.nike.com/discover/product_wall/v1/marketplace/KR/language/ko/consumerChannelId/d9a5bc42-4b9c-4976-858a-f159cf99c647",
+		"path": "/kr/w/clearance-shoes-3yaepzy7ok",
+		"attributeIds": "16633190-45e5-4830-a068-232ac7aea82c,5b21a62a-0503-400c-8336-3ccfbff2a684",
+		"queryType": "PRODUCTS",
+		"count": 100
 	},
 	"CONFIG": {
 		"CLICK_DELAY": 100,
@@ -31,5 +34,5 @@
 		"BADGE_LOAD_WAIT": 1000,
 		"PAGE_LOAD_TIMEOUT": 60000
 	},
-	"isDebugMode": false
+	"isDebugMode": true
 }
