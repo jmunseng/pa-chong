@@ -233,7 +233,6 @@ async function scrapeAdidasProductsApi(): Promise<void> {
 
 	for (const apiProduct of allProductsMap.values()) {
 		const code = apiProduct.id;
-
 		// 提取价格信息
 		let price = 0;
 		let originalPrice = 0;
@@ -245,6 +244,7 @@ async function scrapeAdidasProductsApi(): Promise<void> {
 		if (salePrice) {
 			price = salePrice.value;
 		}
+
 		if (origPrice) {
 			originalPrice = origPrice.value;
 			discountPercentage = origPrice.discountPercentage || 0;
@@ -253,7 +253,7 @@ async function scrapeAdidasProductsApi(): Promise<void> {
 		uniqueProducts[code] = {
 			code: code,
 			name: apiProduct.title,
-			price: price,
+			price: price ? price : originalPrice,
 			originalPrice: originalPrice,
 			discountPercentage: discountPercentage,
 			url: `https://www.adidas.co.kr${apiProduct.url}`,

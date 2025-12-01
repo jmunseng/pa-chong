@@ -26,7 +26,7 @@ export function comparePriceMusinsa(
 			const currentPrice = product.price;
 
 			const previousProductInfo = previousProductData.products[code];
-			const previousPrice = previousProductInfo?.price || null;
+			const previousPrice = previousProductInfo?.price;
 
 			// 调试日志 - 只显示前5个产品
 			if (index < 5) {
@@ -36,11 +36,11 @@ export function comparePriceMusinsa(
 				console.log(`  价格下降: ${previousPrice && currentPrice < previousPrice ? '是' : '否'}`);
 			}
 
-			if (!previousPrice) {
-				// 新产品
+			if (!previousProductInfo) {
+				// 新产品 - 根据产品代码是否在之前的数据中存在来判断
 				product.isNewItem = true;
 				// console.log(`✓ 新产品: ${code} - ${product.goodsName}: ${currentPrice.toLocaleString()} 원`);
-			} else if (currentPrice < previousPrice) {
+			} else if (previousPrice && currentPrice < previousPrice) {
 				// 价格下降
 				product.isPriceDropped = true;
 				product.previousPrice = previousPrice;
@@ -49,7 +49,7 @@ export function comparePriceMusinsa(
 				// console.log(
 				// 	`✓ 价格下降: ${code} - ${product.goodsName}: ${previousPrice.toLocaleString()} → ${currentPrice.toLocaleString()} (降了 ${product.priceGap.toLocaleString()} 원)`
 				// );
-			} else if (currentPrice > previousPrice) {
+			} else if (previousPrice && currentPrice > previousPrice) {
 				// 价格上涨
 				product.isPriceIncreased = true;
 				product.previousPrice = previousPrice;

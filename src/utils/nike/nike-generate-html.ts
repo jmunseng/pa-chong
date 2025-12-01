@@ -540,7 +540,7 @@ export function generateNikeHTMLContent(
     </head>
     <body>
     <div class="container">
-        <h1>------ N ${e_brandSite} Extra Sale ------</h1>
+        <h1>------ ${e_brandSite} Extra Sale ------</h1>
         <div class="datetime">抓取时间: ${dateTimeString}${previousDateTime ? `<br/>上一次抓取时间: ${previousDateTime}` : ''}
         </div>
 

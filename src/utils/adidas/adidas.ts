@@ -201,16 +201,16 @@ export function comparePriceAdidas(
 			// 调试日志 - 只显示前5个产品
 			// if (index < 5) {
 			// 	console.log(`\n产品 ${index + 1}: ${product.code} - ${product.name}`);
-			// 	console.log(`  当前价格: ${currentPrice.toLocaleString()}`);
+			// 	console.log(`  当前价格: ${currentPrice.toLocœaleString()}`);
 			// 	console.log(`  之前价格: ${previousPrice ? previousPrice.toLocaleString() : '未找到'}`);
 			// 	console.log(`  价格下降: ${previousPrice && currentPrice < previousPrice ? '是' : '否'}`);
 			// }
 
-			if (!previousPrice) {
-				// 新产品
+			if (!previousProductInfo) {
+				// 新产品 - 根据产品代码是否在之前的数据中存在来判断
 				product.isNewItem = true;
 				// console.log(`✓ 新产品: ${product.code} - ${product.name}: ${currentPrice.toLocaleString()} 원`);
-			} else if (currentPrice < previousPrice) {
+			} else if (previousPrice && currentPrice < previousPrice) {
 				// 价格下降
 				product.isPriceDropped = true;
 				product.previousPrice = previousPrice.toLocaleString() + ' 원';
@@ -221,7 +221,7 @@ export function comparePriceAdidas(
 						product.priceGap
 					})`
 				);
-			} else if (currentPrice > previousPrice) {
+			} else if (previousPrice && currentPrice > previousPrice) {
 				// 价格上涨
 				product.isPriceIncreased = true;
 				product.previousPrice = previousPrice.toLocaleString() + ' 원';

@@ -34,5 +34,5 @@
 		"BADGE_LOAD_WAIT": 1000,
 		"PAGE_LOAD_TIMEOUT": 60000
 	},
-	"isDebugMode": true
+	"isDebugMode": false
 }
