@@ -13,6 +13,41 @@ interface EmailResult {
 	error?: any;
 }
 
+export async function sendNewAndPriceChangedItemsByEmail(emailContent: string): Promise<EmailResult> {
+	try {
+		// 检查 API Key 是否配置
+		if (!process.env.RESEND_API_KEY) {
+			const error = 'RESEND_API_KEY 未配置,请检查 .env 文件';
+			console.error('❌', error);
+			return { success: false, error };
+		}
+
+		const resend = new Resend(process.env.RESEND_API_KEY);
+		console.log(`准备发送邮件 [新品与降价商品]`);
+
+		// 发送邮件
+		const result = await resend.emails.send({
+			from: 'pa-chong system <onboarding@resend.dev>',
+			to: ['abbrcn@gmail.com'],
+			subject: `Adidas Outlet - 新品与降价商品通知 - ${new Date().toLocaleString('zh-CN')}`,
+			html: emailContent,
+		});
+
+		// Resend API 返回格式: { data: {...}, error: null } 或 { data: null, error: {...} }
+		if (result.error) {
+			console.error('❌ 发送邮件失败:', result.error);
+			return { success: false, error: result.error };
+		}
+
+		console.log('✅ 邮件发送成功 [新品与降价商品]:', result.data);
+		return { success: true, data: result.data };
+	} catch (err) {
+		console.error('❌ 发送邮件时出错:', err);
+		const errorMessage = err instanceof Error ? err.message : String(err);
+		return { success: false, error: errorMessage };
+	}
+}
+
 /**
  * 发送邮件给订阅者
  * @param filePath - HTML 文件路径

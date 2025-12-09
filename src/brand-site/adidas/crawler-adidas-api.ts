@@ -4,9 +4,10 @@ import type { AdidasProduct } from '../../types/adidas-product';
 import type { AdidasApiExtra30Response, AdidasApiProduct, AdidasApiResponse } from '../../types/adidas-product-api';
 import type { Settings } from '../../types/settings';
 
+import { E_EventOptions } from '../../enum/enum-adidas';
 import { E_BrandSite } from '../../enum/enum-brand-site';
 import { E_BrandOption } from '../../enum/enum-musinsa';
-import { comparePrice, generateFileName, getCurrentDateTimeString, getFilePath, loadSettings } from '../../utils/common';
+import { comparePrice, generateFileName, getBrowserHeaders, getCurrentDateTimeString, getFilePath, loadSettings } from '../../utils/common';
 
 function delay(min = 1000, max = 5000): Promise<void> {
 	return new Promise((res) => setTimeout(res, Math.random() * (max - min) + min));
@@ -24,9 +25,7 @@ async function fetchPage(apiUrlTemplate: string, startItem: number): Promise<Adi
 	try {
 		const response = await fetch(apiUrl, {
 			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-			},
+			headers: getBrowserHeaders(apiUrl),
 		});
 
 		if (!response.ok) {
@@ -64,9 +63,7 @@ async function scrapeAdidasProductsApi(): Promise<void> {
 		const firstPageUrl = settings.adidas.apiUrl.replace('{StartIndex}', '0');
 		const firstResponse = await fetch(firstPageUrl, {
 			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-			},
+			headers: getBrowserHeaders(firstPageUrl),
 		});
 
 		if (!firstResponse.ok) {
@@ -134,9 +131,7 @@ async function scrapeAdidasProductsApi(): Promise<void> {
 		const firstExtra30PageUrl = settings.adidas.apiExtra30ItemUrl.replace('{StartIndex}', '0');
 		const firstExtra30Response = await fetch(firstExtra30PageUrl, {
 			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-			},
+			headers: getBrowserHeaders(firstExtra30PageUrl),
 		});
 
 		if (!firstExtra30Response.ok) {
@@ -289,20 +284,123 @@ async function scrapeAdidasProductsApi(): Promise<void> {
 }
 
 /**
+ * 计算到下一个整点+5分钟的毫秒数
+ * @returns 距离下一个整点+5分钟的毫秒数
+ */
+function getMillisecondsUntilNextHourPlus5(): number {
+	const now = new Date();
+	const nextRun = new Date();
+
+	// 设置为当前小时的5分钟
+	nextRun.setMinutes(5);
+	nextRun.setSeconds(0);
+	nextRun.setMilliseconds(0);
+
+	// 如果当前时间已经过了本小时的5分钟,则设置为下一个小时的5分钟
+	if (now.getTime() >= nextRun.getTime()) {
+		nextRun.setHours(nextRun.getHours() + 1);
+	}
+
+	const delay = nextRun.getTime() - now.getTime();
+
+	const hours = Math.floor(delay / 3600000);
+	const minutes = Math.floor((delay % 3600000) / 60000);
+	const seconds = Math.floor((delay % 60000) / 1000);
+
+	console.log(`⏰ 下次执行时间: ${nextRun.toLocaleString('zh-CN')} (${hours}小时${minutes}分${seconds}秒后)`);
+
+	return delay;
+}
+
+/**
+ * 计算到下一个指定时间的毫秒数 (UTC+9 时区的 9:05 或 10:05)
+ * @returns 距离下一个执行时间的毫秒数
+ */
+function getMillisecondsUntilNext9or10Plus5KST(): number {
+	const now = new Date();
+
+	// 获取当前 UTC+9 (韩国时间) 的时间
+	const nowKST = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+	const kstHours = nowKST.getUTCHours();
+	const kstMinutes = nowKST.getUTCMinutes();
+
+	// 计算下一个执行时间 (UTC+9 时区)
+	const nextRunKST = new Date(nowKST);
+	nextRunKST.setUTCSeconds(0);
+	nextRunKST.setUTCMilliseconds(0);
+
+	// 设置为今天的 9:05 (KST)
+	nextRunKST.setUTCHours(9);
+	nextRunKST.setUTCMinutes(5);
+
+	// 如果当前时间已经过了 9:05,尝试今天的 10:05
+	if (kstHours > 9 || (kstHours === 9 && kstMinutes >= 5)) {
+		nextRunKST.setUTCHours(10);
+		nextRunKST.setUTCMinutes(5);
+	}
+
+	// 如果当前时间已经过了 10:05,则设置为明天的 9:05
+	if (kstHours > 10 || (kstHours === 10 && kstMinutes >= 5)) {
+		nextRunKST.setUTCDate(nextRunKST.getUTCDate() + 1);
+		nextRunKST.setUTCHours(9);
+		nextRunKST.setUTCMinutes(5);
+	}
+
+	// 转换回本地时间戳
+	const nextRunLocal = new Date(nextRunKST.getTime() - 9 * 60 * 60 * 1000);
+	const delay = nextRunLocal.getTime() - now.getTime();
+
+	const hours = Math.floor(delay / 3600000);
+	const minutes = Math.floor((delay % 3600000) / 60000);
+	const seconds = Math.floor((delay % 60000) / 1000);
+
+	// 显示韩国时间
+	const kstTimeString = nextRunKST.toLocaleString('zh-CN', { timeZone: 'Asia/Seoul' });
+	console.log(`⏰ 下次执行时间 (韩国时间 UTC+9): ${kstTimeString} (${hours}小时${minutes}分${seconds}秒后)`);
+
+	return delay;
+}
+
+/**
+ * 调度下一次执行
+ */
+function scheduleNextRun(): void {
+	const delay = getMillisecondsUntilNext9or10Plus5KST();
+	setTimeout(() => {
+		scrapeAdidasProductsApi()
+			.then(() => {
+				console.log('\n✅ 脚本执行完成!');
+				// 执行完成后,调度下一次执行
+				scheduleNextRun();
+			})
+			.catch((error: Error) => {
+				console.error('❌ 发生错误:', error);
+				// 即使出错也要调度下一次执行
+				scheduleNextRun();
+			});
+	}, delay);
+}
+
+/**
  * 运行 Adidas API 爬虫任务
  */
-export async function runAdidasApiTask(): Promise<void> {
-	console.log('正在执行 Adidas API 抓取任务...');
-
-	scrapeAdidasProductsApi()
-		.then(() => {
-			console.log('\n脚本执行完成!');
-			setTimeout(() => {
-				process.exit(0);
-			}, 1000);
-		})
-		.catch((error: Error) => {
-			console.error('发生错误:', error);
-			process.exit(1);
-		});
+export async function runAdidasApiTask(eventOption: E_EventOptions): Promise<void> {
+	if (eventOption === E_EventOptions.ApiModeScheduled) {
+		console.log('🚀 正在启动 挂机 Adidas API 抓取任务...');
+		console.log('📅 执行规则: 每天韩国时间(UTC+9) 09:05 和 10:05 执行');
+		scheduleNextRun();
+	} else {
+		console.log('正在执行 Adidas API 任务...');
+		scrapeAdidasProductsApi()
+			.then(() => {
+				console.log('\n脚本执行完成!');
+				setTimeout(() => {
+					process.exit(0);
+				}, 1000);
+			})
+			.catch((error: Error) => {
+				console.error('发生错误:', error);
+				process.exit(1);
+			});
+	}
 }

@@ -6,6 +6,7 @@ import type { AdidasProduct, AdidasProductData, AdidasRemovedProduct, PageInfo }
 import type { Settings } from '../../types/settings';
 
 import { getFilePath, loadSettings } from '../common';
+import { sendNewAndPriceChangedItemsByEmail } from '../send-email';
 import { generateAdidasHTMLContent } from './adidas-generate-html';
 
 /**
@@ -34,6 +35,36 @@ async function handleBlockingOverlays(page: any): Promise<void> {
 			console.log(`⚠️ 点击遮挡元素 ${selector} 失败: ${(error as Error).message}`);
 		}
 	}
+}
+
+async function createItemEmailContent(
+	newItems: AdidasProduct[],
+	priceDropItems: AdidasProduct[],
+	newExtra30OffItems: AdidasProduct[]
+): Promise<string> {
+	let emailContent = '<h2>Adidas 产品更新通知</h2>';
+	if (newItems.length > 0) {
+		emailContent += `<h3>新产品 (${newItems.length} 件)</h3><ul>`;
+		newItems.forEach((item) => {
+			emailContent += `<li><a href="${item.url}">${item.code}</a> - 价格: ${item.price.toLocaleString()} 원</li>`;
+		});
+		emailContent += '</ul>';
+	}
+	if (priceDropItems.length > 0) {
+		emailContent += `<h3>价格下降产品 (${priceDropItems.length} 件)</h3><ul>`;
+		priceDropItems.forEach((item) => {
+			emailContent += `<li><a href="${item.url}">${item.code}</a> - 当前价格: ${item.price.toLocaleString()} 원, 降价: ${item.priceGap}</li>`;
+		});
+		emailContent += '</ul>';
+	}
+	if (newExtra30OffItems.length > 0) {
+		emailContent += `<h3>额外30%折扣新产品 (${newExtra30OffItems.length} 件)</h3><ul>`;
+		newExtra30OffItems.forEach((item) => {
+			emailContent += `<li><a href="${item.url}">${item.code}</a> - 价格: ${item.price.toLocaleString()} 원</li>`;
+		});
+		emailContent += '</ul>';
+	}
+	return emailContent;
 }
 
 /**
@@ -163,19 +194,18 @@ export async function getTotalPages(page: any): Promise<PageInfo | null> {
  * @param fileName - 文件名(不含扩展名)
  * @param prevFileName - 之前的文件名
  */
-export function comparePriceAdidas(
+export async function comparePriceAdidas(
 	e_brandSite: E_BrandSite,
 	e_brandOption: E_BrandOption,
 	previousProductData: AdidasProductData,
 	currentProductData: AdidasProductData,
 	fileName: string,
 	prevFileName: string
-): void {
+): Promise<void> {
 	if (previousProductData) {
 		console.log(`从 ${prevFileName} 中提取了 ${Object.keys(previousProductData.products).length} 个产品`);
 		console.log('\n开始比较价格...');
 
-		let priceDropCount: number = 0;
 		// 标记降价产品 - 比较当前抓取的数据与最新已保存文件的价格
 		Object.values(currentProductData.products).forEach((product: AdidasProduct, index: number) => {
 			// 兼容新旧数据格式: 价格可能是数字或字符串 "71,200 원"
@@ -215,7 +245,6 @@ export function comparePriceAdidas(
 				product.isPriceDropped = true;
 				product.previousPrice = previousPrice.toLocaleString() + ' 원';
 				product.priceGap = (previousPrice - currentPrice).toLocaleString() + ' 원';
-				priceDropCount++;
 				console.log(
 					`✓ 价格下降: ${product.code} - ${product.name}: ${previousPrice.toLocaleString()} → ${currentPrice.toLocaleString()} (降了 ${
 						product.priceGap
@@ -259,13 +288,15 @@ export function comparePriceAdidas(
 
 		// 统计摘要
 		const uniqueProducts: AdidasProduct[] = Object.values(currentProductData.products);
-		const newItemCount: number = uniqueProducts.filter((p: AdidasProduct) => p.isNewItem).length;
-		const priceIncreaseCount: number = uniqueProducts.filter((p: AdidasProduct) => p.isPriceIncreased).length;
+		const newItems: AdidasProduct[] = uniqueProducts.filter((p: AdidasProduct) => p.isNewItem);
+		const priceDropItems: AdidasProduct[] = uniqueProducts.filter((p: AdidasProduct) => p.isPriceDropped);
+		const newExtra30OffItems: AdidasProduct[] = uniqueProducts.filter((p: AdidasProduct) => p.isNewExtra30Off);
+		const priceIncreaseItems: AdidasProduct[] = uniqueProducts.filter((p: AdidasProduct) => p.isPriceIncreased);
 
 		console.log(`\n=== 价格比较摘要 ===`);
-		console.log(`价格下降: ${priceDropCount} 件`);
-		console.log(`价格上涨: ${priceIncreaseCount} 件`);
-		console.log(`新产品: ${newItemCount} 件`);
+		console.log(`价格下降: ${priceDropItems.length} 件`);
+		console.log(`价格上涨: ${priceIncreaseItems.length} 件`);
+		console.log(`新产品: ${newItems.length} 件`);
 		console.log(`已下架: ${removedProducts.length} 件`);
 		console.log(`==================\n`);
 
@@ -278,6 +309,24 @@ export function comparePriceAdidas(
 		const htmlFilePathAndName: string = getFilePath(e_brandSite, e_brandOption, fileName, 'html');
 		fs.writeFileSync(htmlFilePathAndName, htmlContentWithComparison, 'utf8');
 		console.log(`\n产品信息已保存到 ${htmlFilePathAndName} (包含价格比较)`);
+
+		// 发送邮件通知（仅在调试模式下）
+		const settings: Settings = loadSettings();
+		if (!settings.isDebugMode && (newItems.length > 0 || priceDropItems.length > 0 || newExtra30OffItems.length > 0)) {
+			let emailContent: string = await createItemEmailContent(newItems, priceDropItems, newExtra30OffItems);
+			if (emailContent) {
+				console.log('准备发送邮件通知...');
+				// 发送邮件通知
+				const result = await sendNewAndPriceChangedItemsByEmail(emailContent);
+				if (result.success) {
+					console.log('✓ 邮件发送成功');
+				} else {
+					console.error('✗ 邮件发送失败:', result.error);
+				}
+			} else {
+				console.log('Email Content is Empty, 不发送邮件通知');
+			}
+		}
 	} else {
 		console.log('无法从之前的文件中提取价格信息');
 		const uniqueProducts: AdidasProduct[] = Object.values(currentProductData.products);

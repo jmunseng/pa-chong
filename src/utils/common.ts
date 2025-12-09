@@ -11,6 +11,7 @@ import { comparePriceMusinsa } from './musinsa/musinsa-common';
 import { generateMusinsaHTMLContent } from './musinsa/musinsa-generate-html';
 import { comparePriceNike } from './nike/nike-common';
 import { generateNikeHTMLContent } from './nike/nike-generate-html';
+import { sendEmailToSubscribers } from './send-email';
 
 /**
  * 比较价格并生成 HTML 报告
@@ -45,7 +46,7 @@ export async function comparePrice(e_brandSite: E_BrandSite, e_brandOption: E_Br
 		} else if (e_brandSite === E_BrandSite.Nike) {
 			comparePriceNike(e_brandSite, null, previousProductData, currentProductData, fileName, prevFileName);
 		}
-		// await sendEmailToSubscribers(currentFileName);
+		// await sendEmailToSubscribers(currentJSONFilePath);
 	} else {
 		console.log('未找到之前的文件进行价格比较（这可能是第一次运行）');
 		// 读取当前产品数据
@@ -232,4 +233,32 @@ export function loadSettings(): Settings {
 		console.error('❌ 读取配置文件失败:', (error as Error).message);
 		process.exit(1);
 	}
+}
+
+/**
+ * 生成真实浏览器的 HTTP 头
+ */
+export function getBrowserHeaders(url: string): Record<string, string> {
+	const parsedUrl = new URL(url);
+
+	return {
+		Accept: 'application/json',
+		'Accept-Encoding': 'gzip, deflate, br',
+		'Accept-Language': 'ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7',
+		'Cache-Control': 'no-cache',
+		Connection: 'keep-alive',
+		DNT: '1',
+		Host: parsedUrl.hostname,
+		Origin: parsedUrl.origin,
+		Pragma: 'no-cache',
+		Referer: parsedUrl.origin + '/',
+		'Sec-CH-UA': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+		'Sec-CH-UA-Mobile': '?0',
+		'Sec-CH-UA-Platform': '"macOS"',
+		'Sec-Fetch-Dest': 'empty',
+		'Sec-Fetch-Mode': 'cors',
+		'Sec-Fetch-Site': 'same-site',
+		'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+		'nike-api-caller-id': 'd9a5bc42-4b9c-4976-858a-f159cf99c647',
+	};
 }

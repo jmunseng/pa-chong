@@ -9,11 +9,11 @@ import { E_BrandOption } from './src/enum/enum-musinsa';
 
 interface AdidasChoice {
 	name: string;
-	value: 'default' | 'api-mode' | 'black-friday' | 'back';
+	value: 'default' | 'api-mode' | 'api-mode-scheduled' | 'black-friday' | 'back';
 }
 
 interface AdidasAnswer {
-	mode: 'default' | 'api-mode' | 'black-friday' | 'back';
+	mode: 'default' | 'api-mode' | 'api-mode-scheduled' | 'black-friday' | 'back';
 }
 
 async function handleAdidasSelection(): Promise<void> {
@@ -21,6 +21,7 @@ async function handleAdidasSelection(): Promise<void> {
 	const adidasChoices: AdidasChoice[] = [
 		{ name: 'Default (默认)', value: 'default' },
 		{ name: 'API 模式', value: 'api-mode' },
+		{ name: 'API 模式 (挂机模式)', value: 'api-mode-scheduled' },
 		{ name: 'Black Friday (黑色星期五)', value: 'black-friday' },
 		{ name: '返回', value: 'back' },
 	];
@@ -54,7 +55,12 @@ async function handleAdidasSelection(): Promise<void> {
 		case 'api-mode':
 			console.log('正在执行 Adidas API 模式任务...');
 			// 在这里调用默认的爬虫逻辑
-			runAdidasApiTask();
+			runAdidasApiTask(E_EventOptions.ApiMode);
+			break;
+		case 'api-mode-scheduled':
+			console.log('正在执行 Adidas API 模式 (挂机模式) 任务...');
+			// 在这里调用默认的爬虫逻辑
+			runAdidasApiTask(E_EventOptions.ApiModeScheduled);
 			break;
 		case 'black-friday':
 			console.log('正在执行 Adidas 黑色星期五任务...');
