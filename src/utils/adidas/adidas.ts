@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { send } from 'process';
 
 import type { E_BrandSite } from '../../enum/enum-brand-site';
 import type { E_BrandOption } from '../../enum/enum-musinsa';
@@ -65,6 +66,24 @@ async function createItemEmailContent(
 		emailContent += '</ul>';
 	}
 	return emailContent;
+}
+
+export async function sendAdidasPriceChangeEmail(newItems: AdidasProduct[], priceDropItems: AdidasProduct[], newExtra30OffItems: AdidasProduct[]) {
+	if (newItems.length > 0 || priceDropItems.length > 0 || newExtra30OffItems.length > 0) {
+		let emailContent: string = await createItemEmailContent(newItems, priceDropItems, newExtra30OffItems);
+		if (emailContent) {
+			console.log('准备发送邮件通知...');
+			// 发送邮件通知,传递新品和降价商品数量
+			const result = await sendNewAndPriceChangedItemsByEmail(emailContent, newItems.length, priceDropItems.length);
+			if (result.success) {
+				console.log('✓ 邮件发送成功');
+			} else {
+				console.error('✗ 邮件发送失败:', result.error);
+			}
+		} else {
+			console.log('Email Content is Empty, 不发送邮件通知');
+		}
+	}
 }
 
 /**
@@ -200,7 +219,8 @@ export async function comparePriceAdidas(
 	previousProductData: AdidasProductData,
 	currentProductData: AdidasProductData,
 	fileName: string,
-	prevFileName: string
+	prevFileName: string,
+	isAutoRun: boolean = false
 ): Promise<void> {
 	if (previousProductData) {
 		console.log(`从 ${prevFileName} 中提取了 ${Object.keys(previousProductData.products).length} 个产品`);
@@ -310,22 +330,8 @@ export async function comparePriceAdidas(
 		fs.writeFileSync(htmlFilePathAndName, htmlContentWithComparison, 'utf8');
 		console.log(`\n产品信息已保存到 ${htmlFilePathAndName} (包含价格比较)`);
 
-		// 发送邮件通知（仅在调试模式下）
-		const settings: Settings = loadSettings();
-		if (!settings.isDebugMode && (newItems.length > 0 || priceDropItems.length > 0 || newExtra30OffItems.length > 0)) {
-			let emailContent: string = await createItemEmailContent(newItems, priceDropItems, newExtra30OffItems);
-			if (emailContent) {
-				console.log('准备发送邮件通知...');
-				// 发送邮件通知
-				const result = await sendNewAndPriceChangedItemsByEmail(emailContent);
-				if (result.success) {
-					console.log('✓ 邮件发送成功');
-				} else {
-					console.error('✗ 邮件发送失败:', result.error);
-				}
-			} else {
-				console.log('Email Content is Empty, 不发送邮件通知');
-			}
+		if (isAutoRun) {
+			sendAdidasPriceChangeEmail(newItems, priceDropItems, newExtra30OffItems);
 		}
 	} else {
 		console.log('无法从之前的文件中提取价格信息');

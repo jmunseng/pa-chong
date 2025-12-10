@@ -13,7 +13,11 @@ interface EmailResult {
 	error?: any;
 }
 
-export async function sendNewAndPriceChangedItemsByEmail(emailContent: string): Promise<EmailResult> {
+export async function sendNewAndPriceChangedItemsByEmail(
+	emailContent: string,
+	newItemsCount: number = 0,
+	priceDroppedCount: number = 0
+): Promise<EmailResult> {
 	try {
 		// 检查 API Key 是否配置
 		if (!process.env.RESEND_API_KEY) {
@@ -23,13 +27,13 @@ export async function sendNewAndPriceChangedItemsByEmail(emailContent: string): 
 		}
 
 		const resend = new Resend(process.env.RESEND_API_KEY);
-		console.log(`准备发送邮件 [新品与降价商品]`);
+		console.log(`准备发送邮件 [新品与降价商品] - 新品: ${newItemsCount}, 降价: ${priceDroppedCount}`);
 
 		// 发送邮件
 		const result = await resend.emails.send({
 			from: 'pa-chong system <onboarding@resend.dev>',
 			to: ['abbrcn@gmail.com'],
-			subject: `Adidas Outlet - 新品与降价商品通知 - ${new Date().toLocaleString('zh-CN')}`,
+			subject: `Adidas Outlet - ${newItemsCount}新品与${priceDroppedCount}降价商品通知 - ${new Date().toLocaleString('zh-CN')}`,
 			html: emailContent,
 		});
 

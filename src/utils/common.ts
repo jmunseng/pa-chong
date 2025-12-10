@@ -19,7 +19,12 @@ import { sendEmailToSubscribers } from './send-email';
  * @param e_brandOption - 品牌选项
  * @param fileName - 文件名(不包含扩展名),如: 2025-10-05_07-41-45
  */
-export async function comparePrice(e_brandSite: E_BrandSite, e_brandOption: E_BrandOption, fileName: string): Promise<void> {
+export async function comparePrice(
+	e_brandSite: E_BrandSite,
+	e_brandOption: E_BrandOption,
+	fileName: string,
+	isAutoRun: boolean = false
+): Promise<void> {
 	console.log('\n检查之前的文件以进行价格比较...');
 
 	// 查找之前的JSON文件
@@ -40,7 +45,7 @@ export async function comparePrice(e_brandSite: E_BrandSite, e_brandOption: E_Br
 		const currentProductData: any = JSON.parse(currentProductFile);
 
 		if (e_brandSite === E_BrandSite.Adidas) {
-			comparePriceAdidas(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName);
+			comparePriceAdidas(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName, isAutoRun);
 		} else if (e_brandSite === E_BrandSite.Musinsa) {
 			comparePriceMusinsa(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName);
 		} else if (e_brandSite === E_BrandSite.Nike) {

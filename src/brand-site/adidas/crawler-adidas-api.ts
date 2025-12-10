@@ -51,7 +51,7 @@ async function fetchPage(apiUrlTemplate: string, startItem: number): Promise<Adi
 /**
  * 抓取 Adidas 产品数据 (使用 API)
  */
-async function scrapeAdidasProductsApi(): Promise<void> {
+async function scrapeAdidasProductsApi(isAutoRun: boolean = false): Promise<void> {
 	const settings: Settings = loadSettings();
 	const allProducts: AdidasApiProduct[] = [];
 	const allExtra30Products: AdidasApiProduct[] = [];
@@ -280,7 +280,7 @@ async function scrapeAdidasProductsApi(): Promise<void> {
 	fs.writeFileSync(jsonFilePathAndName, JSON.stringify(jsonData, null, 2), 'utf-8');
 	console.log('JSON 文件保存成功');
 
-	await comparePrice(E_BrandSite.Adidas, E_BrandOption.Adidas, fileName);
+	await comparePrice(E_BrandSite.Adidas, E_BrandOption.Adidas, fileName, isAutoRun);
 }
 
 /**
@@ -367,7 +367,7 @@ function getMillisecondsUntilNext9or10Plus5KST(): number {
 function scheduleNextRun(): void {
 	const delay = getMillisecondsUntilNext9or10Plus5KST();
 	setTimeout(() => {
-		scrapeAdidasProductsApi()
+		scrapeAdidasProductsApi(true)
 			.then(() => {
 				console.log('\n✅ 脚本执行完成!');
 				// 执行完成后,调度下一次执行
@@ -391,7 +391,7 @@ export async function runAdidasApiTask(eventOption: E_EventOptions): Promise<voi
 		scheduleNextRun();
 	} else {
 		console.log('正在执行 Adidas API 任务...');
-		scrapeAdidasProductsApi()
+		scrapeAdidasProductsApi(false)
 			.then(() => {
 				console.log('\n脚本执行完成!');
 				setTimeout(() => {
