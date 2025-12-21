@@ -3,6 +3,7 @@ import path from 'path';
 
 import type { Settings } from '../types/settings';
 
+import { E_EventOptions } from '../enum/enum-adidas';
 import { E_BrandSite } from '../enum/enum-brand-site';
 import { E_BrandOption } from '../enum/enum-musinsa';
 import { comparePriceAdidas } from './adidas/adidas';
@@ -23,29 +24,37 @@ export async function comparePrice(
 	e_brandSite: E_BrandSite,
 	e_brandOption: E_BrandOption,
 	fileName: string,
-	isAutoRun: boolean = false
+	eventOption?: E_EventOptions
 ): Promise<void> {
 	console.log('\n检查之前的文件以进行价格比较...');
 
 	// 查找之前的JSON文件
-	const prevFileName: string | null = findPreviousJSONFile(e_brandSite, e_brandOption, fileName);
+	const prevFileName: string | null = findPreviousJSONFile(e_brandSite, e_brandOption, fileName, eventOption);
 
 	if (prevFileName) {
 		console.log(`当前新抓取的数据将与之前的文件比较: ${prevFileName}`);
 
 		// prevFileName 已经包含扩展名,如: 2025-10-16_23-06-51.json
 		// 使用 getFilePath 辅助函数获取正确路径
-		const prevFilePath: string = getFilePath(e_brandSite, e_brandOption, prevFileName.replace('.json', ''), 'json');
+		const prevFilePath: string = getFilePath(e_brandSite, e_brandOption, prevFileName.replace('.json', ''), 'json', eventOption);
 		const previousProductFile: string = fs.readFileSync(prevFilePath, 'utf-8');
 		const previousProductData: any = JSON.parse(previousProductFile);
 
 		// currentFileName 已经包含 collection/e_brandSite/xxx.json
-		const currentJSONFilePath: string = getFilePath(e_brandSite, e_brandOption, fileName, 'json');
+		const currentJSONFilePath: string = getFilePath(e_brandSite, e_brandOption, fileName, 'json', eventOption);
 		const currentProductFile: string = fs.readFileSync(currentJSONFilePath, 'utf-8');
 		const currentProductData: any = JSON.parse(currentProductFile);
 
 		if (e_brandSite === E_BrandSite.Adidas) {
-			comparePriceAdidas(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName, isAutoRun);
+			comparePriceAdidas(
+				e_brandSite,
+				e_brandOption,
+				previousProductData,
+				currentProductData,
+				fileName,
+				prevFileName,
+				eventOption as E_EventOptions
+			);
 		} else if (e_brandSite === E_BrandSite.Musinsa) {
 			comparePriceMusinsa(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName);
 		} else if (e_brandSite === E_BrandSite.Nike) {
@@ -55,7 +64,7 @@ export async function comparePrice(
 	} else {
 		console.log('未找到之前的文件进行价格比较（这可能是第一次运行）');
 		// 读取当前产品数据
-		const currentFilePath: string = getFilePath(e_brandSite, e_brandOption, fileName, 'json');
+		const currentFilePath: string = getFilePath(e_brandSite, e_brandOption, fileName, 'json', eventOption);
 		const currentProductFile: string = fs.readFileSync(currentFilePath, 'utf-8');
 		const currentProductData: any = JSON.parse(currentProductFile);
 
@@ -71,7 +80,7 @@ export async function comparePrice(
 			htmlContent = generateNikeHTMLContent(e_brandSite, uniqueProducts, dateTimeString);
 		}
 
-		const htmlFilePathAndName: string = getFilePath(e_brandSite, e_brandOption, fileName, 'html');
+		const htmlFilePathAndName: string = getFilePath(e_brandSite, e_brandOption, fileName, 'html', eventOption);
 		fs.writeFileSync(htmlFilePathAndName, htmlContent, 'utf8');
 		console.log(`\n产品信息已保存到 ${htmlFilePathAndName}`);
 	}
@@ -105,7 +114,12 @@ export function extractTimestampFromFilename(filename: string): Date | null {
  * @param excludeFileName - 排除的文件名(不包括扩展名)
  * @returns 返回最新的文件名.json,如 '2025-10-16_23-06-51.json',或 null 如果没有找到
  */
-export function findPreviousJSONFile(e_brandSite: E_BrandSite, e_brandOption: E_BrandOption, excludeFileName: string | null = null): string | null {
+export function findPreviousJSONFile(
+	e_brandSite: E_BrandSite,
+	e_brandOption: E_BrandOption,
+	excludeFileName: string | null = null,
+	eventOption?: E_EventOptions
+): string | null {
 	// 从项目根目录(当前工作目录)查找 collection/e_brandSite 文件夹
 	let collectionDir: string = '';
 	if (e_brandSite === E_BrandSite.Musinsa) {
@@ -115,7 +129,12 @@ export function findPreviousJSONFile(e_brandSite: E_BrandSite, e_brandOption: E_
 			collectionDir = path.resolve(process.cwd(), 'collection', e_brandSite, E_BrandOption.Nike);
 		}
 	} else if (e_brandSite === E_BrandSite.Adidas || e_brandSite === E_BrandSite.Nike) {
-		collectionDir = path.resolve(process.cwd(), 'collection', e_brandSite);
+		// 如果是 Adidas All Home Products 模式,使用单独的子文件夹
+		if (e_brandSite === E_BrandSite.Adidas && eventOption === E_EventOptions.ApiModeAllHomeProducts) {
+			collectionDir = path.resolve(process.cwd(), 'collection', e_brandSite, 'all-home-products');
+		} else {
+			collectionDir = path.resolve(process.cwd(), 'collection', e_brandSite);
+		}
 	} else {
 		throw new Error(`Collection brand folder missing: ${e_brandSite}`);
 	}
@@ -193,14 +212,20 @@ export function getFilePath(
 	e_brandSite: E_BrandSite,
 	e_brandOption: E_BrandOption | null,
 	fileName: string,
-	extension: string | null = 'json'
+	extension: string | null = 'json',
+	eventOption?: E_EventOptions
 ): string {
 	let collectionFolder: string = '';
 	if (e_brandSite == E_BrandSite.Musinsa) {
 		collectionFolder = path.resolve(process.cwd(), 'collection', E_BrandSite.Musinsa, e_brandOption as E_BrandOption);
 	} else {
-		collectionFolder = path.resolve(process.cwd(), 'collection', e_brandSite);
+		if (e_brandSite === E_BrandSite.Adidas && eventOption === E_EventOptions.ApiModeAllHomeProducts) {
+			collectionFolder = path.resolve(process.cwd(), 'collection', e_brandSite, 'all-home-products');
+		} else {
+			collectionFolder = path.resolve(process.cwd(), 'collection', e_brandSite);
+		}
 	}
+
 	if (!fs.existsSync(collectionFolder)) {
 		fs.mkdirSync(collectionFolder, { recursive: true });
 	}

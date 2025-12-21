@@ -51,7 +51,7 @@ async function fetchPage(apiUrlTemplate: string, startItem: number): Promise<Adi
 /**
  * 抓取 Adidas 产品数据 (使用 API)
  */
-async function scrapeAdidasProductsApi(isAutoRun: boolean = false): Promise<void> {
+async function scrapeAdidasProductsApi(eventOption: E_EventOptions): Promise<void> {
 	const settings: Settings = loadSettings();
 	const allProducts: AdidasApiProduct[] = [];
 	const allExtra30Products: AdidasApiProduct[] = [];
@@ -60,7 +60,19 @@ async function scrapeAdidasProductsApi(isAutoRun: boolean = false): Promise<void
 	// 第一步：获取第一页以确定总商品数和获取首页产品
 	console.log('正在获取第一页以确定总商品数...');
 	try {
-		const firstPageUrl = settings.adidas.apiUrl.replace('{StartIndex}', '0');
+		let apiUrl: string = '';
+		if (eventOption === E_EventOptions.ApiModeOutlet || eventOption === E_EventOptions.ApiModeOutletScheduled) {
+			apiUrl = settings.adidas.apiAllOutletItemsUrl;
+		} else if (eventOption === E_EventOptions.ApiModeAllHomeProducts) {
+			apiUrl = settings.adidas.apiAllHomeProductsUrl;
+		} else {
+			console.error('❌ 未知的事件选项');
+			throw new Error('未知的事件选项');
+		}
+
+		apiUrl = apiUrl.replace('{ApiKey}', settings.adidas.apiKey);
+
+		const firstPageUrl = apiUrl.replace('{StartIndex}', '0');
 		const firstResponse = await fetch(firstPageUrl, {
 			method: 'GET',
 			headers: getBrowserHeaders(firstPageUrl),
@@ -99,7 +111,7 @@ async function scrapeAdidasProductsApi(isAutoRun: boolean = false): Promise<void
 
 				console.log(`📄 正在抓取第 ${pageIndex}/${pagesToFetch} 页 (起始索引: ${startIndex})...`);
 
-				const pageProducts = await fetchPage(settings.adidas.apiUrl, startIndex);
+				const pageProducts = await fetchPage(apiUrl, startIndex);
 
 				if (pageProducts.length === 0) {
 					hasError = true;
@@ -124,11 +136,18 @@ async function scrapeAdidasProductsApi(isAutoRun: boolean = false): Promise<void
 
 	console.log(`\n抓取完成! 总共抓取到 ${allProducts.length} 个商品`);
 
+	const allProductsMap = new Map<string, AdidasApiProduct>();
+
+	// 先将所有主商品添加到 Map
+	for (const product of allProducts) {
+		allProductsMap.set(product.id, product);
+	}
+
 	// 抓取每个产品的 Extra 30 信息
 	console.log('\n🚀 开始抓取每个产品的 Extra 30 详情...');
 
 	try {
-		const firstExtra30PageUrl = settings.adidas.apiExtra30ItemUrl.replace('{StartIndex}', '0');
+		const firstExtra30PageUrl = settings.adidas.apiExtra30ItemUrl.replace('{StartIndex}', '0').replace('{ApiKey}', settings.adidas.apiKey);
 		const firstExtra30Response = await fetch(firstExtra30PageUrl, {
 			method: 'GET',
 			headers: getBrowserHeaders(firstExtra30PageUrl),
@@ -167,7 +186,10 @@ async function scrapeAdidasProductsApi(isAutoRun: boolean = false): Promise<void
 
 				console.log(`📄 正在抓取第 ${pageIndex}/${pagesToFetch} 页 (起始索引: ${startIndex})...`);
 
-				const pageExtra30Products = await fetchPage(settings.adidas.apiExtra30ItemUrl, startIndex);
+				const pageExtra30Products = await fetchPage(
+					settings.adidas.apiExtra30ItemUrl.replace('{ApiKey}', settings.adidas.apiKey),
+					startIndex
+				);
 
 				if (pageExtra30Products.length === 0) {
 					hasError = true;
@@ -196,12 +218,6 @@ async function scrapeAdidasProductsApi(isAutoRun: boolean = false): Promise<void
 	// 1. 如果 Extra 30 商品在主列表中不存在,则添加到主列表
 	// 2. 如果已存在,则标记为 Extra 30
 	console.log('\n🔄 正在合并 Extra 30 商品列表...');
-	const allProductsMap = new Map<string, AdidasApiProduct>();
-
-	// 先将所有主商品添加到 Map
-	for (const product of allProducts) {
-		allProductsMap.set(product.id, product);
-	}
 
 	// 处理 Extra 30 商品
 	let addedCount = 0;
@@ -222,7 +238,6 @@ async function scrapeAdidasProductsApi(isAutoRun: boolean = false): Promise<void
 
 	console.log(`✅ 合并完成: 新增 ${addedCount} 个商品, 标记 ${markedCount} 个已有商品为 Extra 30%`);
 	console.log(`📊 合并后总商品数: ${allProductsMap.size}`);
-
 	// 转换为我们自己的产品格式并去重
 	const uniqueProducts: Record<string, AdidasProduct> = {};
 
@@ -266,7 +281,7 @@ async function scrapeAdidasProductsApi(isAutoRun: boolean = false): Promise<void
 	const fileName: string = generateFileName(dateNow);
 
 	// 保存最新数据到JSON文件
-	const jsonFilePathAndName: string = getFilePath(E_BrandSite.Adidas, E_BrandOption.Adidas, fileName, 'json');
+	const jsonFilePathAndName: string = getFilePath(E_BrandSite.Adidas, E_BrandOption.Adidas, fileName, 'json', eventOption);
 
 	const jsonData = {
 		dateTimeString: dateTimeString,
@@ -280,7 +295,7 @@ async function scrapeAdidasProductsApi(isAutoRun: boolean = false): Promise<void
 	fs.writeFileSync(jsonFilePathAndName, JSON.stringify(jsonData, null, 2), 'utf-8');
 	console.log('JSON 文件保存成功');
 
-	await comparePrice(E_BrandSite.Adidas, E_BrandOption.Adidas, fileName, isAutoRun);
+	await comparePrice(E_BrandSite.Adidas, E_BrandOption.Adidas, fileName, eventOption);
 }
 
 /**
@@ -364,19 +379,19 @@ function getMillisecondsUntilNext9or10Plus5KST(): number {
 /**
  * 调度下一次执行
  */
-function scheduleNextRun(): void {
+function scheduleNextRun(eventOption: E_EventOptions): void {
 	const delay = getMillisecondsUntilNext9or10Plus5KST();
 	setTimeout(() => {
-		scrapeAdidasProductsApi(true)
+		scrapeAdidasProductsApi(eventOption)
 			.then(() => {
 				console.log('\n✅ 脚本执行完成!');
 				// 执行完成后,调度下一次执行
-				scheduleNextRun();
+				scheduleNextRun(eventOption);
 			})
 			.catch((error: Error) => {
 				console.error('❌ 发生错误:', error);
 				// 即使出错也要调度下一次执行
-				scheduleNextRun();
+				scheduleNextRun(eventOption);
 			});
 	}, delay);
 }
@@ -385,13 +400,16 @@ function scheduleNextRun(): void {
  * 运行 Adidas API 爬虫任务
  */
 export async function runAdidasApiTask(eventOption: E_EventOptions): Promise<void> {
-	if (eventOption === E_EventOptions.ApiModeScheduled) {
+	if (eventOption === E_EventOptions.ApiModeOutletScheduled) {
 		console.log('🚀 正在启动 挂机 Adidas API 抓取任务...');
 		console.log('📅 执行规则: 每天韩国时间(UTC+9) 09:05 和 10:05 执行');
-		scheduleNextRun();
+		scheduleNextRun(eventOption);
+	} else if (eventOption === E_EventOptions.ApiModeAllHomeProducts) {
+		console.log('正在执行 Adidas All Home Products API 任务...');
+		scrapeAdidasProductsApi(eventOption);
 	} else {
-		console.log('正在执行 Adidas API 任务...');
-		scrapeAdidasProductsApi(false)
+		console.log('正在执行 Adidas Outlet Items API 任务...');
+		scrapeAdidasProductsApi(eventOption)
 			.then(() => {
 				console.log('\n脚本执行完成!');
 				setTimeout(() => {

@@ -6,6 +6,7 @@ import type { E_BrandOption } from '../../enum/enum-musinsa';
 import type { AdidasProduct, AdidasProductData, AdidasRemovedProduct, PageInfo } from '../../types/adidas-product';
 import type { Settings } from '../../types/settings';
 
+import { E_EventOptions } from '../../enum/enum-adidas';
 import { getFilePath, loadSettings } from '../common';
 import { sendNewAndPriceChangedItemsByEmail } from '../send-email';
 import { generateAdidasHTMLContent } from './adidas-generate-html';
@@ -220,7 +221,7 @@ export async function comparePriceAdidas(
 	currentProductData: AdidasProductData,
 	fileName: string,
 	prevFileName: string,
-	isAutoRun: boolean = false
+	eventOption: E_EventOptions
 ): Promise<void> {
 	if (previousProductData) {
 		console.log(`从 ${prevFileName} 中提取了 ${Object.keys(previousProductData.products).length} 个产品`);
@@ -326,11 +327,11 @@ export async function comparePriceAdidas(
 
 		// 重新生成HTML，包含价格比较信息
 		const htmlContentWithComparison: string = generateAdidasHTMLContent(uniqueProducts, dateTimeString, previousDateTimeString, removedProducts);
-		const htmlFilePathAndName: string = getFilePath(e_brandSite, e_brandOption, fileName, 'html');
+		const htmlFilePathAndName: string = getFilePath(e_brandSite, e_brandOption, fileName, 'html', eventOption);
 		fs.writeFileSync(htmlFilePathAndName, htmlContentWithComparison, 'utf8');
 		console.log(`\n产品信息已保存到 ${htmlFilePathAndName} (包含价格比较)`);
 
-		if (isAutoRun) {
+		if (eventOption === E_EventOptions.ApiModeOutletScheduled) {
 			sendAdidasPriceChangeEmail(newItems, priceDropItems, newExtra30OffItems);
 		}
 	} else {
@@ -338,7 +339,7 @@ export async function comparePriceAdidas(
 		const uniqueProducts: AdidasProduct[] = Object.values(currentProductData.products);
 		const dateTimeString: string = currentProductData.dateTimeString;
 		const htmlContent: string = generateAdidasHTMLContent(uniqueProducts, dateTimeString);
-		const htmlFilePathAndName: string = getFilePath(e_brandSite, e_brandOption, fileName, 'html');
+		const htmlFilePathAndName: string = getFilePath(e_brandSite, e_brandOption, fileName, 'html', eventOption);
 		fs.writeFileSync(htmlFilePathAndName, htmlContent, 'utf8');
 		console.log(`\n产品信息已保存到 ${htmlFilePathAndName}`);
 	}

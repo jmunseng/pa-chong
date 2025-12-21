@@ -1,9 +1,11 @@
 {
 	"adidas": {
+		"apiKey": "vA9LZO9lXIrItqCXLYSS3",
 		"url": "https://www.adidas.co.kr/outlet?grid=true",
 		"blackFridayUrl": "https://www.adidas.co.kr/black_friday?grid=true",
-		"apiUrl": "https://www.adidas.co.kr/plp-app/_next/data/hdZrXrkhGeL1Qhrzp75T7/outlet.json?grid=true&start={StartIndex}&path=outlet",
-		"apiExtra30ItemUrl": "https://www.adidas.co.kr/plp-app/_next/data/hdZrXrkhGeL1Qhrzp75T7/extra_sale.json?start={StartIndex}&path=extra_sale",
+		"apiAllOutletItemsUrl": "https://www.adidas.co.kr/plp-app/_next/data/{ApiKey}/outlet.json?grid=true&start={StartIndex}&path=outlet",
+		"apiExtra30ItemUrl": "https://www.adidas.co.kr/plp-app/_next/data/{ApiKey}/extra_sale.json?start={StartIndex}&path=extra_sale",
+		"apiAllHomeProductsUrl": "https://www.adidas.co.kr/plp-app/_next/data/{ApiKey}/search.json?start={StartIndex}",
 		"apiExtra30Url": "https://www.adidas.co.kr/plp-app/api/product/{ProductCode}?dxp=true",
 		"itemPerPage": 48
 	},

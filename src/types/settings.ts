@@ -6,15 +6,19 @@
  * Adidas 配置
  */
 export interface AdidasSettings {
+	/** Adidas 官网 API Key */
+	apiKey: string;
 	/** Adidas 官网 URL */
 	url: string;
-	/** Adidas API URL */
-	apiUrl: string;
+	/** Adidas all outlet items API URL */
+	apiAllOutletItemsUrl: string;
 	apiExtra30ItemUrl: string;
 	/** Adidas API Extra 30% URL */
 	apiExtra30Url: string;
 	/** 黑色星期五 URL */
 	blackFridayUrl: string;
+	/** Adidas all home products API URL */
+	apiAllHomeProductsUrl: string;
 	/** 每页商品数 */
 	itemPerPage: number;
 }
