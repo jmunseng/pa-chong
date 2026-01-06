@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 import type { AdidasProduct } from '../../types/adidas-product';
-import type { AdidasApiExtra30Response, AdidasApiProduct, AdidasApiResponse } from '../../types/adidas-product-api';
+import type { AdidasApiProduct, AdidasApiResponse } from '../../types/adidas-product-api';
 import type { Settings } from '../../types/settings';
 
 import { E_EventOptions } from '../../enum/enum-adidas';

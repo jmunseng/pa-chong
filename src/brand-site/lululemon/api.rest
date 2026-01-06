@@ -1,0 +1,10 @@
+### Lululemon Korea Search API
+
+@baseUrl = https://www.lululemon.co.kr
+@cgid = womens-clothes
+@start = 0
+@sz = 48
+
+GET {{baseUrl}}/on/demandware.store/Sites-KR-Site/ko_KR/Search-UpdateGrid?cgid={{cgid}}&start={{start}}&sz={{sz}}
+Accept: application/json
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36

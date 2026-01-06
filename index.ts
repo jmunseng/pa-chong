@@ -2,6 +2,7 @@ import inquirer from 'inquirer';
 
 import { runAdidasTask } from './src/brand-site/adidas/crawler-adidas';
 import { runAdidasApiTask } from './src/brand-site/adidas/crawler-adidas-api';
+import { runLululemonApiTask } from './src/brand-site/lululemon/crawler-lululemon';
 import { runMusinsaTask } from './src/brand-site/musinsa/crawler-musinsa';
 import { runNikeApiTask } from './src/brand-site/nike/crawler-nike';
 import { E_EventOptions } from './src/enum/enum-adidas';
@@ -126,11 +127,11 @@ async function handleMusinsaSelection(): Promise<void> {
 
 interface MainChoice {
 	name: string;
-	value: 'Adidas' | 'Musinsa' | 'Nike' | 'cancel';
+	value: 'Adidas' | 'Musinsa' | 'Nike' | 'Lululemon' | 'cancel';
 }
 
 interface MainAnswer {
-	option: 'Adidas' | 'Musinsa' | 'Nike' | 'cancel';
+	option: 'Adidas' | 'Musinsa' | 'Nike' | 'Lululemon' | 'cancel';
 }
 
 async function main(): Promise<void> {
@@ -139,6 +140,7 @@ async function main(): Promise<void> {
 		{ name: 'Adidas', value: 'Adidas' },
 		{ name: 'Musinsa', value: 'Musinsa' },
 		{ name: 'Nike', value: 'Nike' },
+		{ name: 'Lululemon', value: 'Lululemon' },
 		{ name: '退出', value: 'cancel' },
 	];
 
@@ -173,6 +175,10 @@ async function main(): Promise<void> {
 		case 'Nike':
 			console.log('正在执行 Nike 任务...');
 			await runNikeApiTask();
+			break;
+		case 'Lululemon':
+			console.log('正在执行 Lululemon 任务...');
+			await runLululemonApiTask();
 			break;
 	}
 }

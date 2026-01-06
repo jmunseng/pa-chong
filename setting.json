@@ -26,6 +26,10 @@
 		"queryType": "PRODUCTS",
 		"count": 100
 	},
+	"lululemon": {
+		"womenAllApiUrl": "https://www.lululemon.co.kr/on/demandware.store/Sites-KR-Site/ko_KR/Search-UpdateGrid?cgid=womens-clothes&start={StartIndex}&sz={Size}",
+		"saleApiUrl": "https://www.lululemon.co.kr/on/demandware.store/Sites-KR-Site/ko_KR/Search-UpdateGrid?cgid=campaign-specials&pmid=markdownPromotion&start={StartIndex}&sz={Size}"
+	},
 	"CONFIG": {
 		"CLICK_DELAY": 100,
 		"OVERLAY_DISMISS_TIMEOUT": 400,

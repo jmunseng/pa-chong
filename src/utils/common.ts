@@ -8,6 +8,7 @@ import { E_BrandSite } from '../enum/enum-brand-site';
 import { E_BrandOption } from '../enum/enum-musinsa';
 import { comparePriceAdidas } from './adidas/adidas';
 import { generateAdidasHTMLContent } from './adidas/adidas-generate-html';
+import { comparePriceLululemon } from './lululemon/lululemon-common';
 import { comparePriceMusinsa } from './musinsa/musinsa-common';
 import { generateMusinsaHTMLContent } from './musinsa/musinsa-generate-html';
 import { comparePriceNike } from './nike/nike-common';
@@ -59,6 +60,8 @@ export async function comparePrice(
 			comparePriceMusinsa(e_brandSite, e_brandOption, previousProductData, currentProductData, fileName, prevFileName);
 		} else if (e_brandSite === E_BrandSite.Nike) {
 			comparePriceNike(e_brandSite, null, previousProductData, currentProductData, fileName, prevFileName);
+		} else if (e_brandSite === E_BrandSite.Lululemon) {
+			comparePriceLululemon(e_brandSite, null, previousProductData, currentProductData, fileName, prevFileName);
 		}
 		// await sendEmailToSubscribers(currentJSONFilePath);
 	} else {
@@ -78,6 +81,9 @@ export async function comparePrice(
 			htmlContent = generateMusinsaHTMLContent(e_brandOption, uniqueProducts, dateTimeString);
 		} else if (e_brandSite === E_BrandSite.Nike) {
 			htmlContent = generateNikeHTMLContent(e_brandSite, uniqueProducts, dateTimeString);
+		} else if (e_brandSite === E_BrandSite.Lululemon) {
+			console.log('Lululemon 首次运行,跳过 HTML 生成');
+			return;
 		}
 
 		const htmlFilePathAndName: string = getFilePath(e_brandSite, e_brandOption, fileName, 'html', eventOption);
@@ -128,7 +134,7 @@ export function findPreviousJSONFile(
 		} else if (e_brandOption === E_BrandOption.Nike) {
 			collectionDir = path.resolve(process.cwd(), 'collection', e_brandSite, E_BrandOption.Nike);
 		}
-	} else if (e_brandSite === E_BrandSite.Adidas || e_brandSite === E_BrandSite.Nike) {
+	} else if (e_brandSite === E_BrandSite.Adidas || e_brandSite === E_BrandSite.Nike || e_brandSite === E_BrandSite.Lululemon) {
 		// 如果是 Adidas All Home Products 模式,使用单独的子文件夹
 		if (e_brandSite === E_BrandSite.Adidas && eventOption === E_EventOptions.ApiModeAllHomeProducts) {
 			collectionDir = path.resolve(process.cwd(), 'collection', e_brandSite, 'all-home-products');

@@ -36,6 +36,15 @@ export interface NikeSettings {
 }
 
 /**
+ * Lululemon 配置
+ */
+export interface LululemonSettings {
+	/** Lululemon 官网 URL */
+	saleApiUrl: string;
+	womenAllApiUrl: string;
+}
+
+/**
  * Musinsa 单个品牌配置
  */
 export interface MusinsaBrandSettings {
@@ -53,6 +62,8 @@ export interface MusinsaSettings {
 	adidas: MusinsaBrandSettings;
 	/** Nike 品牌配置 */
 	nike: MusinsaBrandSettings;
+	/** Lululemon 品牌配置 */
+	lululemon: MusinsaBrandSettings;
 }
 
 /**
@@ -87,6 +98,8 @@ export interface Settings {
 	musinsa: MusinsaSettings;
 	/** Nike 配置 */
 	nike: NikeSettings;
+	/** Lululemon 配置 */
+	lululemon: LululemonSettings;
 	/** 爬虫配置参数 */
 	CONFIG: CrawlerConfig;
 	/** 是否为调试模式 */
