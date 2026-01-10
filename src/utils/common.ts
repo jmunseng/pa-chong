@@ -9,6 +9,7 @@ import { E_BrandOption } from '../enum/enum-musinsa';
 import { comparePriceAdidas } from './adidas/adidas';
 import { generateAdidasHTMLContent } from './adidas/adidas-generate-html';
 import { comparePriceLululemon } from './lululemon/lululemon-common';
+import { generateExcel } from './lululemon/lululemon-create-excel';
 import { comparePriceMusinsa } from './musinsa/musinsa-common';
 import { generateMusinsaHTMLContent } from './musinsa/musinsa-generate-html';
 import { comparePriceNike } from './nike/nike-common';
@@ -90,6 +91,10 @@ export async function comparePrice(
 		fs.writeFileSync(htmlFilePathAndName, htmlContent, 'utf8');
 		console.log(`\n产品信息已保存到 ${htmlFilePathAndName}`);
 	}
+
+	// 生成 Excel 文件
+	console.log(`准备生产Excel文件: ${fileName}.xlsx`);
+	await generateExcel(e_brandSite, e_brandOption, fileName);
 }
 
 /**
